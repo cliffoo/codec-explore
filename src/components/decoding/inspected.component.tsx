@@ -10,7 +10,7 @@ export function Inspected({ data }: DecodingProps): JSX.Element {
 
   return (
     <div>
-      <p>util.inspect</p>
+      <h3>util.inspect</h3>
       <code>{inspected}</code>
     </div>
   );
