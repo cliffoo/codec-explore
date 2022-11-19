@@ -1,5 +1,6 @@
 import type { CalldataDecoding } from "@truffle/codec";
-import { Inspected } from "./inspected.component";
+import { Inspected } from "../decoding-inspected";
+import { Codec } from "../codec";
 import styles from "./decoding.module.scss";
 
 export interface DecodingProps {
@@ -7,11 +8,12 @@ export interface DecodingProps {
   data: CalldataDecoding;
 }
 
-export function Decoding(props: DecodingProps): JSX.Element {
+export function Decoding({ label, data }: DecodingProps): JSX.Element {
   return (
     <div className={styles.container}>
-      <h2 className={styles.label}>{props.label}</h2>
-      <Inspected {...props} />
+      <h2 className={styles.label}>{label}</h2>
+      <Inspected data={data} />
+      <Codec data={data} />
     </div>
   );
 }

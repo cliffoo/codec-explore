@@ -1,9 +1,11 @@
 import inspect from "object-inspect";
 import * as Codec from "@truffle/codec";
 
-import { DecodingProps } from "./decoding.component";
+export interface InspectedProps {
+  data: Codec.CalldataDecoding;
+}
 
-export function Inspected({ data }: DecodingProps): JSX.Element {
+export function Inspected({ data }: InspectedProps): JSX.Element {
   const inspected = inspect(new Codec.Export.CalldataDecodingInspector(data), {
     quoteStyle: "double"
   });
