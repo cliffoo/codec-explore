@@ -1,6 +1,8 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { forProject } from "@truffle/decoder";
 import type { ProjectDecoder } from "@truffle/decoder";
+import { fallbackCompilations } from "./compilation-data.fallback";
+import { compilations } from "./compilation-data";
 
 export const DecoderContext = createContext<{ decoder: ProjectDecoder | null }>(
   { decoder: null }
@@ -23,7 +25,10 @@ export function DecoderProvider({
   useEffect(() => {
     async function initDecoder() {
       const decoder_ = await forProject({
-        projectInfo: { commonCompilations: [] },
+        projectInfo: {
+          commonCompilations:
+            compilations.length === 0 ? fallbackCompilations : compilations
+        },
         provider: window.ethereum
       });
 
