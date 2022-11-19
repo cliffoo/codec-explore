@@ -1,17 +1,17 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { forProject } from "@truffle/decoder";
 import type { ProjectDecoder } from "@truffle/decoder";
-import { fallbackCompilations } from "./compilation-data.fallback";
+import type { CalldataDecoding } from "@truffle/codec";
 import { compilations } from "./compilation-data";
+import { transactions } from "./transaction-data";
 
-export const DecoderContext = createContext<{ decoder: ProjectDecoder | null }>(
-  { decoder: null }
-);
+export const DecoderContext = createContext<{
+  decoder: ProjectDecoder | null;
+  decodings: Record<string, CalldataDecoding>;
+}>({ decoder: null, decodings: {} });
 
-export function useDecoder() {
-  const { decoder } = useContext(DecoderContext);
-  return decoder;
-}
+export const useDecoder = () => useContext(DecoderContext).decoder;
+export const useDecodings = () => useContext(DecoderContext).decodings;
 
 export interface DecoderProviderProps {
   children: React.ReactNode;
@@ -21,25 +21,33 @@ export function DecoderProvider({
   children
 }: DecoderProviderProps): JSX.Element {
   const [decoder, setDecoder] = useState<ProjectDecoder | null>(null);
+  const [decodings, setDecodings] = useState<Record<string, CalldataDecoding>>(
+    {}
+  );
 
   useEffect(() => {
-    async function initDecoder() {
+    async function init() {
       const decoder_ = await forProject({
         projectInfo: {
-          commonCompilations:
-            compilations.length === 0 ? fallbackCompilations : compilations
+          commonCompilations: compilations
         },
         provider: window.ethereum
       });
 
+      const decodings_: Record<string, CalldataDecoding> = {};
+      for (const [label, transaction] of Object.entries(transactions)) {
+        decodings_[label] = await decoder_.decodeTransaction(transaction);
+      }
+
       setDecoder(decoder_);
+      setDecodings(decodings_);
     }
 
-    initDecoder();
+    init();
   }, []);
 
   return (
-    <DecoderContext.Provider value={{ decoder }}>
+    <DecoderContext.Provider value={{ decoder, decodings }}>
       {children}
     </DecoderContext.Provider>
   );
