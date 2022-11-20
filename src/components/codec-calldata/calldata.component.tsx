@@ -1,9 +1,9 @@
 import type { CalldataDecoding } from "@truffle/codec";
 
-export interface CodecCalldataProps {
+export interface CalldataProps {
   data: CalldataDecoding;
 }
 
-export function CodecCalldata({ data }: CodecCalldataProps): JSX.Element {
+export function Calldata({ data }: CalldataProps): JSX.Element {
   return <code>{data.kind}</code>;
 }

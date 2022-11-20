@@ -1,1 +1,1 @@
-export { CodecCalldata } from "./codec-calldata.component";
+export { Calldata } from "./calldata.component";
