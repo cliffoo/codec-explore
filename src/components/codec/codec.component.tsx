@@ -1,5 +1,6 @@
 import type { CalldataDecoding } from "@truffle/codec";
 import { Calldata } from "../codec-calldata";
+import "./codec.module.scss";
 
 export interface CodecProps {
   data: CalldataDecoding;
