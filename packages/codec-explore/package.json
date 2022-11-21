@@ -1,0 +1,27 @@
+{
+  "name": "codec-explore",
+  "description": "App bootstrapped using recreate-react-app",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Cliff Zhang <cliffzhang08@gmail.com>",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve"
+  },
+  "dependencies": {
+    "@truffle/codec": "^0.14.9",
+    "@truffle/decoder": "^5.3.0",
+    "codec-components": "*",
+    "object-inspect": "^1.12.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@truffle/compile-common": "^0.9.0",
+    "@types/object-inspect": "^1.8.1",
+    "@types/react-dom": "^18.0.9",
+    "ethers": "^5.7.2",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack-dev-server": "^4.11.1"
+  }
+}

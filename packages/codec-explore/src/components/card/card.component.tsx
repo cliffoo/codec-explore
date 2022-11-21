@@ -2,6 +2,7 @@ import type { CalldataDecoding } from "@truffle/codec";
 import { inspectCalldataDecoding } from "../utils";
 import { Codec } from "../codec";
 import styles from "./card.module.scss";
+import { Hi } from "codec-components";
 
 export interface CardProps {
   label: string;
@@ -15,6 +16,7 @@ export function Card({ label, data }: CardProps): JSX.Element {
     <div className={styles.container}>
       <h2 className={styles.label}>{label}</h2>
 
+      <Hi />
       <div>
         <h3>util.inspect</h3>
         <code>{inspected}</code>

@@ -1,0 +1,15 @@
+{
+  "name": "codec-components",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Cliff Zhang <cliffzhang08@gmail.com>",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@truffle/codec": "^0.14.9",
+    "react": "^18.2.0"
+  }
+}
