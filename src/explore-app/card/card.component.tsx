@@ -17,7 +17,7 @@ export function Card({ label, data }: CardProps): JSX.Element {
 
       <div>
         <h3>util.inspect</h3>
-        <code>{inspected}</code>
+        <pre>{inspected}</pre>
       </div>
 
       <div className={styles.codec}>
