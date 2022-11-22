@@ -1,6 +1,6 @@
 import type { CalldataDecoding } from "@truffle/codec";
+import { Calldata } from "../../codec-components";
 import { inspectCalldataDecoding } from "../utils";
-import { Codec } from "../codec";
 import styles from "./card.module.scss";
 
 export interface CardProps {
@@ -20,7 +20,10 @@ export function Card({ label, data }: CardProps): JSX.Element {
         <code>{inspected}</code>
       </div>
 
-      <Codec data={data} />
+      <div className={styles.codec}>
+        <h3>codec-component</h3>
+        <Calldata data={data} />
+      </div>
     </div>
   );
 }
