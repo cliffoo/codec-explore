@@ -1,0 +1,25 @@
+code {
+  span {
+    position: relative;
+    transition: background-color 0.2s;
+    &:hover {
+      background-color: #e0e0e0;
+      &[data-tooltip]::before {
+        opacity: 1;
+      }
+    }
+  }
+  span[data-tooltip]::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    width: max-content;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem;
+    background-color: #222;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+}
