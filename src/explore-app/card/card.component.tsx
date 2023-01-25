@@ -1,5 +1,5 @@
 import type { CalldataDecoding } from "@truffle/codec";
-import { Calldata } from "../../codec-components";
+import { Calldata } from "./calldata.component";
 import { inspectCalldataDecoding } from "../utils";
 import styles from "./card.module.scss";
 

@@ -1,6 +1,7 @@
 import * as webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import EslintWebpackPlugin from "eslint-webpack-plugin";
+import { resolve } from "path";
 
 const extensions = [".ts", ".tsx", ".js", ".jsx", ".scss"];
 
@@ -9,6 +10,9 @@ const config: webpack.Configuration = {
   entry: "./src/index.tsx",
   resolve: {
     extensions,
+    alias: {
+      "@": resolve(__dirname, "./src/codec-components")
+    },
     fallback: {
       assert: require.resolve("assert/"),
       crypto: require.resolve("crypto-browserify"),
