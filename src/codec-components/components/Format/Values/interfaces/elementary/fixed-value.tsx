@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const FixedValue = createPolymorphicComponent(
-  // TODO
-  ({ value }: Format.Values.FixedValue) => value.asBig.toString()
-);
+const displayName = "FixedValue";
+
+export const { FixedValue } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    ({ value }: Format.Values.FixedValue) => value.asBig.toString()
+  )
+};

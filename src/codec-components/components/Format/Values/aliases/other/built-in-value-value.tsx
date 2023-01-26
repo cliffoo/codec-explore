@@ -13,21 +13,26 @@ import { isFixedValue } from "@/utils/type-guards/value-and-result/fixed";
 import { FixedValue } from "@/components/Format/Values/interfaces/elementary/fixed-value";
 import { UfixedValue } from "@/components/Format/Values/interfaces/elementary/ufixed-value";
 
-export const BuiltInValueValue = createPolymorphicComponent(
-  (data: Format.Values.BuiltInValueValue) =>
-    isUintValue(data) ? (
-      <UintValue data={data} />
-    ) : isIntValue(data) ? (
-      <IntValue data={data} />
-    ) : isBoolValue(data) ? (
-      <BoolValue data={data} />
-    ) : isBytesStaticValue(data) ? (
-      <BytesStaticValue data={data} />
-    ) : isAddressValue(data) ? (
-      <AddressValue data={data} />
-    ) : isFixedValue(data) ? (
-      <FixedValue data={data} />
-    ) : (
-      <UfixedValue data={data} />
-    )
-);
+const displayName = "BuiltInValueValue";
+
+export const { BuiltInValueValue } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Values.BuiltInValueValue) =>
+      isUintValue(data) ? (
+        <UintValue data={data} />
+      ) : isIntValue(data) ? (
+        <IntValue data={data} />
+      ) : isBoolValue(data) ? (
+        <BoolValue data={data} />
+      ) : isBytesStaticValue(data) ? (
+        <BytesStaticValue data={data} />
+      ) : isAddressValue(data) ? (
+        <AddressValue data={data} />
+      ) : isFixedValue(data) ? (
+        <FixedValue data={data} />
+      ) : (
+        <UfixedValue data={data} />
+      )
+  )
+};

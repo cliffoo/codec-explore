@@ -13,21 +13,26 @@ import { isUnusedImmutableError } from "@/utils/type-guards/decoder-error/unused
 import { UnusedImmutableError } from "@/components/Format/Errors/interfaces/generic/unused-immutable-error";
 import { CodeNotSuppliedError } from "@/components/Format/Errors/interfaces/generic/code-not-supplied-error";
 
-export const ReadError = createPolymorphicComponent(
-  (data: Format.Errors.ReadError) =>
-    isUnsupportedConstantError(data) ? (
-      <UnsupportedConstantError data={data} />
-    ) : isReadErrorStack(data) ? (
-      <ReadErrorStack data={data} />
-    ) : isReadErrorBytes(data) ? (
-      <ReadErrorBytes data={data} />
-    ) : isReadErrorStorage(data) ? (
-      <ReadErrorStorage data={data} />
-    ) : isStorageNotSuppliedError(data) ? (
-      <StorageNotSuppliedError data={data} />
-    ) : isUnusedImmutableError(data) ? (
-      <UnusedImmutableError data={data} />
-    ) : (
-      <CodeNotSuppliedError data={data} />
-    )
-);
+const displayName = "ReadError";
+
+export const { ReadError } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Errors.ReadError) =>
+      isUnsupportedConstantError(data) ? (
+        <UnsupportedConstantError data={data} />
+      ) : isReadErrorStack(data) ? (
+        <ReadErrorStack data={data} />
+      ) : isReadErrorBytes(data) ? (
+        <ReadErrorBytes data={data} />
+      ) : isReadErrorStorage(data) ? (
+        <ReadErrorStorage data={data} />
+      ) : isStorageNotSuppliedError(data) ? (
+        <StorageNotSuppliedError data={data} />
+      ) : isUnusedImmutableError(data) ? (
+        <UnusedImmutableError data={data} />
+      ) : (
+        <CodeNotSuppliedError data={data} />
+      )
+  )
+};

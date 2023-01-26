@@ -3,11 +3,16 @@ import { isContractValueInfoKnown } from "@/utils/type-guards/other/contract-val
 import { ContractValueInfoKnown } from "@/components/Format/Values/interfaces/user-defined-elementary/contract-value-info-known";
 import { ContractValueInfoUnknown } from "@/components/Format/Values/interfaces/user-defined-elementary/contract-value-info-unknown";
 
-export const ContractValueInfo = createPolymorphicComponent(
-  (data: Format.Values.ContractValueInfo) =>
-    isContractValueInfoKnown(data) ? (
-      <ContractValueInfoKnown data={data} />
-    ) : (
-      <ContractValueInfoUnknown data={data} />
-    )
-);
+const displayName = "ContractValueInfo";
+
+export const { ContractValueInfo } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Values.ContractValueInfo) =>
+      isContractValueInfoKnown(data) ? (
+        <ContractValueInfoKnown data={data} />
+      ) : (
+        <ContractValueInfoUnknown data={data} />
+      )
+  )
+};

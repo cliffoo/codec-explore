@@ -3,11 +3,16 @@ import { isBytesDynamicError } from "@/utils/type-guards/decoder-error/bytes-dyn
 import { BytesDynamicError } from "@/components/Format/Errors/aliases/elementary/bytes-dynamic-error";
 import { GenericError } from "@/components/Format/Errors/aliases/generic/generic-error";
 
-export const BytesDynamicErrorResult = createPolymorphicComponent(
-  ({ error }: Format.Errors.BytesDynamicErrorResult) =>
-    isBytesDynamicError(error) ? (
-      <BytesDynamicError data={error} />
-    ) : (
-      <GenericError data={error} />
-    )
-);
+const displayName = "BytesDynamicErrorResult";
+
+export const { BytesDynamicErrorResult } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    ({ error }: Format.Errors.BytesDynamicErrorResult) =>
+      isBytesDynamicError(error) ? (
+        <BytesDynamicError data={error} />
+      ) : (
+        <GenericError data={error} />
+      )
+  )
+};

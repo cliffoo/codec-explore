@@ -3,11 +3,16 @@ import { isOverlongArraysAndStringsNotImplementedError } from "@/utils/type-guar
 import { OverlongArraysAndStringsNotImplementedError } from "@/components/Format/Errors/interfaces/generic/overlong-arrays-and-strings-not-implemented-error";
 import { OverlargePointersNotImplementedError } from "@/components/Format/Errors/interfaces/generic/overlarge-pointers-not-implemented-error";
 
-export const DynamicDataImplementationError = createPolymorphicComponent(
-  (data: Format.Errors.DynamicDataImplementationError) =>
-    isOverlongArraysAndStringsNotImplementedError(data) ? (
-      <OverlongArraysAndStringsNotImplementedError data={data} />
-    ) : (
-      <OverlargePointersNotImplementedError data={data} />
-    )
-);
+const displayName = "DynamicDataImplementationError";
+
+export const { DynamicDataImplementationError } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Errors.DynamicDataImplementationError) =>
+      isOverlongArraysAndStringsNotImplementedError(data) ? (
+        <OverlongArraysAndStringsNotImplementedError data={data} />
+      ) : (
+        <OverlargePointersNotImplementedError data={data} />
+      )
+  )
+};

@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const EnumValue = createPolymorphicComponent(
-  // TODO
-  ({ value }: Format.Values.EnumValue) => value.name
-);
+const displayName = "EnumValue";
+
+export const { EnumValue } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    ({ value }: Format.Values.EnumValue) => value.name
+  )
+};

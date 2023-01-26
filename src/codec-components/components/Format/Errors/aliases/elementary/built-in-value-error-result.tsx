@@ -13,21 +13,26 @@ import { isFixedErrorResult } from "@/utils/type-guards/value-and-result/fixed";
 import { FixedErrorResult } from "@/components/Format/Errors/interfaces/elementary/fixed-error-result";
 import { UfixedErrorResult } from "@/components/Format/Errors/interfaces/elementary/ufixed-error-result";
 
-export const BuiltInValueErrorResult = createPolymorphicComponent(
-  (data: Format.Errors.BuiltInValueErrorResult) =>
-    isUintErrorResult(data) ? (
-      <UintErrorResult data={data} />
-    ) : isIntErrorResult(data) ? (
-      <IntErrorResult data={data} />
-    ) : isBoolErrorResult(data) ? (
-      <BoolErrorResult data={data} />
-    ) : isBytesStaticErrorResult(data) ? (
-      <BytesStaticErrorResult data={data} />
-    ) : isAddressErrorResult(data) ? (
-      <AddressErrorResult data={data} />
-    ) : isFixedErrorResult(data) ? (
-      <FixedErrorResult data={data} />
-    ) : (
-      <UfixedErrorResult data={data} />
-    )
-);
+const displayName = "BuiltInValueErrorResult";
+
+export const { BuiltInValueErrorResult } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Errors.BuiltInValueErrorResult) =>
+      isUintErrorResult(data) ? (
+        <UintErrorResult data={data} />
+      ) : isIntErrorResult(data) ? (
+        <IntErrorResult data={data} />
+      ) : isBoolErrorResult(data) ? (
+        <BoolErrorResult data={data} />
+      ) : isBytesStaticErrorResult(data) ? (
+        <BytesStaticErrorResult data={data} />
+      ) : isAddressErrorResult(data) ? (
+        <AddressErrorResult data={data} />
+      ) : isFixedErrorResult(data) ? (
+        <FixedErrorResult data={data} />
+      ) : (
+        <UfixedErrorResult data={data} />
+      )
+  )
+};

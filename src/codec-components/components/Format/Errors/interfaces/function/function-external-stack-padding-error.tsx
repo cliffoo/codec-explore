@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const FunctionExternalStackPaddingError = createPolymorphicComponent(
-  // TODO
-  (data: Format.Errors.FunctionExternalStackPaddingError) => data.rawAddress
-);
+const displayName = "FunctionExternalStackPaddingError";
+
+export const { FunctionExternalStackPaddingError } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    (data: Format.Errors.FunctionExternalStackPaddingError) => data.rawAddress
+  )
+};

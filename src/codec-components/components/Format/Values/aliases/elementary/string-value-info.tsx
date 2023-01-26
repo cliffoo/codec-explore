@@ -3,11 +3,16 @@ import { isStringValueInfoValid } from "@/utils/type-guards/other/string-value-i
 import { StringValueInfoValid } from "@/components/Format/Values/interfaces/elementary/string-value-info-valid";
 import { StringValueInfoMalformed } from "@/components/Format/Values/interfaces/elementary/string-value-info-malformed";
 
-export const StringValueInfo = createPolymorphicComponent(
-  (data: Format.Values.StringValueInfo) =>
-    isStringValueInfoValid(data) ? (
-      <StringValueInfoValid data={data} />
-    ) : (
-      <StringValueInfoMalformed data={data} />
-    )
-);
+const displayName = "StringValueInfo";
+
+export const { StringValueInfo } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Values.StringValueInfo) =>
+      isStringValueInfoValid(data) ? (
+        <StringValueInfoValid data={data} />
+      ) : (
+        <StringValueInfoMalformed data={data} />
+      )
+  )
+};

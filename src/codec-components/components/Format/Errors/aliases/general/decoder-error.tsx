@@ -43,51 +43,56 @@ import { isInternalUseError } from "@/utils/type-guards/decoder-error/internal-u
 import { InternalUseError } from "@/components/Format/Errors/aliases/internal-use/internal-use-error";
 import { GenericError } from "@/components/Format/Errors/aliases/generic/generic-error";
 
-export const DecoderError = createPolymorphicComponent(
-  (data: Format.Errors.DecoderError) =>
-    isUintError(data) ? (
-      <UintError data={data} />
-    ) : isIntError(data) ? (
-      <IntError data={data} />
-    ) : isBoolError(data) ? (
-      <BoolError data={data} />
-    ) : isBytesStaticError(data) ? (
-      <BytesStaticError data={data} />
-    ) : isBytesDynamicError(data) ? (
-      <BytesDynamicError data={data} />
-    ) : isAddressError(data) ? (
-      <AddressError data={data} />
-    ) : isStringError(data) ? (
-      <StringError data={data} />
-    ) : isFixedError(data) ? (
-      <FixedError data={data} />
-    ) : isUfixedError(data) ? (
-      <UfixedError data={data} />
-    ) : isArrayError(data) ? (
-      <ArrayError data={data} />
-    ) : isMappingError(data) ? (
-      <MappingError data={data} />
-    ) : isStructError(data) ? (
-      <StructError data={data} />
-    ) : isMagicError(data) ? (
-      <MagicError data={data} />
-    ) : isTypeErrorUnion(data) ? (
-      <TypeErrorUnion data={data} />
-    ) : isTupleError(data) ? (
-      <TupleError data={data} />
-    ) : isEnumError(data) ? (
-      <EnumError data={data} />
-    ) : isUserDefinedValueTypeError(data) ? (
-      <UserDefinedValueTypeError data={data} />
-    ) : isContractError(data) ? (
-      <ContractError data={data} />
-    ) : isFunctionExternalError(data) ? (
-      <FunctionExternalError data={data} />
-    ) : isFunctionInternalError(data) ? (
-      <FunctionInternalError data={data} />
-    ) : isInternalUseError(data) ? (
-      <InternalUseError data={data} />
-    ) : (
-      <GenericError data={data} />
-    )
-);
+const displayName = "DecoderError";
+
+export const { DecoderError } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Errors.DecoderError) =>
+      isUintError(data) ? (
+        <UintError data={data} />
+      ) : isIntError(data) ? (
+        <IntError data={data} />
+      ) : isBoolError(data) ? (
+        <BoolError data={data} />
+      ) : isBytesStaticError(data) ? (
+        <BytesStaticError data={data} />
+      ) : isBytesDynamicError(data) ? (
+        <BytesDynamicError data={data} />
+      ) : isAddressError(data) ? (
+        <AddressError data={data} />
+      ) : isStringError(data) ? (
+        <StringError data={data} />
+      ) : isFixedError(data) ? (
+        <FixedError data={data} />
+      ) : isUfixedError(data) ? (
+        <UfixedError data={data} />
+      ) : isArrayError(data) ? (
+        <ArrayError data={data} />
+      ) : isMappingError(data) ? (
+        <MappingError data={data} />
+      ) : isStructError(data) ? (
+        <StructError data={data} />
+      ) : isMagicError(data) ? (
+        <MagicError data={data} />
+      ) : isTypeErrorUnion(data) ? (
+        <TypeErrorUnion data={data} />
+      ) : isTupleError(data) ? (
+        <TupleError data={data} />
+      ) : isEnumError(data) ? (
+        <EnumError data={data} />
+      ) : isUserDefinedValueTypeError(data) ? (
+        <UserDefinedValueTypeError data={data} />
+      ) : isContractError(data) ? (
+        <ContractError data={data} />
+      ) : isFunctionExternalError(data) ? (
+        <FunctionExternalError data={data} />
+      ) : isFunctionInternalError(data) ? (
+        <FunctionInternalError data={data} />
+      ) : isInternalUseError(data) ? (
+        <InternalUseError data={data} />
+      ) : (
+        <GenericError data={data} />
+      )
+  )
+};

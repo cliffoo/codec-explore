@@ -5,13 +5,18 @@ import { isFunctionExternalValueInfoInvalid } from "@/utils/type-guards/other/fu
 import { FunctionExternalValueInfoInvalid } from "@/components/Format/Values/interfaces/function/function-external-value-info-invalid";
 import { FunctionExternalValueInfoUnknown } from "@/components/Format/Values/interfaces/function/function-external-value-info-unknown";
 
-export const FunctionExternalValueInfo = createPolymorphicComponent(
-  (data: Format.Values.FunctionExternalValueInfo) =>
-    isFunctionExternalValueInfoKnown(data) ? (
-      <FunctionExternalValueInfoKnown data={data} />
-    ) : isFunctionExternalValueInfoInvalid(data) ? (
-      <FunctionExternalValueInfoInvalid data={data} />
-    ) : (
-      <FunctionExternalValueInfoUnknown data={data} />
-    )
-);
+const displayName = "FunctionExternalValueInfo";
+
+export const { FunctionExternalValueInfo } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Values.FunctionExternalValueInfo) =>
+      isFunctionExternalValueInfoKnown(data) ? (
+        <FunctionExternalValueInfoKnown data={data} />
+      ) : isFunctionExternalValueInfoInvalid(data) ? (
+        <FunctionExternalValueInfoInvalid data={data} />
+      ) : (
+        <FunctionExternalValueInfoUnknown data={data} />
+      )
+  )
+};

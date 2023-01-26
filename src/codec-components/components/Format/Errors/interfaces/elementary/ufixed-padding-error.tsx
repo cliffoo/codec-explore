@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const UfixedPaddingError = createPolymorphicComponent(
-  // TODO
-  (data: Format.Errors.UfixedPaddingError) => data.raw
-);
+const displayName = "UfixedPaddingError";
+
+export const { UfixedPaddingError } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    (data: Format.Errors.UfixedPaddingError) => data.raw
+  )
+};

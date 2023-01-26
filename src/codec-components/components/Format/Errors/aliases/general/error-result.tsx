@@ -19,27 +19,32 @@ import { isFunctionInternalErrorResult } from "@/utils/type-guards/value-and-res
 import { FunctionInternalErrorResult } from "@/components/Format/Errors/interfaces/function/function-internal-error-result";
 import { OptionsErrorResult } from "@/components/Format/Errors/interfaces/other/options-error-result";
 
-export const ErrorResult = createPolymorphicComponent(
-  (data: Format.Errors.ErrorResult) =>
-    isElementaryErrorResult(data) ? (
-      <ElementaryErrorResult data={data} />
-    ) : isArrayErrorResult(data) ? (
-      <ArrayErrorResult data={data} />
-    ) : isMappingErrorResult(data) ? (
-      <MappingErrorResult data={data} />
-    ) : isStructErrorResult(data) ? (
-      <StructErrorResult data={data} />
-    ) : isMagicErrorResult(data) ? (
-      <MagicErrorResult data={data} />
-    ) : isTypeErrorResult(data) ? (
-      <TypeErrorResult data={data} />
-    ) : isTupleErrorResult(data) ? (
-      <TupleErrorResult data={data} />
-    ) : isFunctionExternalErrorResult(data) ? (
-      <FunctionExternalErrorResult data={data} />
-    ) : isFunctionInternalErrorResult(data) ? (
-      <FunctionInternalErrorResult data={data} />
-    ) : (
-      <OptionsErrorResult data={data} />
-    )
-);
+const displayName = "ErrorResult";
+
+export const { ErrorResult } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Errors.ErrorResult) =>
+      isElementaryErrorResult(data) ? (
+        <ElementaryErrorResult data={data} />
+      ) : isArrayErrorResult(data) ? (
+        <ArrayErrorResult data={data} />
+      ) : isMappingErrorResult(data) ? (
+        <MappingErrorResult data={data} />
+      ) : isStructErrorResult(data) ? (
+        <StructErrorResult data={data} />
+      ) : isMagicErrorResult(data) ? (
+        <MagicErrorResult data={data} />
+      ) : isTypeErrorResult(data) ? (
+        <TypeErrorResult data={data} />
+      ) : isTupleErrorResult(data) ? (
+        <TupleErrorResult data={data} />
+      ) : isFunctionExternalErrorResult(data) ? (
+        <FunctionExternalErrorResult data={data} />
+      ) : isFunctionInternalErrorResult(data) ? (
+        <FunctionInternalErrorResult data={data} />
+      ) : (
+        <OptionsErrorResult data={data} />
+      )
+  )
+};

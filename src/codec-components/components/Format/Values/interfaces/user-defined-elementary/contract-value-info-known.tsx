@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const ContractValueInfoKnown = createPolymorphicComponent(
-  // TODO
-  (data: Format.Values.ContractValueInfoKnown) => data.address
-);
+const displayName = "ContractValueInfoKnown";
+
+export const { ContractValueInfoKnown } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    (data: Format.Values.ContractValueInfoKnown) => data.address
+  )
+};

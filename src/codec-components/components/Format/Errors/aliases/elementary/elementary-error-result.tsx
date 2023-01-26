@@ -21,29 +21,34 @@ import { isUserDefinedValueTypeErrorResult } from "@/utils/type-guards/value-and
 import { UserDefinedValueTypeErrorResult } from "@/components/Format/Errors/interfaces/user-defined-elementary/user-defined-value-type-error-result";
 import { ContractErrorResult } from "@/components/Format/Errors/interfaces/user-defined-elementary/contract-error-result";
 
-export const ElementaryErrorResult = createPolymorphicComponent(
-  (data: Format.Errors.ElementaryErrorResult) =>
-    isUintErrorResult(data) ? (
-      <UintErrorResult data={data} />
-    ) : isIntErrorResult(data) ? (
-      <IntErrorResult data={data} />
-    ) : isBoolErrorResult(data) ? (
-      <BoolErrorResult data={data} />
-    ) : isBytesErrorResult(data) ? (
-      <BytesErrorResult data={data} />
-    ) : isAddressErrorResult(data) ? (
-      <AddressErrorResult data={data} />
-    ) : isStringErrorResult(data) ? (
-      <StringErrorResult data={data} />
-    ) : isFixedErrorResult(data) ? (
-      <FixedErrorResult data={data} />
-    ) : isUfixedErrorResult(data) ? (
-      <UfixedErrorResult data={data} />
-    ) : isEnumErrorResult(data) ? (
-      <EnumErrorResult data={data} />
-    ) : isUserDefinedValueTypeErrorResult(data) ? (
-      <UserDefinedValueTypeErrorResult data={data} />
-    ) : (
-      <ContractErrorResult data={data} />
-    )
-);
+const displayName = "ElementaryErrorResult";
+
+export const { ElementaryErrorResult } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Errors.ElementaryErrorResult) =>
+      isUintErrorResult(data) ? (
+        <UintErrorResult data={data} />
+      ) : isIntErrorResult(data) ? (
+        <IntErrorResult data={data} />
+      ) : isBoolErrorResult(data) ? (
+        <BoolErrorResult data={data} />
+      ) : isBytesErrorResult(data) ? (
+        <BytesErrorResult data={data} />
+      ) : isAddressErrorResult(data) ? (
+        <AddressErrorResult data={data} />
+      ) : isStringErrorResult(data) ? (
+        <StringErrorResult data={data} />
+      ) : isFixedErrorResult(data) ? (
+        <FixedErrorResult data={data} />
+      ) : isUfixedErrorResult(data) ? (
+        <UfixedErrorResult data={data} />
+      ) : isEnumErrorResult(data) ? (
+        <EnumErrorResult data={data} />
+      ) : isUserDefinedValueTypeErrorResult(data) ? (
+        <UserDefinedValueTypeErrorResult data={data} />
+      ) : (
+        <ContractErrorResult data={data} />
+      )
+  )
+};

@@ -21,29 +21,34 @@ import { isFunctionExternalResult } from "@/utils/type-guards/value-and-result/f
 import { FunctionExternalResult } from "@/components/Format/Values/aliases/function/function-external-result";
 import { TupleResult } from "@/components/Format/Values/aliases/container/tuple-result";
 
-export const AbiResult = createPolymorphicComponent(
-  (data: Format.Values.AbiResult) =>
-    isUintResult(data) ? (
-      <UintResult data={data} />
-    ) : isIntResult(data) ? (
-      <IntResult data={data} />
-    ) : isBoolResult(data) ? (
-      <BoolResult data={data} />
-    ) : isBytesResult(data) ? (
-      <BytesResult data={data} />
-    ) : isAddressResult(data) ? (
-      <AddressResult data={data} />
-    ) : isFixedResult(data) ? (
-      <FixedResult data={data} />
-    ) : isUfixedResult(data) ? (
-      <UfixedResult data={data} />
-    ) : isStringResult(data) ? (
-      <StringResult data={data} />
-    ) : isArrayResult(data) ? (
-      <ArrayResult data={data} />
-    ) : isFunctionExternalResult(data) ? (
-      <FunctionExternalResult data={data} />
-    ) : (
-      <TupleResult data={data} />
-    )
-);
+const displayName = "AbiResult";
+
+export const { AbiResult } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Values.AbiResult) =>
+      isUintResult(data) ? (
+        <UintResult data={data} />
+      ) : isIntResult(data) ? (
+        <IntResult data={data} />
+      ) : isBoolResult(data) ? (
+        <BoolResult data={data} />
+      ) : isBytesResult(data) ? (
+        <BytesResult data={data} />
+      ) : isAddressResult(data) ? (
+        <AddressResult data={data} />
+      ) : isFixedResult(data) ? (
+        <FixedResult data={data} />
+      ) : isUfixedResult(data) ? (
+        <UfixedResult data={data} />
+      ) : isStringResult(data) ? (
+        <StringResult data={data} />
+      ) : isArrayResult(data) ? (
+        <ArrayResult data={data} />
+      ) : isFunctionExternalResult(data) ? (
+        <FunctionExternalResult data={data} />
+      ) : (
+        <TupleResult data={data} />
+      )
+  )
+};

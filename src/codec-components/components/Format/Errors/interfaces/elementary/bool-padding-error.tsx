@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const BoolPaddingError = createPolymorphicComponent(
-  // TODO
-  (data: Format.Errors.BoolPaddingError) => data.raw
-);
+const displayName = "BoolPaddingError";
+
+export const { BoolPaddingError } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    (data: Format.Errors.BoolPaddingError) => data.raw
+  )
+};

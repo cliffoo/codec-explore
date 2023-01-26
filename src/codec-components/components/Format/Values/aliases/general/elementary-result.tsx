@@ -21,29 +21,34 @@ import { isUserDefinedValueTypeResult } from "@/utils/type-guards/value-and-resu
 import { UserDefinedValueTypeResult } from "@/components/Format/Values/aliases/user-defined-elementary/user-defined-value-type-result";
 import { ContractResult } from "@/components/Format/Values/aliases/user-defined-elementary/contract-result";
 
-export const ElementaryResult = createPolymorphicComponent(
-  (data: Format.Values.ElementaryResult) =>
-    isUintResult(data) ? (
-      <UintResult data={data} />
-    ) : isIntResult(data) ? (
-      <IntResult data={data} />
-    ) : isBoolResult(data) ? (
-      <BoolResult data={data} />
-    ) : isBytesResult(data) ? (
-      <BytesResult data={data} />
-    ) : isAddressResult(data) ? (
-      <AddressResult data={data} />
-    ) : isStringResult(data) ? (
-      <StringResult data={data} />
-    ) : isFixedResult(data) ? (
-      <FixedResult data={data} />
-    ) : isUfixedResult(data) ? (
-      <UfixedResult data={data} />
-    ) : isEnumResult(data) ? (
-      <EnumResult data={data} />
-    ) : isUserDefinedValueTypeResult(data) ? (
-      <UserDefinedValueTypeResult data={data} />
-    ) : (
-      <ContractResult data={data} />
-    )
-);
+const displayName = "ElementaryResult";
+
+export const { ElementaryResult } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Values.ElementaryResult) =>
+      isUintResult(data) ? (
+        <UintResult data={data} />
+      ) : isIntResult(data) ? (
+        <IntResult data={data} />
+      ) : isBoolResult(data) ? (
+        <BoolResult data={data} />
+      ) : isBytesResult(data) ? (
+        <BytesResult data={data} />
+      ) : isAddressResult(data) ? (
+        <AddressResult data={data} />
+      ) : isStringResult(data) ? (
+        <StringResult data={data} />
+      ) : isFixedResult(data) ? (
+        <FixedResult data={data} />
+      ) : isUfixedResult(data) ? (
+        <UfixedResult data={data} />
+      ) : isEnumResult(data) ? (
+        <EnumResult data={data} />
+      ) : isUserDefinedValueTypeResult(data) ? (
+        <UserDefinedValueTypeResult data={data} />
+      ) : (
+        <ContractResult data={data} />
+      )
+  )
+};

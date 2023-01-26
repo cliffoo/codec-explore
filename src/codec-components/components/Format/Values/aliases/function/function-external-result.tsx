@@ -3,11 +3,16 @@ import { isFunctionExternalValue } from "@/utils/type-guards/value-and-result/fu
 import { FunctionExternalValue } from "@/components/Format/Values/interfaces/function/function-external-value";
 import { FunctionExternalErrorResult } from "@/components/Format/Errors/interfaces/function/function-external-error-result";
 
-export const FunctionExternalResult = createPolymorphicComponent(
-  (data: Format.Values.FunctionExternalResult) =>
-    isFunctionExternalValue(data) ? (
-      <FunctionExternalValue data={data} />
-    ) : (
-      <FunctionExternalErrorResult data={data} />
-    )
-);
+const displayName = "FunctionExternalResult";
+
+export const { FunctionExternalResult } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Values.FunctionExternalResult) =>
+      isFunctionExternalValue(data) ? (
+        <FunctionExternalValue data={data} />
+      ) : (
+        <FunctionExternalErrorResult data={data} />
+      )
+  )
+};

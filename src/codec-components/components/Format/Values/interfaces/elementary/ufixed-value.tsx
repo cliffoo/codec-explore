@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const UfixedValue = createPolymorphicComponent(
-  // TODO
-  ({ value }: Format.Values.UfixedValue) => value.asBig.toString()
-);
+const displayName = "UfixedValue";
+
+export const { UfixedValue } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    ({ value }: Format.Values.UfixedValue) => value.asBig.toString()
+  )
+};

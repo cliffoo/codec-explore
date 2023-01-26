@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const EnumPaddingError = createPolymorphicComponent(
-  // TODO
-  (data: Format.Errors.EnumPaddingError) => data.raw
-);
+const displayName = "EnumPaddingError";
+
+export const { EnumPaddingError } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    (data: Format.Errors.EnumPaddingError) => data.raw
+  )
+};

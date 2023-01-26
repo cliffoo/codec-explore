@@ -1,8 +1,12 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const OverlongArraysAndStringsNotImplementedError =
-  createPolymorphicComponent(
+const displayName = "OverlongArraysAndStringsNotImplementedError";
+
+export const { OverlongArraysAndStringsNotImplementedError } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
     (data: Format.Errors.OverlongArraysAndStringsNotImplementedError) =>
       // TODO
       data.lengthAsBN.toString()
-  );
+  )
+};

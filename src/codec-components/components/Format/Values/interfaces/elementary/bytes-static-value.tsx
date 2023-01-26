@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const BytesStaticValue = createPolymorphicComponent(
-  // TODO
-  ({ value }: Format.Values.BytesStaticValue) => value.asHex
-);
+const displayName = "BytesStaticValue";
+
+export const { BytesStaticValue } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    ({ value }: Format.Values.BytesStaticValue) => value.asHex
+  )
+};

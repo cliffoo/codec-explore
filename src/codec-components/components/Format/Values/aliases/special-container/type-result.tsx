@@ -3,11 +3,16 @@ import { isTypeValue } from "@/utils/type-guards/value-and-result/type";
 import { TypeValue } from "@/components/Format/Values/aliases/special-container/type-value";
 import { TypeErrorResult } from "@/components/Format/Errors/interfaces/special-container/type-error-result";
 
-export const TypeResult = createPolymorphicComponent(
-  (data: Format.Values.TypeResult) =>
-    isTypeValue(data) ? (
-      <TypeValue data={data} />
-    ) : (
-      <TypeErrorResult data={data} />
-    )
-);
+const displayName = "TypeResult";
+
+export const { TypeResult } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Values.TypeResult) =>
+      isTypeValue(data) ? (
+        <TypeValue data={data} />
+      ) : (
+        <TypeErrorResult data={data} />
+      )
+  )
+};

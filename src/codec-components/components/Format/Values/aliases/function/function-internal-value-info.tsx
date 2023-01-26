@@ -5,13 +5,18 @@ import { isFunctionInternalValueInfoException } from "@/utils/type-guards/other/
 import { FunctionInternalValueInfoException } from "@/components/Format/Values/interfaces/function/function-internal-value-info-exception";
 import { FunctionInternalValueInfoUnknown } from "@/components/Format/Values/interfaces/function/function-internal-value-info-unknown";
 
-export const FunctionInternalValueInfo = createPolymorphicComponent(
-  (data: Format.Values.FunctionInternalValueInfo) =>
-    isFunctionInternalValueInfoKnown(data) ? (
-      <FunctionInternalValueInfoKnown data={data} />
-    ) : isFunctionInternalValueInfoException(data) ? (
-      <FunctionInternalValueInfoException data={data} />
-    ) : (
-      <FunctionInternalValueInfoUnknown data={data} />
-    )
-);
+const displayName = "FunctionInternalValueInfo";
+
+export const { FunctionInternalValueInfo } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Values.FunctionInternalValueInfo) =>
+      isFunctionInternalValueInfoKnown(data) ? (
+        <FunctionInternalValueInfoKnown data={data} />
+      ) : isFunctionInternalValueInfoException(data) ? (
+        <FunctionInternalValueInfoException data={data} />
+      ) : (
+        <FunctionInternalValueInfoUnknown data={data} />
+      )
+  )
+};

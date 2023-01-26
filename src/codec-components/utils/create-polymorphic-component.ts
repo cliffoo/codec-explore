@@ -1,6 +1,7 @@
 import React from "react";
 
 export function createPolymorphicComponent<D>(
+  displayName: string,
   createChildren: (data: D) => JSX.Element | string,
   defaultComponent: React.ElementType = React.Fragment
 ) {
@@ -18,9 +19,19 @@ export function createPolymorphicComponent<D>(
         Omit<React.ComponentProps<C>, keyof PropsWithComponent<C>>
     : PropsWithoutComponent;
 
-  return function <C>({ data, component, ...props }: Props<C>): JSX.Element {
+  function PolymorphicComponent<C>({
+    data,
+    component,
+    ...props
+  }: Props<C>): JSX.Element {
     return component
       ? React.createElement(component, { ...props, data })
       : React.createElement(defaultComponent, undefined, createChildren(data));
-  };
+  }
+
+  Object.defineProperty(PolymorphicComponent, "displayName", {
+    value: `@truffle/codec-components/${displayName}`
+  });
+
+  return PolymorphicComponent;
 }

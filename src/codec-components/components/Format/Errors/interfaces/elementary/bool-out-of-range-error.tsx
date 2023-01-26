@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const BoolOutOfRangeError = createPolymorphicComponent(
-  // TODO
-  (data: Format.Errors.BoolOutOfRangeError) => data.rawAsBN.toString()
-);
+const displayName = "BoolOutOfRangeError";
+
+export const { BoolOutOfRangeError } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    (data: Format.Errors.BoolOutOfRangeError) => data.rawAsBN.toString()
+  )
+};

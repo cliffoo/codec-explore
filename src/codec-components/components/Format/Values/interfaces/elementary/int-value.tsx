@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const IntValue = createPolymorphicComponent(
-  // TODO
-  ({ value }: Format.Values.IntValue) => value.asBN.toString()
-);
+const displayName = "IntValue";
+
+export const { IntValue } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    ({ value }: Format.Values.IntValue) => value.asBN.toString()
+  )
+};

@@ -1,7 +1,12 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const OverlargePointersNotImplementedError = createPolymorphicComponent(
-  (data: Format.Errors.OverlargePointersNotImplementedError) =>
-    // TODO
-    data.pointerAsBN.toString()
-);
+const displayName = "OverlargePointersNotImplementedError";
+
+export const { OverlargePointersNotImplementedError } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Errors.OverlargePointersNotImplementedError) =>
+      // TODO
+      data.pointerAsBN.toString()
+  )
+};

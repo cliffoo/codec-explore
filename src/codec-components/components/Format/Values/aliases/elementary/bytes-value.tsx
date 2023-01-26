@@ -3,11 +3,16 @@ import { isBytesStaticValue } from "@/utils/type-guards/value-and-result/bytes-s
 import { BytesStaticValue } from "@/components/Format/Values/interfaces/elementary/bytes-static-value";
 import { BytesDynamicValue } from "@/components/Format/Values/interfaces/elementary/bytes-dynamic-value";
 
-export const BytesValue = createPolymorphicComponent(
-  (data: Format.Values.BytesValue) =>
-    isBytesStaticValue(data) ? (
-      <BytesStaticValue data={data} />
-    ) : (
-      <BytesDynamicValue data={data} />
-    )
-);
+const displayName = "BytesValue";
+
+export const { BytesValue } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Values.BytesValue) =>
+      isBytesStaticValue(data) ? (
+        <BytesStaticValue data={data} />
+      ) : (
+        <BytesDynamicValue data={data} />
+      )
+  )
+};

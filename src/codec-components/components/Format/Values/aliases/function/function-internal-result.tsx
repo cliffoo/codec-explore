@@ -3,11 +3,16 @@ import { isFunctionInternalValue } from "@/utils/type-guards/value-and-result/fu
 import { FunctionInternalValue } from "@/components/Format/Values/interfaces/function/function-internal-value";
 import { FunctionInternalErrorResult } from "@/components/Format/Errors/interfaces/function/function-internal-error-result";
 
-export const FunctionInternalResult = createPolymorphicComponent(
-  (data: Format.Values.FunctionInternalResult) =>
-    isFunctionInternalValue(data) ? (
-      <FunctionInternalValue data={data} />
-    ) : (
-      <FunctionInternalErrorResult data={data} />
-    )
-);
+const displayName = "FunctionInternalResult";
+
+export const { FunctionInternalResult } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Values.FunctionInternalResult) =>
+      isFunctionInternalValue(data) ? (
+        <FunctionInternalValue data={data} />
+      ) : (
+        <FunctionInternalErrorResult data={data} />
+      )
+  )
+};

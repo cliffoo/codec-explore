@@ -3,11 +3,16 @@ import { isBoolOutOfRangeError } from "@/utils/type-guards/decoder-error/bool-ou
 import { BoolOutOfRangeError } from "@/components/Format/Errors/interfaces/elementary/bool-out-of-range-error";
 import { BoolPaddingError } from "@/components/Format/Errors/interfaces/elementary/bool-padding-error";
 
-export const BoolError = createPolymorphicComponent(
-  (data: Format.Errors.BoolError) =>
-    isBoolOutOfRangeError(data) ? (
-      <BoolOutOfRangeError data={data} />
-    ) : (
-      <BoolPaddingError data={data} />
-    )
-);
+const displayName = "BoolError";
+
+export const { BoolError } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Errors.BoolError) =>
+      isBoolOutOfRangeError(data) ? (
+        <BoolOutOfRangeError data={data} />
+      ) : (
+        <BoolPaddingError data={data} />
+      )
+  )
+};

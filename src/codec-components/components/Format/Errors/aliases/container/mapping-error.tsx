@@ -1,8 +1,15 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 import { ComponentDataTypeIsNeverError } from "@/utils/custom-errors";
 
-export const MappingError = createPolymorphicComponent(
-  (data: Format.Errors.MappingError) => {
-    throw new ComponentDataTypeIsNeverError("Codec.Format.Errors.MappingError");
-  }
-);
+const displayName = "MappingError";
+
+export const { MappingError } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Errors.MappingError) => {
+      throw new ComponentDataTypeIsNeverError(
+        "Codec.Format.Errors.MappingError"
+      );
+    }
+  )
+};

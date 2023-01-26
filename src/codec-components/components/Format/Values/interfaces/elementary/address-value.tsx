@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const AddressValue = createPolymorphicComponent(
-  // TODO
-  ({ value }: Format.Values.AddressValue) => value.asAddress
-);
+const displayName = "AddressValue";
+
+export const { AddressValue } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    ({ value }: Format.Values.AddressValue) => value.asAddress
+  )
+};

@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const StringValueInfoValid = createPolymorphicComponent(
-  // TODO
-  (data: Format.Values.StringValueInfoValid) => data.asString
-);
+const displayName = "StringValueInfoValid";
+
+export const { StringValueInfoValid } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    (data: Format.Values.StringValueInfoValid) => data.asString
+  )
+};

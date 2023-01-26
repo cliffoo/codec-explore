@@ -3,11 +3,16 @@ import { isFunctionExternalNonStackPaddingError } from "@/utils/type-guards/deco
 import { FunctionExternalNonStackPaddingError } from "@/components/Format/Errors/interfaces/function/function-external-non-stack-padding-error";
 import { FunctionExternalStackPaddingError } from "@/components/Format/Errors/interfaces/function/function-external-stack-padding-error";
 
-export const FunctionExternalError = createPolymorphicComponent(
-  (data: Format.Errors.FunctionExternalError) =>
-    isFunctionExternalNonStackPaddingError(data) ? (
-      <FunctionExternalNonStackPaddingError data={data} />
-    ) : (
-      <FunctionExternalStackPaddingError data={data} />
-    )
-);
+const displayName = "FunctionExternalError";
+
+export const { FunctionExternalError } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Errors.FunctionExternalError) =>
+      isFunctionExternalNonStackPaddingError(data) ? (
+        <FunctionExternalNonStackPaddingError data={data} />
+      ) : (
+        <FunctionExternalStackPaddingError data={data} />
+      )
+  )
+};

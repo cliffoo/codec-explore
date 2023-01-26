@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const FunctionInternalValueInfoKnown = createPolymorphicComponent(
-  // TODO
-  (data: Format.Values.FunctionInternalValueInfoKnown) => data.name
-);
+const displayName = "FunctionInternalValueInfoKnown";
+
+export const { FunctionInternalValueInfoKnown } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    (data: Format.Values.FunctionInternalValueInfoKnown) => data.name
+  )
+};

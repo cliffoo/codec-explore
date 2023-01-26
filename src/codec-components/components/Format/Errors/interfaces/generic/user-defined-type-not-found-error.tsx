@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const UserDefinedTypeNotFoundError = createPolymorphicComponent(
-  // TODO
-  (data: Format.Errors.UserDefinedTypeNotFoundError) => data.kind
-);
+const displayName = "UserDefinedTypeNotFoundError";
+
+export const { UserDefinedTypeNotFoundError } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    (data: Format.Errors.UserDefinedTypeNotFoundError) => data.kind
+  )
+};

@@ -3,11 +3,16 @@ import { isBytesStaticErrorResult } from "@/utils/type-guards/value-and-result/b
 import { BytesStaticErrorResult } from "@/components/Format/Errors/interfaces/elementary/bytes-static-error-result";
 import { BytesDynamicErrorResult } from "@/components/Format/Errors/interfaces/elementary/bytes-dynamic-error-result";
 
-export const BytesErrorResult = createPolymorphicComponent(
-  (data: Format.Errors.BytesErrorResult) =>
-    isBytesStaticErrorResult(data) ? (
-      <BytesStaticErrorResult data={data} />
-    ) : (
-      <BytesDynamicErrorResult data={data} />
-    )
-);
+const displayName = "BytesErrorResult";
+
+export const { BytesErrorResult } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Errors.BytesErrorResult) =>
+      isBytesStaticErrorResult(data) ? (
+        <BytesStaticErrorResult data={data} />
+      ) : (
+        <BytesDynamicErrorResult data={data} />
+      )
+  )
+};

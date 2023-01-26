@@ -1,7 +1,12 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const ReadErrorBytes = createPolymorphicComponent(
-  (data: Format.Errors.ReadErrorBytes) =>
-    // TODO
-    `${data.location}: ${data.start} to ${data.start + data.length}`
-);
+const displayName = "ReadErrorBytes";
+
+export const { ReadErrorBytes } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Errors.ReadErrorBytes) =>
+      // TODO
+      `${data.location}: ${data.start} to ${data.start + data.length}`
+  )
+};

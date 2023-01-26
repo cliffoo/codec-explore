@@ -5,13 +5,18 @@ import { isIndexedReferenceTypeError } from "@/utils/type-guards/decoder-error/i
 import { IndexedReferenceTypeError } from "@/components/Format/Errors/interfaces/generic/indexed-reference-type-error";
 import { ReadError } from "@/components/Format/Errors/aliases/generic/read-error";
 
-export const GenericError = createPolymorphicComponent(
-  (data: Format.Errors.GenericError) =>
-    isUserDefinedTypeNotFoundError(data) ? (
-      <UserDefinedTypeNotFoundError data={data} />
-    ) : isIndexedReferenceTypeError(data) ? (
-      <IndexedReferenceTypeError data={data} />
-    ) : (
-      <ReadError data={data} />
-    )
-);
+const displayName = "GenericError";
+
+export const { GenericError } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Errors.GenericError) =>
+      isUserDefinedTypeNotFoundError(data) ? (
+        <UserDefinedTypeNotFoundError data={data} />
+      ) : isIndexedReferenceTypeError(data) ? (
+        <IndexedReferenceTypeError data={data} />
+      ) : (
+        <ReadError data={data} />
+      )
+  )
+};

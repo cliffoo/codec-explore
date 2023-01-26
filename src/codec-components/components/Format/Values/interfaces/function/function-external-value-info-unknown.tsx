@@ -1,6 +1,11 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 
-export const FunctionExternalValueInfoUnknown = createPolymorphicComponent(
-  // TODO
-  (data: Format.Values.FunctionExternalValueInfoUnknown) => data.selector
-);
+const displayName = "FunctionExternalValueInfoUnknown";
+
+export const { FunctionExternalValueInfoUnknown } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    // TODO
+    (data: Format.Values.FunctionExternalValueInfoUnknown) => data.selector
+  )
+};

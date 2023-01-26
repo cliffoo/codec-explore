@@ -21,29 +21,34 @@ import { isUserDefinedValueTypeValue } from "@/utils/type-guards/value-and-resul
 import { UserDefinedValueTypeValue } from "@/components/Format/Values/interfaces/user-defined-elementary/user-defined-value-type-value";
 import { ContractValue } from "@/components/Format/Values/interfaces/user-defined-elementary/contract-value";
 
-export const ElementaryValue = createPolymorphicComponent(
-  (data: Format.Values.ElementaryValue) =>
-    isUintValue(data) ? (
-      <UintValue data={data} />
-    ) : isIntValue(data) ? (
-      <IntValue data={data} />
-    ) : isBoolValue(data) ? (
-      <BoolValue data={data} />
-    ) : isBytesValue(data) ? (
-      <BytesValue data={data} />
-    ) : isAddressValue(data) ? (
-      <AddressValue data={data} />
-    ) : isStringValue(data) ? (
-      <StringValue data={data} />
-    ) : isFixedValue(data) ? (
-      <FixedValue data={data} />
-    ) : isUfixedValue(data) ? (
-      <UfixedValue data={data} />
-    ) : isEnumValue(data) ? (
-      <EnumValue data={data} />
-    ) : isUserDefinedValueTypeValue(data) ? (
-      <UserDefinedValueTypeValue data={data} />
-    ) : (
-      <ContractValue data={data} />
-    )
-);
+const displayName = "ElementaryValue";
+
+export const { ElementaryValue } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Values.ElementaryValue) =>
+      isUintValue(data) ? (
+        <UintValue data={data} />
+      ) : isIntValue(data) ? (
+        <IntValue data={data} />
+      ) : isBoolValue(data) ? (
+        <BoolValue data={data} />
+      ) : isBytesValue(data) ? (
+        <BytesValue data={data} />
+      ) : isAddressValue(data) ? (
+        <AddressValue data={data} />
+      ) : isStringValue(data) ? (
+        <StringValue data={data} />
+      ) : isFixedValue(data) ? (
+        <FixedValue data={data} />
+      ) : isUfixedValue(data) ? (
+        <UfixedValue data={data} />
+      ) : isEnumValue(data) ? (
+        <EnumValue data={data} />
+      ) : isUserDefinedValueTypeValue(data) ? (
+        <UserDefinedValueTypeValue data={data} />
+      ) : (
+        <ContractValue data={data} />
+      )
+  )
+};

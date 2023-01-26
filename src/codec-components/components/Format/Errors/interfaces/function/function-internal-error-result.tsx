@@ -3,11 +3,16 @@ import { isFunctionInternalError } from "@/utils/type-guards/decoder-error/funct
 import { FunctionInternalError } from "@/components/Format/Errors/aliases/function/function-internal-error";
 import { GenericError } from "@/components/Format/Errors/aliases/generic/generic-error";
 
-export const FunctionInternalErrorResult = createPolymorphicComponent(
-  ({ error }: Format.Errors.FunctionInternalErrorResult) =>
-    isFunctionInternalError(error) ? (
-      <FunctionInternalError data={error} />
-    ) : (
-      <GenericError data={error} />
-    )
-);
+const displayName = "FunctionInternalErrorResult";
+
+export const { FunctionInternalErrorResult } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    ({ error }: Format.Errors.FunctionInternalErrorResult) =>
+      isFunctionInternalError(error) ? (
+        <FunctionInternalError data={error} />
+      ) : (
+        <GenericError data={error} />
+      )
+  )
+};

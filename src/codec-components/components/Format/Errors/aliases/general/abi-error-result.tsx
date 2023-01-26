@@ -21,29 +21,34 @@ import { isFunctionExternalErrorResult } from "@/utils/type-guards/value-and-res
 import { FunctionExternalErrorResult } from "@/components/Format/Errors/interfaces/function/function-external-error-result";
 import { TupleErrorResult } from "@/components/Format/Errors/interfaces/container/tuple-error-result";
 
-export const AbiErrorResult = createPolymorphicComponent(
-  (data: Format.Errors.AbiErrorResult) =>
-    isUintErrorResult(data) ? (
-      <UintErrorResult data={data} />
-    ) : isIntErrorResult(data) ? (
-      <IntErrorResult data={data} />
-    ) : isBoolErrorResult(data) ? (
-      <BoolErrorResult data={data} />
-    ) : isBytesErrorResult(data) ? (
-      <BytesErrorResult data={data} />
-    ) : isAddressErrorResult(data) ? (
-      <AddressErrorResult data={data} />
-    ) : isFixedErrorResult(data) ? (
-      <FixedErrorResult data={data} />
-    ) : isUfixedErrorResult(data) ? (
-      <UfixedErrorResult data={data} />
-    ) : isStringErrorResult(data) ? (
-      <StringErrorResult data={data} />
-    ) : isArrayErrorResult(data) ? (
-      <ArrayErrorResult data={data} />
-    ) : isFunctionExternalErrorResult(data) ? (
-      <FunctionExternalErrorResult data={data} />
-    ) : (
-      <TupleErrorResult data={data} />
-    )
-);
+const displayName = "AbiErrorResult";
+
+export const { AbiErrorResult } = {
+  [displayName]: createPolymorphicComponent(
+    displayName,
+    (data: Format.Errors.AbiErrorResult) =>
+      isUintErrorResult(data) ? (
+        <UintErrorResult data={data} />
+      ) : isIntErrorResult(data) ? (
+        <IntErrorResult data={data} />
+      ) : isBoolErrorResult(data) ? (
+        <BoolErrorResult data={data} />
+      ) : isBytesErrorResult(data) ? (
+        <BytesErrorResult data={data} />
+      ) : isAddressErrorResult(data) ? (
+        <AddressErrorResult data={data} />
+      ) : isFixedErrorResult(data) ? (
+        <FixedErrorResult data={data} />
+      ) : isUfixedErrorResult(data) ? (
+        <UfixedErrorResult data={data} />
+      ) : isStringErrorResult(data) ? (
+        <StringErrorResult data={data} />
+      ) : isArrayErrorResult(data) ? (
+        <ArrayErrorResult data={data} />
+      ) : isFunctionExternalErrorResult(data) ? (
+        <FunctionExternalErrorResult data={data} />
+      ) : (
+        <TupleErrorResult data={data} />
+      )
+  )
+};
