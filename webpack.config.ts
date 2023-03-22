@@ -1,4 +1,5 @@
 import * as webpack from "webpack";
+import "webpack-dev-server";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import EslintWebpackPlugin from "eslint-webpack-plugin";
 import { resolve } from "path";
@@ -24,6 +25,11 @@ const config: webpack.Configuration = {
     }
   },
   devtool: "source-map",
+  devServer: {
+    client: {
+      overlay: false
+    }
+  },
   module: {
     rules: [
       {
