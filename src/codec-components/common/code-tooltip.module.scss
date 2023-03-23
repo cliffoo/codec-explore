@@ -1,12 +1,6 @@
 .wrapper {
   position: relative;
   display: inline-block;
-  &:hover {
-    .data-on-hover {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
 }
 
 .data-on-hover {
@@ -24,6 +18,10 @@
   background-color: var(--background-color);
   visibility: hidden;
   opacity: 0;
+  &.show {
+    visibility: visible;
+    opacity: 1;
+  }
   &::before {
     content: "";
     position: absolute;
