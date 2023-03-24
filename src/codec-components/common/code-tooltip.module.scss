@@ -6,11 +6,10 @@
 .data-on-hover {
   --color: #fff;
   --background-color: #000000f0;
-  --arrow-width: 12px;
-  --arrow-height: 3px;
+  --arrow-width: 10px;
+  --arrow-height: 2px;
   position: absolute;
   left: 50%;
-  top: calc(var(--arrow-height) * -1);
   transform: translate(-50%, -100%);
   padding: 6px;
   border-radius: 4px;
