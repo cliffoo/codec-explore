@@ -9,7 +9,9 @@ export const { UfixedValue } = {
     ({ value, type }: Format.Values.UfixedValue) => (
       <CodeTooltip
         data={value.asBig.toString()}
-        dataOnHover={`type: ufixed${type.bits}x${type.places}`}
+        dataOnHover={`type: ${
+          type.typeHint || `${type.typeClass}${type.bits}x${type.places}`
+        }`}
       />
     )
   )

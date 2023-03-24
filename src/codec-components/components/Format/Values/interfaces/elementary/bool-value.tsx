@@ -6,10 +6,10 @@ const displayName = "BoolValue";
 export const { BoolValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    ({ value }: Format.Values.BoolValue) => (
+    ({ value, type }: Format.Values.BoolValue) => (
       <CodeTooltip
         data={value.asBoolean.toString()}
-        dataOnHover="type: boolean"
+        dataOnHover={`type: ${type.typeHint || type.typeClass}`}
       />
     )
   )

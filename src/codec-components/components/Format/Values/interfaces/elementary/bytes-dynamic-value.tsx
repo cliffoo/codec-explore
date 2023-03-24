@@ -6,8 +6,12 @@ const displayName = "BytesDynamicValue";
 export const { BytesDynamicValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    ({ value }: Format.Values.BytesDynamicValue) => (
-      <CodeTooltip data={value.asHex} dataOnHover="type: bytes" />
+    ({ value, type }: Format.Values.BytesDynamicValue) => (
+      // TODO: Location? Kind?
+      <CodeTooltip
+        data={value.asHex}
+        dataOnHover={`type: ${type.typeHint || type.typeClass}`}
+      />
     )
   )
 };

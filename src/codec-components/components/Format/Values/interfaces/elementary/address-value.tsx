@@ -6,8 +6,12 @@ const displayName = "AddressValue";
 export const { AddressValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    ({ value }: Format.Values.AddressValue) => (
-      <CodeTooltip data={value.asAddress} dataOnHover="type: address" />
+    ({ value, type }: Format.Values.AddressValue) => (
+      // TODO: Payable?
+      <CodeTooltip
+        data={value.asAddress}
+        dataOnHover={`type: ${type.typeClass}`}
+      />
     )
   )
 };

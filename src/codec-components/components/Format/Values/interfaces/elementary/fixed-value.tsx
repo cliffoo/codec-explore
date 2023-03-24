@@ -9,7 +9,9 @@ export const { FixedValue } = {
     ({ value, type }: Format.Values.FixedValue) => (
       <CodeTooltip
         data={value.asBig.toString()}
-        dataOnHover={`type: fixed${type.bits}x${type.places}`}
+        dataOnHover={`type: ${
+          type.typeHint || `${type.typeClass}${type.bits}x${type.places}`
+        }`}
       />
     )
   )

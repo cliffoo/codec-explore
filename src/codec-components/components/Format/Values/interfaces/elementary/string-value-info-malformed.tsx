@@ -7,7 +7,10 @@ export const { StringValueInfoMalformed } = {
   [displayName]: createPolymorphicComponent(
     displayName,
     (data: Format.Values.StringValueInfoMalformed) => (
-      <CodeTooltip data={data.asHex} dataOnHover="type: string (malformed)" />
+      <CodeTooltip
+        data={data.asHex}
+        dataOnHover={`type: string (${data.kind})`}
+      />
     )
   )
 };

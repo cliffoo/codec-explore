@@ -6,8 +6,12 @@ const displayName = "BytesStaticValue";
 export const { BytesStaticValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    ({ value }: Format.Values.BytesStaticValue) => (
-      <CodeTooltip data={value.asHex} dataOnHover="type: bytes" />
+    ({ value, type }: Format.Values.BytesStaticValue) => (
+      // TODO: Length? Kind?
+      <CodeTooltip
+        data={value.asHex}
+        dataOnHover={`type: ${type.typeHint || type.typeClass}`}
+      />
     )
   )
 };

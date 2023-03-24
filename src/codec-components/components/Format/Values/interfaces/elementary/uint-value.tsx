@@ -9,7 +9,9 @@ export const { UintValue } = {
     ({ value, type }: Format.Values.UintValue) => (
       <CodeTooltip
         data={value.asBN.toString()}
-        dataOnHover={`type: uint${type.bits}`}
+        dataOnHover={`type: ${
+          type.typeHint || `${type.typeClass}${type.bits}`
+        }`}
       />
     )
   )
