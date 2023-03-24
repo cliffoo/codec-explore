@@ -2,8 +2,7 @@ import React from "react";
 
 export function createPolymorphicComponent<D>(
   displayName: string,
-  createChildren: (data: D) => JSX.Element | string,
-  defaultComponent: React.ElementType = React.Fragment
+  createDefaultElement: (data: D) => JSX.Element
 ) {
   interface BaseProps {
     data: D;
@@ -26,7 +25,7 @@ export function createPolymorphicComponent<D>(
   }: Props<C>): JSX.Element {
     return component
       ? React.createElement(component, { ...props, data })
-      : React.createElement(defaultComponent, undefined, createChildren(data));
+      : createDefaultElement(data);
   }
 
   Object.defineProperty(PolymorphicComponent, "displayName", {
