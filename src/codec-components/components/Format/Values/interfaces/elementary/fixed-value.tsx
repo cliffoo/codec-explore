@@ -1,11 +1,16 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
+import { CodeTooltip } from "@/common/code-tooltip";
 
 const displayName = "FixedValue";
 
 export const { FixedValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    // TODO
-    ({ value }: Format.Values.FixedValue) => value.asBig.toString()
+    ({ value, type }: Format.Values.FixedValue) => (
+      <CodeTooltip
+        data={value.asBig.toString()}
+        dataOnHover={`type: fixed${type.bits}x${type.places}`}
+      />
+    )
   )
 };

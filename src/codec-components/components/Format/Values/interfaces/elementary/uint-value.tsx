@@ -1,11 +1,16 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
+import { CodeTooltip } from "@/common/code-tooltip";
 
 const displayName = "UintValue";
 
 export const { UintValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    // TODO
-    ({ value }: Format.Values.UintValue) => value.asBN.toString()
+    ({ value, type }: Format.Values.UintValue) => (
+      <CodeTooltip
+        data={value.asBN.toString()}
+        dataOnHover={`type: uint${type.bits}`}
+      />
+    )
   )
 };

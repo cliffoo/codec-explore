@@ -1,11 +1,13 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
+import { CodeTooltip } from "@/common/code-tooltip";
 
 const displayName = "AddressValue";
 
 export const { AddressValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    // TODO
-    ({ value }: Format.Values.AddressValue) => value.asAddress
+    ({ value }: Format.Values.AddressValue) => (
+      <CodeTooltip data={value.asAddress} dataOnHover="type: address" />
+    )
   )
 };
