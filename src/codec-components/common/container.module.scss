@@ -1,0 +1,18 @@
+.container {
+  overflow-x: hidden;
+  &-hide {
+    visibility: hidden;
+  }
+}
+
+.content {
+  display: flex;
+  width: max-content;
+  &-wrap {
+    flex-direction: column;
+    width: 100%;
+    > *:not(:first-child):not(:last-child) {
+      margin-left: 1rem;
+    }
+  }
+}
