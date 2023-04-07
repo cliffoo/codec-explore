@@ -11,9 +11,10 @@ export const { FunctionDecoding } = {
       <Container
         prefix={
           <code>
-            {data.class.typeName}.{data.abi.name}
+            {data.class.typeName}.{data.abi.name}(
           </code>
         }
+        suffix={<code>)</code>}
       >
         <AbiArguments data={data.arguments} />
       </Container>

@@ -7,7 +7,7 @@ export interface AbiArgumentsProps {
 
 export function AbiArguments({ data }: AbiArgumentsProps): JSX.Element {
   return (
-    <Container prefix={<code>(</code>} suffix={<code>)</code>}>
+    <Container>
       {data.map((abiArgumentData, index) => (
         <div key={index}>
           <AbiArgument data={abiArgumentData} />
