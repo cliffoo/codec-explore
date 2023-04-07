@@ -1,6 +1,6 @@
 .container {
-  overflow-x: hidden;
   &-hide {
+    overflow-x: hidden;
     visibility: hidden;
   }
 }
