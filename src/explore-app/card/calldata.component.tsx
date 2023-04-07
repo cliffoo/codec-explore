@@ -1,5 +1,5 @@
 import type { CalldataDecoding } from "@truffle/codec";
-import { AbiArguments } from "./abi-arguments.component";
+import { AbiArguments } from "@/common/abi-arguments";
 
 export interface CalldataProps {
   data: CalldataDecoding;
