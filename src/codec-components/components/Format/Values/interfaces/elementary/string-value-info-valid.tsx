@@ -8,7 +8,7 @@ export const { StringValueInfoValid } = {
     displayName,
     (data: Format.Values.StringValueInfoValid) => (
       <Code color="brown" title="type: string">
-        {data.asString}
+        "{data.asString}"
       </Code>
     )
   )
