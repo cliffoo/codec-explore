@@ -1,5 +1,5 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
-import { CodeTooltip } from "@/common/code-tooltip";
+import { Code } from "@/common/code";
 
 const displayName = "AddressValue";
 
@@ -8,10 +8,9 @@ export const { AddressValue } = {
     displayName,
     ({ value, type }: Format.Values.AddressValue) => (
       // TODO: Payable?
-      <CodeTooltip
-        data={value.asAddress}
-        dataOnHover={`type: ${type.typeClass}`}
-      />
+      <Code color="blue" title={`type: ${type.typeClass}`}>
+        {value.asAddress}
+      </Code>
     )
   )
 };

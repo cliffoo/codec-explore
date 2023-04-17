@@ -1,12 +1,14 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
+import { Code } from "@/common/code";
 
 const displayName = "FunctionInternalValueInfoUnknown";
 
 export const { FunctionInternalValueInfoUnknown } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    (data: Format.Values.FunctionInternalValueInfoUnknown) =>
+    (data: Format.Values.FunctionInternalValueInfoUnknown) => (
       // TODO
-      data.constructorProgramCounter.toString()
+      <Code>{data.constructorProgramCounter.toString()}</Code>
+    )
   )
 };

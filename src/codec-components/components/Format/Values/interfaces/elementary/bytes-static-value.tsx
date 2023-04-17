@@ -1,5 +1,5 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
-import { CodeTooltip } from "@/common/code-tooltip";
+import { Code } from "@/common/code";
 
 const displayName = "BytesStaticValue";
 
@@ -8,10 +8,9 @@ export const { BytesStaticValue } = {
     displayName,
     ({ value, type }: Format.Values.BytesStaticValue) => (
       // TODO: Length? Kind?
-      <CodeTooltip
-        data={value.asHex}
-        dataOnHover={`type: ${type.typeHint || type.typeClass}`}
-      />
+      <Code color="blue" title={`type: ${type.typeHint || type.typeClass}`}>
+        {value.asHex}
+      </Code>
     )
   )
 };

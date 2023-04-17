@@ -1,5 +1,5 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
-import { CodeTooltip } from "@/common/code-tooltip";
+import { Code } from "@/common/code";
 
 const displayName = "FixedValue";
 
@@ -7,12 +7,14 @@ export const { FixedValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
     ({ value, type }: Format.Values.FixedValue) => (
-      <CodeTooltip
-        data={value.asBig.toString()}
-        dataOnHover={`type: ${
+      <Code
+        color="blue"
+        title={`type: ${
           type.typeHint || `${type.typeClass}${type.bits}x${type.places}`
         }`}
-      />
+      >
+        {value.asBig.toString()}
+      </Code>
     )
   )
 };

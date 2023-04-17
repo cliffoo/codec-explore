@@ -1,6 +1,7 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
 import { Result } from "@/components/Format/Values/aliases/general/result";
 import { Container } from "@/common/container";
+import { Code } from "@/common/code";
 
 const displayName = "AbiArgument";
 
@@ -9,7 +10,7 @@ export const { AbiArgument } = {
     displayName,
     ({ value, name }: Codec.AbiArgument) =>
       name ? (
-        <Container prefix={<code>{name}:&nbsp;</code>}>
+        <Container prefix={<Code>{name}:&nbsp;</Code>}>
           <Result data={value} />
         </Container>
       ) : (

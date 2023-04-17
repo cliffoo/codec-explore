@@ -1,12 +1,14 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
+import { Code } from "@/common/code";
 
 const displayName = "NoSuchInternalFunctionError";
 
 export const { NoSuchInternalFunctionError } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    (data: Format.Errors.NoSuchInternalFunctionError) =>
+    (data: Format.Errors.NoSuchInternalFunctionError) => (
       // TODO
-      data.constructorProgramCounter.toString()
+      <Code>{data.constructorProgramCounter.toString()}</Code>
+    )
   )
 };

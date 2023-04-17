@@ -1,5 +1,5 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
-import { CodeTooltip } from "@/common/code-tooltip";
+import { Code } from "@/common/code";
 
 const displayName = "StringValueInfoValid";
 
@@ -7,7 +7,9 @@ export const { StringValueInfoValid } = {
   [displayName]: createPolymorphicComponent(
     displayName,
     (data: Format.Values.StringValueInfoValid) => (
-      <CodeTooltip data={data.asString} dataOnHover="type: string" />
+      <Code color="blue" title="type: string">
+        {data.asString}
+      </Code>
     )
   )
 };

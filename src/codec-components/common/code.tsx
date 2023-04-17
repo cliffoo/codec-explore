@@ -5,7 +5,7 @@ const colors = {
 };
 
 interface CodeProps {
-  children: string | string[];
+  children: string | number | (string | number)[];
   color?: keyof typeof colors;
   title?: string;
 }

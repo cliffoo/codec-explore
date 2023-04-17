@@ -1,12 +1,14 @@
 import { createPolymorphicComponent } from "@/utils/create-polymorphic-component";
+import { Code } from "@/common/code";
 
 const displayName = "DeployedFunctionInConstructorError";
 
 export const { DeployedFunctionInConstructorError } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    (data: Format.Errors.DeployedFunctionInConstructorError) =>
+    (data: Format.Errors.DeployedFunctionInConstructorError) => (
       // TODO
-      data.constructorProgramCounter.toString()
+      <Code>{data.constructorProgramCounter.toString()}</Code>
+    )
   )
 };
