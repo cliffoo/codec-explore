@@ -8,7 +8,7 @@ export const { AddressValue } = {
     displayName,
     ({ value, type }: Format.Values.AddressValue) => (
       // TODO: Payable?
-      <Code color="blue" title={`type: ${type.typeClass}`}>
+      <Code color="seagreen" title={`type: ${type.typeClass}`}>
         {value.asAddress}
       </Code>
     )

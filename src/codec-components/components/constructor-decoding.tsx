@@ -12,8 +12,9 @@ export const { ConstructorDecoding } = {
       <Container
         prefix={
           <>
-            <Code color="red">new </Code>
-            <Code color="blue">{data.class.typeName}(</Code>
+            <Code color="blue">new </Code>
+            <Code color="peru">{data.class.typeName}</Code>
+            <Code color="blue">(</Code>
           </>
         }
         suffix={<Code color="blue">)</Code>}

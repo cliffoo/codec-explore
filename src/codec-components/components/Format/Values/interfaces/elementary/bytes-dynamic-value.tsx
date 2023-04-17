@@ -8,7 +8,7 @@ export const { BytesDynamicValue } = {
     displayName,
     ({ value, type }: Format.Values.BytesDynamicValue) => (
       // TODO: Location? Kind?
-      <Code color="blue" title={`type: ${type.typeHint || type.typeClass}`}>
+      <Code color="seagreen" title={`type: ${type.typeHint || type.typeClass}`}>
         {value.asHex}
       </Code>
     )

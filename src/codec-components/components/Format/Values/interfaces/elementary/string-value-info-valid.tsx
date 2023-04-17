@@ -7,7 +7,7 @@ export const { StringValueInfoValid } = {
   [displayName]: createPolymorphicComponent(
     displayName,
     (data: Format.Values.StringValueInfoValid) => (
-      <Code color="blue" title="type: string">
+      <Code color="brown" title="type: string">
         {data.asString}
       </Code>
     )

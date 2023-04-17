@@ -10,7 +10,7 @@ export const { AbiArgument } = {
     displayName,
     ({ value, name }: Codec.AbiArgument) =>
       name ? (
-        <Container prefix={<Code>{name}:&nbsp;</Code>}>
+        <Container prefix={<Code color="darkblue">{name}:&nbsp;</Code>}>
           <Result data={value} />
         </Container>
       ) : (

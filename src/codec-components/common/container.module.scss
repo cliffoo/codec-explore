@@ -11,8 +11,10 @@
   &-wrap {
     flex-direction: column;
     width: 100%;
-    > *:not(:first-child):not(:last-child) {
-      margin-left: 1rem;
+    &-with-indent {
+      > *:not(:first-child):not(:last-child) {
+        margin-left: 1rem;
+      }
     }
   }
 }

@@ -7,7 +7,7 @@ export const { StringValueInfoMalformed } = {
   [displayName]: createPolymorphicComponent(
     displayName,
     (data: Format.Values.StringValueInfoMalformed) => (
-      <Code color="blue" title={`type: string (${data.kind})`}>
+      <Code color="brown" title={`type: string (${data.kind})`}>
         {data.asHex}
       </Code>
     )

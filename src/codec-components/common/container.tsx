@@ -5,6 +5,7 @@ interface ContainerProps {
   children: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
+  indentOnWrap?: boolean;
 }
 
 /**
@@ -19,7 +20,8 @@ interface ContainerProps {
 export function Container({
   children,
   prefix,
-  suffix
+  suffix,
+  indentOnWrap = true
 }: ContainerProps): JSX.Element {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -39,13 +41,17 @@ export function Container({
   });
 
   const ready = typeof wrap === "boolean";
+  const containerClassName = styles[`container${ready ? "" : "-hide"}`];
+  const contentClassName =
+    styles[
+      `content${
+        wrap && indentOnWrap ? "-wrap-with-indent" : wrap ? "-wrap" : ""
+      }`
+    ];
 
   return (
-    <div
-      ref={containerRef}
-      className={styles[`container${ready ? "" : "-hide"}`]}
-    >
-      <div ref={contentRef} className={styles[`content${wrap ? "-wrap" : ""}`]}>
+    <div ref={containerRef} className={containerClassName}>
+      <div ref={contentRef} className={contentClassName}>
         <div>{prefix}</div>
         {children}
         <div>{suffix}</div>

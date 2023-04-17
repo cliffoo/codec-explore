@@ -8,7 +8,7 @@ export const { UfixedValue } = {
     displayName,
     ({ value, type }: Format.Values.UfixedValue) => (
       <Code
-        color="blue"
+        color="seagreen"
         title={`type: ${
           type.typeHint || `${type.typeClass}${type.bits}x${type.places}`
         }`}

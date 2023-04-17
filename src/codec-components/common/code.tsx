@@ -1,19 +1,22 @@
-const colors = {
-  red: "#f85149",
-  blue: "#2f81f7",
-  purple: "#a371f7"
-};
+const colors = [
+  "blue",
+  "darkblue",
+  "seagreen",
+  "teal",
+  "brown",
+  "peru"
+] as const;
 
 interface CodeProps {
   children: string | number | (string | number)[];
-  color?: keyof typeof colors;
+  color?: typeof colors[number];
   title?: string;
 }
 
 export function Code({ children, color, title }: CodeProps) {
   return (
     <span>
-      <code style={color && { color: colors[color] }} title={title}>
+      <code style={{ color }} title={title}>
         {children}
       </code>
     </span>

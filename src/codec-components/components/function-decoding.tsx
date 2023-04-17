@@ -12,9 +12,9 @@ export const { FunctionDecoding } = {
       <Container
         prefix={
           <>
-            <Code color="blue">{data.class.typeName}</Code>
+            <Code color="teal">{data.class.typeName}</Code>
             <Code>.</Code>
-            <Code color="purple">{data.abi.name}</Code>
+            <Code color="peru">{data.abi.name}</Code>
             <Code color="blue">(</Code>
           </>
         }
