@@ -1,0 +1,24 @@
+.flattened-container {
+  width: 100%;
+  overflow-x: hidden;
+  visibility: hidden;
+  .content {
+    width: max-content;
+  }
+}
+
+.responsive-container {
+  .content {
+    &-wrap > .children {
+      flex-direction: column;
+      margin-left: 1rem;
+    }
+  }
+}
+
+.content,
+.children,
+.prefix,
+.suffix {
+  display: flex;
+}
