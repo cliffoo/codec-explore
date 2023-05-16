@@ -1,7 +1,7 @@
 import type { Format } from "@truffle/codec";
 import { typeStringWithoutLocation } from "@truffle/codec/dist/lib/format/types";
 import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
-import { useInternal } from "@/react/contexts/internal";
+import { useInjectedNode } from "@/react/contexts/internal/injected-node";
 import { Code } from "@/react/components/common/code";
 
 const displayName = "BytesStaticValue";
@@ -12,7 +12,7 @@ export const { BytesStaticValue } = {
     ({ value, type }: Format.Values.BytesStaticValue) => (
       <Code type="bytes" title={`type: ${typeStringWithoutLocation(type)}`}>
         {value.asHex}
-        {useInternal().content?.suffix}
+        {useInjectedNode().content?.suffix}
       </Code>
     )
   )

@@ -1,6 +1,6 @@
 import type { Format } from "@truffle/codec";
 import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
-import { useInternal } from "@/react/contexts/internal";
+import { useInjectedNode } from "@/react/contexts/internal/injected-node";
 import { Code } from "@/react/components/common/code";
 
 const displayName = "StringValueInfoValid";
@@ -10,7 +10,7 @@ export const { StringValueInfoValid } = {
     displayName,
     (data: Format.Values.StringValueInfoValid) => (
       <Code type="string" title="type: string">
-        "{data.asString}"{useInternal().content?.suffix}
+        "{data.asString}"{useInjectedNode().content?.suffix}
       </Code>
     )
   )

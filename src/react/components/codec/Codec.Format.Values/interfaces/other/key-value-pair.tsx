@@ -2,7 +2,7 @@ import type { Format } from "@truffle/codec";
 import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
 import { ElementaryValue } from "@/react/components/codec/Codec.Format.Values/types/general/elementary-value";
 import { Result } from "@/react/components/codec/Codec.Format.Values/types/general/result";
-import { InternalProvider } from "@/react/contexts/internal";
+import { InjectedNodeProvider } from "@/react/contexts/internal/injected-node";
 import { Container } from "@/react/components/common/container";
 import { Code } from "@/react/components/common/code";
 
@@ -15,9 +15,9 @@ export const { KeyValuePair } = {
       <Container
         prefix={
           <>
-            <InternalProvider value={{}}>
+            <InjectedNodeProvider reset>
               <ElementaryValue data={key} />
-            </InternalProvider>
+            </InjectedNodeProvider>
             <Code type="colon">:&nbsp;</Code>
           </>
         }

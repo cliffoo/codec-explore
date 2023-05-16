@@ -1,7 +1,14 @@
 import type { Format } from "@truffle/codec";
 import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
 import { Result } from "@/react/components/codec/Codec.Format.Values/types/general/result";
-import { useInternal, InternalProvider } from "@/react/contexts/internal";
+import {
+  useBracketDepth,
+  BracketDepthProvider
+} from "@/react/contexts/internal/bracket-depth";
+import {
+  useInjectedNode,
+  InjectedNodeProvider
+} from "@/react/contexts/internal/injected-node";
 import { Container } from "@/react/components/common/container";
 import { Code } from "@/react/components/common/code";
 
@@ -11,8 +18,8 @@ export const { ArrayValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
     ({ value }: Format.Values.ArrayValue) => {
-      const { suffix, bracketDepth } = useInternal();
-      const internalProviderValueBase = { bracketDepth: bracketDepth + 1 };
+      const { suffix } = useInjectedNode();
+      const bracketDepth = useBracketDepth();
       return (
         <Container
           prefix={
@@ -30,20 +37,17 @@ export const { ArrayValue } = {
           }
         >
           {value.map((result, index) => (
-            <InternalProvider
-              value={
-                index !== value.length - 1
-                  ? {
-                      ...internalProviderValueBase,
-                      content: { suffix: <Code type="comma">,&nbsp;</Code> },
-                      suffix: { suffix: <Code type="comma">,&nbsp;</Code> }
-                    }
-                  : internalProviderValueBase
-              }
-              key={index}
-            >
-              <Result data={result} />
-            </InternalProvider>
+            <BracketDepthProvider increment key={index}>
+              <InjectedNodeProvider
+                reset={index === value.length - 1}
+                value={{
+                  content: { suffix: <Code type="comma">,&nbsp;</Code> },
+                  suffix: { suffix: <Code type="comma">,&nbsp;</Code> }
+                }}
+              >
+                <Result data={result} />
+              </InjectedNodeProvider>
+            </BracketDepthProvider>
           ))}
         </Container>
       );

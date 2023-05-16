@@ -1,6 +1,6 @@
 import type * as Codec from "@truffle/codec";
 import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
-import { useInternal } from "@/react/contexts/internal";
+import { useBracketDepth } from "@/react/contexts/internal/bracket-depth";
 import { Container } from "@/react/components/common/container";
 import { Code } from "@/react/components/common/code";
 
@@ -10,7 +10,7 @@ export const { MessageDecoding } = {
   [displayName]: createPolymorphicComponent(
     displayName,
     (data: Codec.MessageDecoding) => {
-      const { bracketDepth } = useInternal();
+      const bracketDepth = useBracketDepth();
       return (
         <Container
           prefix={

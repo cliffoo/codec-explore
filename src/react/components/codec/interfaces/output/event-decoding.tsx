@@ -1,6 +1,9 @@
 import type * as Codec from "@truffle/codec";
 import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
-import { useInternal, InternalProvider } from "@/react/contexts/internal";
+import {
+  useBracketDepth,
+  BracketDepthProvider
+} from "@/react/contexts/internal/bracket-depth";
 import { Container } from "@/react/components/common/container";
 import { Code } from "@/react/components/common/code";
 import { AbiArguments } from "@/react/components/common/abi-arguments";
@@ -11,7 +14,7 @@ export const { EventDecoding } = {
   [displayName]: createPolymorphicComponent(
     displayName,
     (data: Codec.EventDecoding) => {
-      const { bracketDepth } = useInternal();
+      const bracketDepth = useBracketDepth();
       return (
         <Container
           prefix={
@@ -29,9 +32,9 @@ export const { EventDecoding } = {
             </Code>
           }
         >
-          <InternalProvider value={{ bracketDepth: bracketDepth + 1 }}>
+          <BracketDepthProvider increment>
             <AbiArguments data={data.arguments} />
-          </InternalProvider>
+          </BracketDepthProvider>
         </Container>
       );
     }

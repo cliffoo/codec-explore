@@ -1,7 +1,14 @@
 import type { Format } from "@truffle/codec";
 import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
 import { KeyValuePair } from "@/react/components/codec/Codec.Format.Values/interfaces/other/key-value-pair";
-import { useInternal, InternalProvider } from "@/react/contexts/internal";
+import {
+  useBracketDepth,
+  BracketDepthProvider
+} from "@/react/contexts/internal/bracket-depth";
+import {
+  useInjectedNode,
+  InjectedNodeProvider
+} from "@/react/contexts/internal/injected-node";
 import { Container } from "@/react/components/common/container";
 import { Code } from "@/react/components/common/code";
 
@@ -11,8 +18,8 @@ export const { MappingValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
     ({ value }: Format.Values.MappingValue) => {
-      const { suffix, bracketDepth } = useInternal();
-      const internalProviderValueBase = { bracketDepth: bracketDepth + 1 };
+      const { suffix } = useInjectedNode();
+      const bracketDepth = useBracketDepth();
       return (
         <Container
           prefix={
@@ -30,20 +37,17 @@ export const { MappingValue } = {
           }
         >
           {value.map((keyValuePair, index) => (
-            <InternalProvider
-              value={
-                index !== value.length - 1
-                  ? {
-                      ...internalProviderValueBase,
-                      content: { suffix: <Code type="comma">,&nbsp;</Code> },
-                      suffix: { suffix: <Code type="comma">,&nbsp;</Code> }
-                    }
-                  : internalProviderValueBase
-              }
-              key={index}
-            >
-              <KeyValuePair data={keyValuePair} />
-            </InternalProvider>
+            <BracketDepthProvider increment key={index}>
+              <InjectedNodeProvider
+                reset={index === value.length - 1}
+                value={{
+                  content: { suffix: <Code type="comma">,&nbsp;</Code> },
+                  suffix: { suffix: <Code type="comma">,&nbsp;</Code> }
+                }}
+              >
+                <KeyValuePair data={keyValuePair} />
+              </InjectedNodeProvider>
+            </BracketDepthProvider>
           ))}
         </Container>
       );
