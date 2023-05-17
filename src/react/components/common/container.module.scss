@@ -11,9 +11,22 @@
   .content {
     &-wrap > .children {
       flex-direction: column;
-      margin-left: 1rem;
+      margin-left: 1.2rem;
     }
   }
+}
+
+.toggle {
+  height: 0.8rem;
+  padding: 0 0.2rem;
+  background: transparent;
+  border: none;
+  color: #6c6c6c;
+  cursor: pointer;
+}
+
+.hide {
+  display: none !important;
 }
 
 .content,
