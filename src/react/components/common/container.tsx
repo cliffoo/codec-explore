@@ -7,56 +7,22 @@ export interface ContainerProps {
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
 }
-export function Container(props: ContainerProps): JSX.Element {
-  const [wrapThreshold, setWrapThreshold] = useState<number>();
-
-  return wrapThreshold ? (
-    <ResponsiveContainer {...props} wrapThreshold={wrapThreshold} />
-  ) : (
-    <FlattenedContainer {...props} setWrapThreshold={setWrapThreshold} />
-  );
-}
-
-interface FlattenedContainerProps extends ContainerProps {
-  setWrapThreshold: React.Dispatch<React.SetStateAction<number | undefined>>;
-}
-function FlattenedContainer({
+export function Container({
   children,
   prefix,
-  suffix,
-  setWrapThreshold
-}: FlattenedContainerProps): JSX.Element {
+  suffix
+}: ContainerProps): JSX.Element {
   const contentRef = useRef<HTMLDivElement>(null);
+  const [wrapThreshold, setWrapThreshold] = useState<number>();
+  const [wrap, setWrap] = useState<boolean>();
 
   useEffect(
     () => setWrapThreshold(contentRef.current!.scrollWidth),
     [setWrapThreshold]
   );
 
-  return (
-    <div className={styles["flattened-container"]}>
-      <div ref={contentRef} className={styles["content"]}>
-        <div className={styles["prefix"]}>{prefix}</div>
-        <div className={styles["children"]}>{children}</div>
-        <div className={styles["suffix"]}>{suffix}</div>
-      </div>
-    </div>
-  );
-}
-
-interface ResponsiveContainerProps extends ContainerProps {
-  wrapThreshold: number;
-}
-function ResponsiveContainer({
-  children,
-  prefix,
-  suffix,
-  wrapThreshold
-}: ResponsiveContainerProps): JSX.Element {
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [wrap, setWrap] = useState<boolean>();
-
   useLayoutEffect(() => {
+    if (!wrapThreshold) return;
     const observer = new ResizeObserver(([container]) =>
       setWrap(container.target.clientWidth < wrapThreshold)
     );
@@ -65,7 +31,11 @@ function ResponsiveContainer({
   });
 
   return (
-    <div className={styles["responsive-container"]}>
+    <div
+      className={
+        styles[`${wrapThreshold ? "responsive" : "flattened"}-container`]
+      }
+    >
       <div ref={contentRef} className={styles[`content${wrap ? "-wrap" : ""}`]}>
         <div className={styles["prefix"]}>{prefix}</div>
         <div className={styles["children"]}>{children}</div>

@@ -10,8 +10,6 @@ import { Container } from "./container";
  * When collapsed, only give button to open if children length > 0.
  *
  * Consider:
- * - Moving `FlattenedContainerProps` and `ResponsiveContainerProps` into
- *   `Container`. This is probably a good idea.
  * - Making use of container query and updating css variable. This is probably
  *   a bad idea but don't throw it out without any validation.
  */
