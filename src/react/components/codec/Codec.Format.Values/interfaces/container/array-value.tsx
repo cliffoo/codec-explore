@@ -37,7 +37,7 @@ export const { ArrayValue } = {
           }
         >
           {value.map((result, index) => (
-            <BracketDepthProvider increment key={index}>
+            <BracketDepthProvider key={index}>
               <InjectedNodeProvider
                 reset={index === value.length - 1}
                 value={{

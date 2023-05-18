@@ -32,7 +32,7 @@ export const { RevertMessageDecoding } = {
             </Code>
           }
         >
-          <BracketDepthProvider increment>
+          <BracketDepthProvider>
             <AbiArguments data={data.arguments} />
           </BracketDepthProvider>
         </Container>

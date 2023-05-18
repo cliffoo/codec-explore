@@ -32,7 +32,7 @@ export const { ConstructorDecoding } = {
             </Code>
           }
         >
-          <BracketDepthProvider increment>
+          <BracketDepthProvider>
             <AbiArguments data={data.arguments} />
           </BracketDepthProvider>
         </Container>

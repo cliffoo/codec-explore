@@ -4,23 +4,14 @@ export type BracketDepthContextValue = number;
 export const BracketDepthContext = createContext<BracketDepthContextValue>(0);
 export const useBracketDepth = () => useContext(BracketDepthContext);
 
-export interface BracketDepthProviderBaseProps {
+export interface BracketDepthProviderProps {
   children: React.ReactNode;
-  value?: number;
-  increment?: boolean;
 }
-export type BracketDepthProviderProps =
-  | (BracketDepthProviderBaseProps & { value: number })
-  | (BracketDepthProviderBaseProps & { increment: boolean });
 export function BracketDepthProvider({
-  children,
-  value,
-  increment
+  children
 }: BracketDepthProviderProps): JSX.Element {
-  if (!value && !increment) return <>{children}</>;
-  if (!value) value = useBracketDepth() + 1;
   return (
-    <BracketDepthContext.Provider value={value}>
+    <BracketDepthContext.Provider value={useBracketDepth() + 1}>
       {children}
     </BracketDepthContext.Provider>
   );

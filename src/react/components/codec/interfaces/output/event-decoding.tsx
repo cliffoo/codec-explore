@@ -32,7 +32,7 @@ export const { EventDecoding } = {
             </Code>
           }
         >
-          <BracketDepthProvider increment>
+          <BracketDepthProvider>
             <AbiArguments data={data.arguments} />
           </BracketDepthProvider>
         </Container>

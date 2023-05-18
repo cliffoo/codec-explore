@@ -16,7 +16,7 @@ export const { ReturnDecoding } = {
           prefix={<Code type="bracket">(</Code>}
           suffix={<Code type="bracket">)</Code>}
         >
-          <BracketDepthProvider increment>
+          <BracketDepthProvider>
             <AbiArguments data={data.arguments} />
           </BracketDepthProvider>
         </Container>

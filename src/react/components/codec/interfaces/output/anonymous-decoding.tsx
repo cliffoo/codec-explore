@@ -36,7 +36,7 @@ export const { AnonymousDecoding } = {
             </>
           }
         >
-          <BracketDepthProvider increment>
+          <BracketDepthProvider>
             <AbiArguments data={data.arguments} />
           </BracketDepthProvider>
         </Container>
