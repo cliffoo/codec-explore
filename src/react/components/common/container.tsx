@@ -6,12 +6,14 @@ export interface ContainerProps {
   children: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
+  forceWrap?: boolean;
   foldable?: boolean;
 }
 export function Container({
   children,
   prefix,
   suffix,
+  forceWrap,
   foldable
 }: ContainerProps): JSX.Element {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -46,7 +48,12 @@ export function Container({
         styles[`${wrapThreshold ? "responsive" : "flattened"}-container`]
       }
     >
-      <div ref={contentRef} className={styles[`content${wrap ? "-wrap" : ""}`]}>
+      <div
+        ref={contentRef}
+        className={
+          styles[`content${!fold && (forceWrap || wrap) ? "-wrap" : ""}`]
+        }
+      >
         <div className={styles["prefix"]}>
           {foldable && (
             <button onClick={toggleFold} className={styles["toggle"]}>
