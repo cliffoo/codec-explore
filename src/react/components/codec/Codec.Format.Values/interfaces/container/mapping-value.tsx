@@ -1,10 +1,7 @@
 import type { Format } from "@truffle/codec";
 import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
 import { KeyValuePair } from "@/react/components/codec/Codec.Format.Values/interfaces/other/key-value-pair";
-import {
-  useBracketDepth,
-  BracketDepthProvider
-} from "@/react/contexts/internal/bracket-depth";
+import { BracketDepthProvider } from "@/react/contexts/internal/bracket-depth";
 import {
   useInjectedNode,
   InjectedNodeProvider
@@ -19,22 +16,17 @@ export const { MappingValue } = {
     displayName,
     ({ value }: Format.Values.MappingValue) => {
       const { prefix, suffix } = useInjectedNode();
-      const bracketDepth = useBracketDepth();
       return (
         <Container
           prefix={
             <>
               {prefix?.prefix}
-              <Code type="bracket" bracketDepth={bracketDepth}>
-                {"{"}
-              </Code>
+              <Code type="bracket">{"{"}</Code>
             </>
           }
           suffix={
             <>
-              <Code type="bracket" bracketDepth={bracketDepth}>
-                {"}"}
-              </Code>
+              <Code type="bracket">{"}"}</Code>
               {suffix?.suffix}
             </>
           }

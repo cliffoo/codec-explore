@@ -1,5 +1,6 @@
 import styles from "./code.module.scss";
 import { useCodecComponents } from "@/react/contexts/codec-components";
+import { useBracketDepth } from "@/react/contexts/internal/bracket-depth";
 
 export type CodeProps = {
   children: React.ReactNode;
@@ -23,16 +24,11 @@ export type CodeProps = {
     | "comma"
     | "period"
     | "default";
-  bracketDepth?: number;
 } & React.HTMLAttributes<HTMLSpanElement>;
 
-export function Code({
-  children,
-  type,
-  bracketDepth,
-  ...props
-}: CodeProps): JSX.Element {
+export function Code({ children, type, ...props }: CodeProps): JSX.Element {
   const { colors, classNamePrefix } = useCodecComponents();
+  const bracketDepth = useBracketDepth();
   const color =
     type === "bracket"
       ? colors["bracket"][(bracketDepth || 0) % colors["bracket"].length] ||
