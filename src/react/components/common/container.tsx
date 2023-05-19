@@ -1,78 +1,65 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { useState, useRef, useEffect, useLayoutEffect, Children } from "react";
+import { useRef, useState, useLayoutEffect } from "react";
+import {
+  useRootContainer,
+  DescendantContainerProvider
+} from "@/react/contexts/internal/root-container";
 import styles from "./container.module.scss";
 
 export interface ContainerProps {
   children: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
-  forceWrap?: boolean;
-  foldable?: boolean;
+  empty: boolean;
 }
 export function Container({
   children,
   prefix,
   suffix,
-  forceWrap,
-  foldable
+  empty
 }: ContainerProps): JSX.Element {
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [wrapThreshold, setWrapThreshold] = useState<number>();
-  const [wrap, setWrap] = useState<boolean>();
+  const triangleButtonRef = useRef<HTMLButtonElement>(null);
+  const [triangleButtonWidth, setTriangleButtonWidth] = useState<number>();
+  const root = useRootContainer();
   const [fold, setFold] = useState<boolean>();
-  foldable &&= Children.count(children) > 0;
-
-  useEffect(
-    () =>
-      void setTimeout(
-        () => setWrapThreshold(contentRef.current!.scrollWidth),
-        0
-      ),
-    [setWrapThreshold, fold]
-  );
-
-  useLayoutEffect(() => {
-    if (!wrapThreshold) return;
-    const observer = new ResizeObserver(([container]) =>
-      setWrap(container.target.clientWidth < wrapThreshold)
-    );
-    observer.observe(contentRef.current!);
-    return () => observer.disconnect();
-  });
-
   const toggleFold = () => setFold(!fold);
 
+  useLayoutEffect(
+    () => setTriangleButtonWidth(triangleButtonRef.current?.clientWidth),
+    []
+  );
+
+  const containerClassName =
+    styles["container"] + ` ${fold || empty ? "" : styles["container-wrap"]}`;
+  const childrenClassName =
+    styles["children"] + ` ${fold ? styles["hide"] : ""}`;
+  const ellipsisButtonClassName =
+    styles["toggle"] + ` ${fold ? "" : styles["hide"]}`;
+
   return (
-    <div
-      className={
-        styles[`${wrapThreshold ? "responsive" : "flattened"}-container`]
-      }
-    >
+    <DescendantContainerProvider>
       <div
-        ref={contentRef}
-        className={
-          styles[`content${!fold && (forceWrap || wrap) ? "-wrap" : ""}`]
-        }
+        className={containerClassName}
+        style={{ marginLeft: root ? triangleButtonWidth : undefined }}
       >
         <div className={styles["prefix"]}>
-          {foldable && (
-            <button onClick={toggleFold} className={styles["toggle"]}>
+          {!empty && (
+            <button
+              ref={triangleButtonRef}
+              onClick={toggleFold}
+              className={styles["toggle"]}
+              style={{ marginLeft: -(triangleButtonWidth || 0) }}
+            >
               {fold ? <>&#9656;</> : <>&#9662;</>}
             </button>
           )}
           {prefix}
         </div>
-        <div className={`${styles["children"]} ${fold ? styles["hide"] : ""}`}>
-          {children}
-        </div>
-        <button
-          onClick={toggleFold}
-          className={`${styles["toggle"]} ${fold ? "" : styles["hide"]}`}
-        >
+        <div className={childrenClassName}>{children}</div>
+        <button onClick={toggleFold} className={ellipsisButtonClassName}>
           &#8943;
         </button>
         <div className={styles["suffix"]}>{suffix}</div>
       </div>
-    </div>
+    </DescendantContainerProvider>
   );
 }

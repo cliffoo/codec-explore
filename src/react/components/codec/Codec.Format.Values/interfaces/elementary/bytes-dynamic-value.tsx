@@ -9,11 +9,15 @@ const displayName = "BytesDynamicValue";
 export const { BytesDynamicValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    ({ value, type }: Format.Values.BytesDynamicValue) => (
-      <Code type="bytes" title={`type: ${typeString(type)}`}>
-        {value.asHex}
-        {useInjectedNode().content?.suffix}
-      </Code>
-    )
+    ({ value, type }: Format.Values.BytesDynamicValue) => {
+      const { prefix, content } = useInjectedNode();
+      return (
+        <Code type="bytes" title={`type: ${typeString(type)}`}>
+          {prefix?.prefix}
+          {value.asHex}
+          {content?.suffix}
+        </Code>
+      );
+    }
   )
 };

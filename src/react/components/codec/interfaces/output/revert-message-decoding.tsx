@@ -31,6 +31,7 @@ export const { RevertMessageDecoding } = {
               )
             </Code>
           }
+          empty={data.arguments.length === 0}
         >
           <BracketDepthProvider>
             <AbiArguments data={data.arguments} />

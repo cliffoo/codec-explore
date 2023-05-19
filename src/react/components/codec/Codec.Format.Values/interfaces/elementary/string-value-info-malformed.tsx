@@ -8,11 +8,15 @@ const displayName = "StringValueInfoMalformed";
 export const { StringValueInfoMalformed } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    (data: Format.Values.StringValueInfoMalformed) => (
-      <Code type="bytes" title={`type: string (${data.kind})`}>
-        {data.asHex}
-        {useInjectedNode().content?.suffix}
-      </Code>
-    )
+    (data: Format.Values.StringValueInfoMalformed) => {
+      const { prefix, content } = useInjectedNode();
+      return (
+        <Code type="bytes" title={`type: string (${data.kind})`}>
+          {prefix?.prefix}
+          {data.asHex}
+          {content?.suffix}
+        </Code>
+      );
+    }
   )
 };

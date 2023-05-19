@@ -15,6 +15,7 @@ export const { ReturnDecoding } = {
         <Container
           prefix={<Code type="bracket">(</Code>}
           suffix={<Code type="bracket">)</Code>}
+          empty={data.arguments.length === 0}
         >
           <BracketDepthProvider>
             <AbiArguments data={data.arguments} />

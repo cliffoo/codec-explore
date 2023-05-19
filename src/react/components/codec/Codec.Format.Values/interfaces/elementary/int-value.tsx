@@ -9,11 +9,15 @@ const displayName = "IntValue";
 export const { IntValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    ({ value, type }: Format.Values.IntValue) => (
-      <Code type="number" title={`type: ${typeStringWithoutLocation(type)}`}>
-        {value.asBN.toString()}
-        {useInjectedNode().content?.suffix}
-      </Code>
-    )
+    ({ value, type }: Format.Values.IntValue) => {
+      const { prefix, content } = useInjectedNode();
+      return (
+        <Code type="number" title={`type: ${typeStringWithoutLocation(type)}`}>
+          {prefix?.prefix}
+          {value.asBN.toString()}
+          {content?.suffix}
+        </Code>
+      );
+    }
   )
 };

@@ -11,6 +11,7 @@ export const { MessageDecoding } = {
     displayName,
     (data: Codec.MessageDecoding) => {
       const bracketDepth = useBracketDepth();
+      const empty = data.data === "0x" || data.data === "";
       return (
         <Container
           prefix={
@@ -29,9 +30,10 @@ export const { MessageDecoding } = {
               )
             </Code>
           }
+          empty={empty}
         >
           <Code type="bytes" title="type: bytes">
-            {data.data}
+            {!empty && data.data}
           </Code>
         </Container>
       );

@@ -9,11 +9,15 @@ const displayName = "BytesStaticValue";
 export const { BytesStaticValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    ({ value, type }: Format.Values.BytesStaticValue) => (
-      <Code type="bytes" title={`type: ${typeStringWithoutLocation(type)}`}>
-        {value.asHex}
-        {useInjectedNode().content?.suffix}
-      </Code>
-    )
+    ({ value, type }: Format.Values.BytesStaticValue) => {
+      const { prefix, content } = useInjectedNode();
+      return (
+        <Code type="bytes" title={`type: ${typeStringWithoutLocation(type)}`}>
+          {prefix?.prefix}
+          {value.asHex}
+          {content?.suffix}
+        </Code>
+      );
+    }
   )
 };

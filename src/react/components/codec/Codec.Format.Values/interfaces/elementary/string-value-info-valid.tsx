@@ -8,10 +8,13 @@ const displayName = "StringValueInfoValid";
 export const { StringValueInfoValid } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    (data: Format.Values.StringValueInfoValid) => (
-      <Code type="string" title="type: string">
-        "{data.asString}"{useInjectedNode().content?.suffix}
-      </Code>
-    )
+    (data: Format.Values.StringValueInfoValid) => {
+      const { prefix, content } = useInjectedNode();
+      return (
+        <Code type="string" title="type: string">
+          {prefix?.prefix}"{data.asString}"{content?.suffix}
+        </Code>
+      );
+    }
   )
 };

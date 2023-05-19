@@ -9,11 +9,15 @@ const displayName = "BoolValue";
 export const { BoolValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    ({ value, type }: Format.Values.BoolValue) => (
-      <Code type="boolean" title={`type: ${typeStringWithoutLocation(type)}`}>
-        {value.asBoolean.toString()}
-        {useInjectedNode().content?.suffix}
-      </Code>
-    )
+    ({ value, type }: Format.Values.BoolValue) => {
+      const { prefix, content } = useInjectedNode();
+      return (
+        <Code type="boolean" title={`type: ${typeStringWithoutLocation(type)}`}>
+          {prefix?.prefix}
+          {value.asBoolean.toString()}
+          {content?.suffix}
+        </Code>
+      );
+    }
   )
 };

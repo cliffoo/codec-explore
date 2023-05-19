@@ -35,6 +35,7 @@ export const { AnonymousDecoding } = {
               <Code type="default">&nbsp;anonymous</Code>
             </>
           }
+          empty={data.arguments.length === 0}
         >
           <BracketDepthProvider>
             <AbiArguments data={data.arguments} />

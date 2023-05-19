@@ -9,11 +9,15 @@ const displayName = "EnumValue";
 export const { EnumValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    ({ value, type }: Format.Values.EnumValue) => (
-      <Code type="enum" title={`type: ${typeStringWithoutLocation(type)}`}>
-        {value.name}
-        {useInjectedNode().content?.suffix}
-      </Code>
-    )
+    ({ value, type }: Format.Values.EnumValue) => {
+      const { prefix, content } = useInjectedNode();
+      return (
+        <Code type="enum" title={`type: ${typeStringWithoutLocation(type)}`}>
+          {prefix?.prefix}
+          {value.name}
+          {content?.suffix}
+        </Code>
+      );
+    }
   )
 };

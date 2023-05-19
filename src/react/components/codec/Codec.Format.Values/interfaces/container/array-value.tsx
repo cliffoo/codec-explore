@@ -18,14 +18,17 @@ export const { ArrayValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
     ({ value }: Format.Values.ArrayValue) => {
-      const { suffix } = useInjectedNode();
+      const { prefix, suffix } = useInjectedNode();
       const bracketDepth = useBracketDepth();
       return (
         <Container
           prefix={
-            <Code type="bracket" bracketDepth={bracketDepth}>
-              [
-            </Code>
+            <>
+              {prefix?.prefix}
+              <Code type="bracket" bracketDepth={bracketDepth}>
+                [
+              </Code>
+            </>
           }
           suffix={
             <>
@@ -35,6 +38,7 @@ export const { ArrayValue } = {
               {suffix?.suffix}
             </>
           }
+          empty={value.length === 0}
         >
           {value.map((result, index) => (
             <BracketDepthProvider key={index}>

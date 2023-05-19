@@ -9,11 +9,15 @@ const displayName = "AddressValue";
 export const { AddressValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    ({ value, type }: Format.Values.AddressValue) => (
-      <Code type="address" title={`type: ${typeStringWithoutLocation(type)}`}>
-        {value.asAddress}
-        {useInjectedNode().content?.suffix}
-      </Code>
-    )
+    ({ value, type }: Format.Values.AddressValue) => {
+      const { prefix, content } = useInjectedNode();
+      return (
+        <Code type="address" title={`type: ${typeStringWithoutLocation(type)}`}>
+          {prefix?.prefix}
+          {value.asAddress}
+          {content?.suffix}
+        </Code>
+      );
+    }
   )
 };

@@ -18,14 +18,17 @@ export const { MappingValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
     ({ value }: Format.Values.MappingValue) => {
-      const { suffix } = useInjectedNode();
+      const { prefix, suffix } = useInjectedNode();
       const bracketDepth = useBracketDepth();
       return (
         <Container
           prefix={
-            <Code type="bracket" bracketDepth={bracketDepth}>
-              {"{"}
-            </Code>
+            <>
+              {prefix?.prefix}
+              <Code type="bracket" bracketDepth={bracketDepth}>
+                {"{"}
+              </Code>
+            </>
           }
           suffix={
             <>
@@ -35,6 +38,7 @@ export const { MappingValue } = {
               {suffix?.suffix}
             </>
           }
+          empty={value.length === 0}
         >
           {value.map((keyValuePair, index) => (
             <BracketDepthProvider key={index}>

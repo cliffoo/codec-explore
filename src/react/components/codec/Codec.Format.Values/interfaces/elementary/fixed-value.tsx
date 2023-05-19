@@ -9,11 +9,15 @@ const displayName = "FixedValue";
 export const { FixedValue } = {
   [displayName]: createPolymorphicComponent(
     displayName,
-    ({ value, type }: Format.Values.FixedValue) => (
-      <Code type="number" title={`type: ${typeStringWithoutLocation(type)}`}>
-        {value.asBig.toString()}
-        {useInjectedNode().content?.suffix}
-      </Code>
-    )
+    ({ value, type }: Format.Values.FixedValue) => {
+      const { prefix, content } = useInjectedNode();
+      return (
+        <Code type="number" title={`type: ${typeStringWithoutLocation(type)}`}>
+          {prefix?.prefix}
+          {value.asBig.toString()}
+          {content?.suffix}
+        </Code>
+      );
+    }
   )
 };
