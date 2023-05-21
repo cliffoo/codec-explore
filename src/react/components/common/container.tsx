@@ -1,7 +1,7 @@
 import { useRef, useState, useLayoutEffect } from "react";
 import {
-  useRootContainer,
-  DescendantContainerProvider
+  RootContainerContext,
+  useRootContainer
 } from "@/react/contexts/internal/root-container";
 import styles from "./container.module.scss";
 
@@ -36,7 +36,7 @@ export function Container({
     styles["toggle"] + ` ${fold ? "" : styles["hide"]}`;
 
   return (
-    <DescendantContainerProvider>
+    <RootContainerContext.Provider value={false}>
       <div
         className={containerClassName}
         style={{ marginLeft: root ? triangleButtonWidth : undefined }}
@@ -60,6 +60,6 @@ export function Container({
         </button>
         <div className={styles["suffix"]}>{suffix}</div>
       </div>
-    </DescendantContainerProvider>
+    </RootContainerContext.Provider>
   );
 }
