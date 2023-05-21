@@ -1,14 +1,14 @@
 import type { ClassNamePrefixContextValue } from "@/react/contexts/internal/class-name-prefix";
 import {
-  useClassNamePrefix,
-  ClassNamePrefixContext
+  ClassNamePrefixContext,
+  useClassNamePrefix
 } from "@/react/contexts/internal/class-name-prefix";
 import type { ColorsContextValue } from "@/react/contexts/internal/colors";
-import { useColors, ColorsContext } from "@/react/contexts/internal/colors";
+import { ColorsContext, useColors } from "@/react/contexts/internal/colors";
 import type { CustomComponentsContextValue } from "@/react/contexts/internal/custom-components";
 import {
-  useCustomComponents,
-  CustomComponentsContext
+  CustomComponentsContext,
+  useCustomComponents
 } from "@/react/contexts/internal/custom-components";
 
 export type CodecComponentsProviderProps = {
