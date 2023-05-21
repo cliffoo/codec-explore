@@ -1,6 +1,8 @@
 import { createContext, useContext } from "react";
 
-export const RootContainerContext = createContext<boolean>(true);
+export type RootContainerContextValue = boolean;
+export const RootContainerContext =
+  createContext<RootContainerContextValue>(true);
 export const useRootContainer = () => useContext(RootContainerContext);
 
 export interface DescendantContainerProviderProps {

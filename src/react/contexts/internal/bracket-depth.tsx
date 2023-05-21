@@ -1,6 +1,7 @@
 import { createContext, useContext } from "react";
 
-export const BracketDepthContext = createContext<number>(0);
+export type BracketDepthContextValue = number;
+export const BracketDepthContext = createContext<BracketDepthContextValue>(0);
 export const useBracketDepth = () => useContext(BracketDepthContext);
 
 export interface BracketDepthProviderProps {
