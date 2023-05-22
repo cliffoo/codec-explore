@@ -28,6 +28,7 @@ export type CodeProps = {
 } & React.HTMLAttributes<HTMLSpanElement>;
 
 export function Code({ children, type, ...props }: CodeProps): JSX.Element {
+  type ||= "default";
   const bracketDepth = useBracketDepth();
   const classNamePrefix = useClassNamePrefix();
   const colors = useColors();
@@ -35,11 +36,15 @@ export function Code({ children, type, ...props }: CodeProps): JSX.Element {
     type === "bracket"
       ? colors["bracket"][(bracketDepth || 0) % colors["bracket"].length] ||
         colors["default"]
-      : colors[type || "default"];
+      : colors[type];
 
   return (
     <span
-      className={`${styles["code"]} ${classNamePrefix}-code`}
+      className={
+        styles["code"] +
+        ` ${classNamePrefix}-code` +
+        ` ${classNamePrefix}-code-${type}`
+      }
       style={{ color }}
       {...props}
     >
