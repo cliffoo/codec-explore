@@ -23,34 +23,37 @@ export type CodecComponentsProviderProps = {
   initialFoldDepth?: ContainerDepthContextValue["initialFoldDepth"];
   components?: CustomComponentsContextValue;
 };
-export function CodecComponentsProvider({
-  children,
-  classNamePrefix,
-  colors,
-  initialFoldDepth,
-  components
-}: CodecComponentsProviderProps): JSX.Element {
+export function CodecComponentsProvider(
+  props: CodecComponentsProviderProps
+): JSX.Element {
+  const classNamePrefix = useClassNamePrefix();
   const containerDepth = useContainerDepth();
   const customComponents = useCustomComponents();
   return (
     <ClassNamePrefixContext.Provider
-      value={classNamePrefix || useClassNamePrefix()}
+      value={props.classNamePrefix || classNamePrefix}
     >
-      <ColorsContext.Provider value={{ ...useColors(), ...colors }}>
+      <ColorsContext.Provider value={{ ...useColors(), ...props.colors }}>
         <ContainerDepthContext.Provider
           value={{
             current: containerDepth.current,
             initialFoldDepth:
-              initialFoldDepth || containerDepth.initialFoldDepth
+              props.initialFoldDepth || containerDepth.initialFoldDepth
           }}
         >
           <CustomComponentsContext.Provider
             value={{
-              codec: { ...customComponents.codec, ...components?.codec },
-              common: { ...customComponents.common, ...components?.common }
+              codec: {
+                ...customComponents.codec,
+                ...props.components?.codec
+              },
+              common: {
+                ...customComponents.common,
+                ...props.components?.common
+              }
             }}
           >
-            {children}
+            {props.children}
           </CustomComponentsContext.Provider>
         </ContainerDepthContext.Provider>
       </ColorsContext.Provider>
