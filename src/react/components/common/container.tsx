@@ -1,8 +1,8 @@
 import { useRef, useState, useLayoutEffect } from "react";
 import {
-  RootContainerContext,
-  useRootContainer
-} from "@/react/contexts/internal/root-container";
+  useContainerDepth,
+  ContainerDepthProvider
+} from "@/react/contexts/internal/container-depth";
 import styles from "./container.module.scss";
 
 export interface ContainerProps {
@@ -19,14 +19,15 @@ export function Container({
 }: ContainerProps): JSX.Element {
   const triangleButtonRef = useRef<HTMLButtonElement>(null);
   const [triangleButtonWidth, setTriangleButtonWidth] = useState<number>();
-  const root = useRootContainer();
-  const [fold, setFold] = useState<boolean>();
+  const { initialFold, root } = useContainerDepth();
+  const [fold, setFold] = useState(initialFold);
   const toggleFold = () => setFold(!fold);
 
-  useLayoutEffect(
-    () => setTriangleButtonWidth(triangleButtonRef.current?.clientWidth),
-    []
-  );
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useLayoutEffect(() => {
+    if (!triangleButtonWidth)
+      setTriangleButtonWidth(triangleButtonRef.current?.clientWidth);
+  });
 
   const containerClassName =
     styles["container"] + ` ${fold || empty ? "" : styles["container-wrap"]}`;
@@ -36,7 +37,7 @@ export function Container({
     styles["toggle"] + ` ${fold ? "" : styles["hide"]}`;
 
   return (
-    <RootContainerContext.Provider value={false}>
+    <ContainerDepthProvider>
       <div
         className={containerClassName}
         style={{ marginLeft: root ? triangleButtonWidth : undefined }}
@@ -60,6 +61,6 @@ export function Container({
         </button>
         <div className={styles["suffix"]}>{suffix}</div>
       </div>
-    </RootContainerContext.Provider>
+    </ContainerDepthProvider>
   );
 }
