@@ -12,6 +12,109 @@ export interface CustomComponentsContextValue {
   // @/react/components/codec
   codec?: Partial<
     CustomComponents<{
+      // /Codec.Format.Errors/interfaces/container
+      ArrayErrorResult: Codec.Format.Errors.ArrayErrorResult;
+      MappingErrorResult: Codec.Format.Errors.MappingErrorResult;
+      StructErrorResult: Codec.Format.Errors.StructErrorResult;
+      TupleErrorResult: Codec.Format.Errors.TupleErrorResult;
+      // /Codec.Format.Errors/interfaces/elementary
+      AddressErrorResult: Codec.Format.Errors.AddressErrorResult;
+      AddressPaddingError: Codec.Format.Errors.AddressPaddingError;
+      BoolErrorResult: Codec.Format.Errors.BoolErrorResult;
+      BoolOutOfRangeError: Codec.Format.Errors.BoolOutOfRangeError;
+      BoolPaddingError: Codec.Format.Errors.BoolPaddingError;
+      BytesDynamicErrorResult: Codec.Format.Errors.BytesDynamicErrorResult;
+      BytesPaddingError: Codec.Format.Errors.BytesPaddingError;
+      BytesStaticErrorResult: Codec.Format.Errors.BytesStaticErrorResult;
+      EnumPaddingError: Codec.Format.Errors.EnumPaddingError;
+      FixedErrorResult: Codec.Format.Errors.FixedErrorResult;
+      FixedPaddingError: Codec.Format.Errors.FixedPaddingError;
+      IntErrorResult: Codec.Format.Errors.IntErrorResult;
+      IntPaddingError: Codec.Format.Errors.IntPaddingError;
+      StringErrorResult: Codec.Format.Errors.StringErrorResult;
+      UfixedErrorResult: Codec.Format.Errors.UfixedErrorResult;
+      UfixedPaddingError: Codec.Format.Errors.UfixedPaddingError;
+      UintErrorResult: Codec.Format.Errors.UintErrorResult;
+      UintPaddingError: Codec.Format.Errors.UintPaddingError;
+      // /Codec.Format.Errors/interfaces/function
+      DeployedFunctionInConstructorError: Codec.Format.Errors.DeployedFunctionInConstructorError;
+      FunctionExternalErrorResult: Codec.Format.Errors.FunctionExternalErrorResult;
+      FunctionExternalNonStackPaddingError: Codec.Format.Errors.FunctionExternalNonStackPaddingError;
+      FunctionExternalStackPaddingError: Codec.Format.Errors.FunctionExternalStackPaddingError;
+      FunctionInternalErrorResult: Codec.Format.Errors.FunctionInternalErrorResult;
+      FunctionInternalPaddingError: Codec.Format.Errors.FunctionInternalPaddingError;
+      MalformedInternalFunctionError: Codec.Format.Errors.MalformedInternalFunctionError;
+      NoSuchInternalFunctionError: Codec.Format.Errors.NoSuchInternalFunctionError;
+      // /Codec.Format.Errors/interfaces/generic
+      CodeNotSuppliedError: Codec.Format.Errors.CodeNotSuppliedError;
+      IndexedReferenceTypeError: Codec.Format.Errors.IndexedReferenceTypeError;
+      OverlargePointersNotImplementedError: Codec.Format.Errors.OverlargePointersNotImplementedError;
+      OverlongArraysAndStringsNotImplementedError: Codec.Format.Errors.OverlongArraysAndStringsNotImplementedError;
+      ReadErrorBytes: Codec.Format.Errors.ReadErrorBytes;
+      ReadErrorStack: Codec.Format.Errors.ReadErrorStack;
+      ReadErrorStorage: Codec.Format.Errors.ReadErrorStorage;
+      StorageNotSuppliedError: Codec.Format.Errors.StorageNotSuppliedError;
+      UnsupportedConstantError: Codec.Format.Errors.UnsupportedConstantError;
+      UnusedImmutableError: Codec.Format.Errors.UnusedImmutableError;
+      UserDefinedTypeNotFoundError: Codec.Format.Errors.UserDefinedTypeNotFoundError;
+      // /Codec.Format.Errors/interfaces/internal-use
+      InternalFunctionInABIError: Codec.Format.Errors.InternalFunctionInABIError;
+      OverlongArrayOrStringStrictModeError: Codec.Format.Errors.OverlongArrayOrStringStrictModeError;
+      // /Codec.Format.Errors/interfaces/other
+      OptionsErrorResult: Codec.Format.Errors.OptionsErrorResult;
+      // /Codec.Format.Errors/interfaces/special-container
+      MagicErrorResult: Codec.Format.Errors.MagicErrorResult;
+      TypeErrorResult: Codec.Format.Errors.TypeErrorResult;
+      // /Codec.Format.Errors/interfaces/user-defined-elementary
+      ContractErrorResult: Codec.Format.Errors.ContractErrorResult;
+      ContractPaddingError: Codec.Format.Errors.ContractPaddingError;
+      EnumErrorResult: Codec.Format.Errors.EnumErrorResult;
+      EnumNotFoundDecodingError: Codec.Format.Errors.EnumNotFoundDecodingError;
+      EnumOutOfRangeError: Codec.Format.Errors.EnumOutOfRangeError;
+      UserDefinedValueTypeErrorResult: Codec.Format.Errors.UserDefinedValueTypeErrorResult;
+      WrappedError: Codec.Format.Errors.WrappedError;
+      // /Codec.Format.Errors/types/container
+      ArrayError: Codec.Format.Errors.ArrayError;
+      MappingError: Codec.Format.Errors.MappingError;
+      StructError: Codec.Format.Errors.StructError;
+      TupleError: Codec.Format.Errors.TupleError;
+      // /Codec.Format.Errors/types/elementary
+      AddressError: Codec.Format.Errors.AddressError;
+      BoolError: Codec.Format.Errors.BoolError;
+      BuiltInValueErrorResult: Codec.Format.Errors.BuiltInValueErrorResult;
+      BytesDynamicError: Codec.Format.Errors.BytesDynamicError;
+      BytesErrorResult: Codec.Format.Errors.BytesErrorResult;
+      BytesStaticError: Codec.Format.Errors.BytesStaticError;
+      ElementaryErrorResult: Codec.Format.Errors.ElementaryErrorResult;
+      FixedError: Codec.Format.Errors.FixedError;
+      IntError: Codec.Format.Errors.IntError;
+      StringError: Codec.Format.Errors.StringError;
+      UfixedError: Codec.Format.Errors.UfixedError;
+      UintError: Codec.Format.Errors.UintError;
+      // /Codec.Format.Errors/types/function
+      FunctionExternalError: Codec.Format.Errors.FunctionExternalError;
+      FunctionInternalError: Codec.Format.Errors.FunctionInternalError;
+      // /Codec.Format.Errors/types/general
+      AbiErrorResult: Codec.Format.Errors.AbiErrorResult;
+      DecoderError: Codec.Format.Errors.DecoderError;
+      ErrorResult: Codec.Format.Errors.ErrorResult;
+      // /Codec.Format.Errors/types/generic
+      DynamicDataImplementationError: Codec.Format.Errors.DynamicDataImplementationError;
+      ErrorForThrowing: Codec.Format.Errors.ErrorForThrowing;
+      GenericError: Codec.Format.Errors.GenericError;
+      ReadError: Codec.Format.Errors.ReadError;
+      // /Codec.Format.Errors/types/internal-use
+      InternalUseError: Codec.Format.Errors.InternalUseError;
+      // /Codec.Format.Errors/types/other
+      BytesLocation: Codec.Format.Errors.BytesLocation;
+      OptionsError: Codec.Format.Errors.OptionsError;
+      // /Codec.Format.Errors/types/special-container
+      MagicError: Codec.Format.Errors.MagicError;
+      TypeErrorUnion: Codec.Format.Errors.TypeErrorUnion;
+      // /Codec.Format.Errors/types/user-defined-elementary
+      ContractError: Codec.Format.Errors.ContractError;
+      EnumError: Codec.Format.Errors.EnumError;
+      UserDefinedValueTypeError: Codec.Format.Errors.UserDefinedValueTypeError;
       // /Codec.Format.Values/interfaces/container
       ArrayValue: Codec.Format.Values.ArrayValue;
       MappingValue: Codec.Format.Values.MappingValue;
@@ -101,7 +204,21 @@ export interface CustomComponentsContextValue {
       Options: Codec.Options;
       // /interfaces/output
       AbiArgument: Codec.AbiArgument;
+      AnonymousDecoding: Codec.AnonymousDecoding;
+      BytecodeDecoding: Codec.BytecodeDecoding;
       ConstructorDecoding: Codec.ConstructorDecoding;
+      EmptyFailureDecoding: Codec.EmptyFailureDecoding;
+      EventDecoding: Codec.EventDecoding;
+      FunctionDecoding: Codec.FunctionDecoding;
+      MessageDecoding: Codec.MessageDecoding;
+      RawReturnDecoding: Codec.RawReturnDecoding;
+      ReturnDecoding: Codec.ReturnDecoding;
+      RevertMessageDecoding: Codec.RevertMessageDecoding;
+      SelfDestructDecoding: Codec.SelfDestructDecoding;
+      StateVariable: Codec.StateVariable;
+      UnknownBytecodeDecoding: Codec.UnknownBytecodeDecoding;
+      UnknownCallDecoding: Codec.UnknownCallDecoding;
+      UnknownCreationDecoding: Codec.UnknownCreationDecoding;
     }>
   >;
   // @/react/components/common
