@@ -1,11 +1,11 @@
 import type * as Codec from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { Code } from "@/react/components/common/code";
 
 const displayName = "UnknownCreationDecoding";
 
 export const { UnknownCreationDecoding } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     ({ bytecode }: Codec.UnknownCreationDecoding) => (
       // TODO

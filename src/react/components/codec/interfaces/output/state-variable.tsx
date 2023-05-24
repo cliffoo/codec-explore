@@ -1,5 +1,5 @@
 import type * as Codec from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { Result } from "@/react/components/codec/Codec.Format.Values/types/general/result";
 import { InjectedNodeProvider } from "@/react/contexts/internal/injected-node";
 import { Code } from "@/react/components/common/code";
@@ -7,7 +7,7 @@ import { Code } from "@/react/components/common/code";
 const displayName = "StateVariable";
 
 export const { StateVariable } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Codec.StateVariable) => (
       <InjectedNodeProvider

@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { Result } from "@/react/components/codec/Codec.Format.Values/types/general/result";
 import { BracketDepthProvider } from "@/react/contexts/internal/bracket-depth";
 import {
@@ -12,7 +12,7 @@ import { Code } from "@/react/components/common/code";
 const displayName = "ArrayValue";
 
 export const { ArrayValue } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     ({ value }: Format.Values.ArrayValue) => {
       const { prefix, suffix } = useInjectedNode();

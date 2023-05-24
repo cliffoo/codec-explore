@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isBoolValue } from "@/utils/type-guards/value-and-result/bool";
 import { BoolValue } from "@/react/components/codec/Codec.Format.Values/interfaces/elementary/bool-value";
 import { BoolErrorResult } from "@/react/components/codec/Codec.Format.Errors/interfaces/elementary/bool-error-result";
@@ -7,7 +7,7 @@ import { BoolErrorResult } from "@/react/components/codec/Codec.Format.Errors/in
 const displayName = "BoolResult";
 
 export const { BoolResult } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Values.BoolResult) =>
       isBoolValue(data) ? (

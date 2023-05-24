@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isMagicValue } from "@/utils/type-guards/value-and-result/magic";
 import { MagicValue } from "@/react/components/codec/Codec.Format.Values/interfaces/special-container/magic-value";
 import { MagicErrorResult } from "@/react/components/codec/Codec.Format.Errors/interfaces/special-container/magic-error-result";
@@ -7,7 +7,7 @@ import { MagicErrorResult } from "@/react/components/codec/Codec.Format.Errors/i
 const displayName = "MagicResult";
 
 export const { MagicResult } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Values.MagicResult) =>
       isMagicValue(data) ? (

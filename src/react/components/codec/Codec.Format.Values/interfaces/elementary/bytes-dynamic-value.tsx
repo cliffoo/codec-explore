@@ -1,13 +1,13 @@
 import type { Format } from "@truffle/codec";
 import { typeString } from "@truffle/codec/dist/lib/format/types";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { useInjectedNode } from "@/react/contexts/internal/injected-node";
 import { Code } from "@/react/components/common/code";
 
 const displayName = "BytesDynamicValue";
 
 export const { BytesDynamicValue } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     ({ value, type }: Format.Values.BytesDynamicValue) => {
       const { prefix, content } = useInjectedNode();

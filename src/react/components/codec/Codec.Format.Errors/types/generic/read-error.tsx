@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isUnsupportedConstantError } from "@/utils/type-guards/decoder-error/unsupported-constant-error";
 import { UnsupportedConstantError } from "@/react/components/codec/Codec.Format.Errors/interfaces/generic/unsupported-constant-error";
 import { isReadErrorStack } from "@/utils/type-guards/decoder-error/read-error-stack";
@@ -17,7 +17,7 @@ import { CodeNotSuppliedError } from "@/react/components/codec/Codec.Format.Erro
 const displayName = "ReadError";
 
 export const { ReadError } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Errors.ReadError) =>
       isUnsupportedConstantError(data) ? (

@@ -1,11 +1,11 @@
 import type * as Codec from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { Code } from "@/react/components/common/code";
 
 const displayName = "EmptyFailureDecoding";
 
 export const { EmptyFailureDecoding } = {
-  [displayName]: createPolymorphicComponent<Codec.EmptyFailureDecoding>(
+  [displayName]: createCodecComponent<Codec.EmptyFailureDecoding>(
     displayName,
     () => (
       <Code type="revert-keyword">

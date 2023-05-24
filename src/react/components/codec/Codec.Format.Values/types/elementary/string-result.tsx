@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isStringValue } from "@/utils/type-guards/value-and-result/string";
 import { StringValue } from "@/react/components/codec/Codec.Format.Values/interfaces/elementary/string-value";
 import { StringErrorResult } from "@/react/components/codec/Codec.Format.Errors/interfaces/elementary/string-error-result";
@@ -7,7 +7,7 @@ import { StringErrorResult } from "@/react/components/codec/Codec.Format.Errors/
 const displayName = "StringResult";
 
 export const { StringResult } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Values.StringResult) =>
       isStringValue(data) ? (

@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isUintValue } from "@/utils/type-guards/value-and-result/uint";
 import { UintValue } from "@/react/components/codec/Codec.Format.Values/interfaces/elementary/uint-value";
 import { isIntValue } from "@/utils/type-guards/value-and-result/int";
@@ -17,7 +17,7 @@ import { UfixedValue } from "@/react/components/codec/Codec.Format.Values/interf
 const displayName = "BuiltInValueValue";
 
 export const { BuiltInValueValue } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Values.BuiltInValueValue) =>
       isUintValue(data) ? (

@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isBytesStaticError } from "@/utils/type-guards/decoder-error/bytes-static-error";
 import { BytesStaticError } from "@/react/components/codec/Codec.Format.Errors/types/elementary/bytes-static-error";
 import { GenericError } from "@/react/components/codec/Codec.Format.Errors/types/generic/generic-error";
@@ -7,7 +7,7 @@ import { GenericError } from "@/react/components/codec/Codec.Format.Errors/types
 const displayName = "BytesStaticErrorResult";
 
 export const { BytesStaticErrorResult } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     ({ error }: Format.Errors.BytesStaticErrorResult) =>
       isBytesStaticError(error) ? (

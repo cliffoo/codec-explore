@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isUintResult } from "@/utils/type-guards/value-and-result/uint";
 import { UintResult } from "@/react/components/codec/Codec.Format.Values/types/elementary/uint-result";
 import { isIntResult } from "@/utils/type-guards/value-and-result/int";
@@ -25,7 +25,7 @@ import { TupleResult } from "@/react/components/codec/Codec.Format.Values/types/
 const displayName = "AbiResult";
 
 export const { AbiResult } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Values.AbiResult) =>
       isUintResult(data) ? (

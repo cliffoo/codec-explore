@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isBytesDynamicValue } from "@/utils/type-guards/value-and-result/bytes-dynamic";
 import { BytesDynamicValue } from "@/react/components/codec/Codec.Format.Values/interfaces/elementary/bytes-dynamic-value";
 import { BytesDynamicErrorResult } from "@/react/components/codec/Codec.Format.Errors/interfaces/elementary/bytes-dynamic-error-result";
@@ -7,7 +7,7 @@ import { BytesDynamicErrorResult } from "@/react/components/codec/Codec.Format.E
 const displayName = "BytesDynamicResult";
 
 export const { BytesDynamicResult } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Values.BytesDynamicResult) =>
       isBytesDynamicValue(data) ? (

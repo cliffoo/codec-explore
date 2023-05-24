@@ -1,12 +1,12 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { useInjectedNode } from "@/react/contexts/internal/injected-node";
 import { Code } from "@/react/components/common/code";
 
 const displayName = "StringValueInfoMalformed";
 
 export const { StringValueInfoMalformed } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Values.StringValueInfoMalformed) => {
       const { prefix, content } = useInjectedNode();

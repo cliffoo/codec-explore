@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isContractValue } from "@/utils/type-guards/value-and-result/contract";
 import { ContractValue } from "@/react/components/codec/Codec.Format.Values/interfaces/user-defined-elementary/contract-value";
 import { ContractErrorResult } from "@/react/components/codec/Codec.Format.Errors/interfaces/user-defined-elementary/contract-error-result";
@@ -7,7 +7,7 @@ import { ContractErrorResult } from "@/react/components/codec/Codec.Format.Error
 const displayName = "ContractResult";
 
 export const { ContractResult } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Values.ContractResult) =>
       isContractValue(data) ? (

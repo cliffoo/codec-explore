@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isFixedError } from "@/utils/type-guards/decoder-error/fixed-error";
 import { FixedError } from "@/react/components/codec/Codec.Format.Errors/types/elementary/fixed-error";
 import { GenericError } from "@/react/components/codec/Codec.Format.Errors/types/generic/generic-error";
@@ -7,7 +7,7 @@ import { GenericError } from "@/react/components/codec/Codec.Format.Errors/types
 const displayName = "FixedErrorResult";
 
 export const { FixedErrorResult } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     ({ error }: Format.Errors.FixedErrorResult) =>
       isFixedError(error) ? (

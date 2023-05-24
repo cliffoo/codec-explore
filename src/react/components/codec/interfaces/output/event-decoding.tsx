@@ -1,5 +1,5 @@
 import type * as Codec from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { BracketDepthProvider } from "@/react/contexts/internal/bracket-depth";
 import { Container } from "@/react/components/common/container";
 import { Code } from "@/react/components/common/code";
@@ -8,7 +8,7 @@ import { AbiArguments } from "@/react/components/common/abi-arguments";
 const displayName = "EventDecoding";
 
 export const { EventDecoding } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Codec.EventDecoding) => {
       return (

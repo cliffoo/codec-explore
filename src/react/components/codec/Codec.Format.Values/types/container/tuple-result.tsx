@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isTupleValue } from "@/utils/type-guards/value-and-result/tuple";
 import { TupleValue } from "@/react/components/codec/Codec.Format.Values/interfaces/container/tuple-value";
 import { TupleErrorResult } from "@/react/components/codec/Codec.Format.Errors/interfaces/container/tuple-error-result";
@@ -7,7 +7,7 @@ import { TupleErrorResult } from "@/react/components/codec/Codec.Format.Errors/i
 const displayName = "TupleResult";
 
 export const { TupleResult } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Values.TupleResult) =>
       isTupleValue(data) ? (

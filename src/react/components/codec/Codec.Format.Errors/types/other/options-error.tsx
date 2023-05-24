@@ -1,11 +1,11 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { ComponentDataTypeIsNeverError } from "@/utils/custom-errors";
 
 const displayName = "OptionsError";
 
 export const { OptionsError } = {
-  [displayName]: createPolymorphicComponent<Format.Errors.OptionsError>(
+  [displayName]: createCodecComponent<Format.Errors.OptionsError>(
     displayName,
     () => {
       throw new ComponentDataTypeIsNeverError(

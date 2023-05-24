@@ -1,10 +1,10 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 
 const displayName = "ReadErrorStack";
 
 export const { ReadErrorStack } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     // TODO
     (data: Format.Errors.ReadErrorStack) => (

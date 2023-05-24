@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isUintError } from "@/utils/type-guards/decoder-error/uint-error";
 import { UintError } from "@/react/components/codec/Codec.Format.Errors/types/elementary/uint-error";
 import { isIntError } from "@/utils/type-guards/decoder-error/int-error";
@@ -47,7 +47,7 @@ import { GenericError } from "@/react/components/codec/Codec.Format.Errors/types
 const displayName = "DecoderError";
 
 export const { DecoderError } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Errors.DecoderError) =>
       isUintError(data) ? (

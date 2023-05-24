@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isOverlongArrayOrStringStrictModeError } from "@/utils/type-guards/decoder-error/overlong-array-or-string-strict-mode-error";
 import { OverlongArrayOrStringStrictModeError } from "@/react/components/codec/Codec.Format.Errors/interfaces/internal-use/overlong-array-or-string-strict-mode-error";
 import { InternalFunctionInABIError } from "@/react/components/codec/Codec.Format.Errors/interfaces/internal-use/internal-function-in-abi-error";
@@ -7,7 +7,7 @@ import { InternalFunctionInABIError } from "@/react/components/codec/Codec.Forma
 const displayName = "InternalUseError";
 
 export const { InternalUseError } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Errors.InternalUseError) =>
       isOverlongArrayOrStringStrictModeError(data) ? (

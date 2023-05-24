@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isEnumValue } from "@/utils/type-guards/value-and-result/enum";
 import { EnumValue } from "@/react/components/codec/Codec.Format.Values/interfaces/user-defined-elementary/enum-value";
 import { EnumErrorResult } from "@/react/components/codec/Codec.Format.Errors/interfaces/user-defined-elementary/enum-error-result";
@@ -7,7 +7,7 @@ import { EnumErrorResult } from "@/react/components/codec/Codec.Format.Errors/in
 const displayName = "EnumResult";
 
 export const { EnumResult } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Values.EnumResult) =>
       isEnumValue(data) ? (

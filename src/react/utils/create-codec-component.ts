@@ -1,6 +1,6 @@
 import React from "react";
 
-export function createPolymorphicComponent<D>(
+export function createCodecComponent<D>(
   displayName: string,
   createDefaultElement: (data: D) => JSX.Element
 ) {

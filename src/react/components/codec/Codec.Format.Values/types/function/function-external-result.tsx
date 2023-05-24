@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isFunctionExternalValue } from "@/utils/type-guards/value-and-result/function-external";
 import { FunctionExternalValue } from "@/react/components/codec/Codec.Format.Values/interfaces/function/function-external-value";
 import { FunctionExternalErrorResult } from "@/react/components/codec/Codec.Format.Errors/interfaces/function/function-external-error-result";
@@ -7,7 +7,7 @@ import { FunctionExternalErrorResult } from "@/react/components/codec/Codec.Form
 const displayName = "FunctionExternalResult";
 
 export const { FunctionExternalResult } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Values.FunctionExternalResult) =>
       isFunctionExternalValue(data) ? (

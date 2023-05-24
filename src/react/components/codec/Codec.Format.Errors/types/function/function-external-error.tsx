@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isFunctionExternalNonStackPaddingError } from "@/utils/type-guards/decoder-error/function-external-non-stack-padding-error";
 import { FunctionExternalNonStackPaddingError } from "@/react/components/codec/Codec.Format.Errors/interfaces/function/function-external-non-stack-padding-error";
 import { FunctionExternalStackPaddingError } from "@/react/components/codec/Codec.Format.Errors/interfaces/function/function-external-stack-padding-error";
@@ -7,7 +7,7 @@ import { FunctionExternalStackPaddingError } from "@/react/components/codec/Code
 const displayName = "FunctionExternalError";
 
 export const { FunctionExternalError } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Errors.FunctionExternalError) =>
       isFunctionExternalNonStackPaddingError(data) ? (

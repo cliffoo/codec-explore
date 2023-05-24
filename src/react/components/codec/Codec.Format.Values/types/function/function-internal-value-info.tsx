@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isFunctionInternalValueInfoKnown } from "@/utils/type-guards/other/function-internal-value-info-known";
 import { FunctionInternalValueInfoKnown } from "@/react/components/codec/Codec.Format.Values/interfaces/function/function-internal-value-info-known";
 import { isFunctionInternalValueInfoException } from "@/utils/type-guards/other/function-internal-value-info-exception";
@@ -9,7 +9,7 @@ import { FunctionInternalValueInfoUnknown } from "@/react/components/codec/Codec
 const displayName = "FunctionInternalValueInfo";
 
 export const { FunctionInternalValueInfo } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Values.FunctionInternalValueInfo) =>
       isFunctionInternalValueInfoKnown(data) ? (

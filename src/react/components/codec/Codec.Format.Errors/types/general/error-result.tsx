@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { isElementaryErrorResult } from "@/utils/type-guards/value-and-result/elementary";
 import { ElementaryErrorResult } from "@/react/components/codec/Codec.Format.Errors/types/elementary/elementary-error-result";
 import { isArrayErrorResult } from "@/utils/type-guards/value-and-result/array";
@@ -23,7 +23,7 @@ import { OptionsErrorResult } from "@/react/components/codec/Codec.Format.Errors
 const displayName = "ErrorResult";
 
 export const { ErrorResult } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     (data: Format.Errors.ErrorResult) =>
       isElementaryErrorResult(data) ? (

@@ -1,11 +1,11 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { NameValuePair } from "@/react/components/codec/Codec.Format.Values/interfaces/other/name-value-pair";
 
 const displayName = "StructValue";
 
 export const { StructValue } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     ({ value }: Format.Values.StructValue) => (
       // TODO

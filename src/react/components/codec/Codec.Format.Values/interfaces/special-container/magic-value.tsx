@@ -1,11 +1,11 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { Result } from "@/react/components/codec/Codec.Format.Values/types/general/result";
 
 const displayName = "MagicValue";
 
 export const { MagicValue } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     ({ value }: Format.Values.MagicValue) => (
       // TODO

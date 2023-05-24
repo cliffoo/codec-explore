@@ -1,10 +1,10 @@
 import type { Format } from "@truffle/codec";
-import { createPolymorphicComponent } from "@/react/utils/create-polymorphic-component";
+import { createCodecComponent } from "@/react/utils/create-codec-component";
 
 const displayName = "FunctionExternalValueInfoKnown";
 
 export const { FunctionExternalValueInfoKnown } = {
-  [displayName]: createPolymorphicComponent(
+  [displayName]: createCodecComponent(
     displayName,
     // TODO
     (data: Format.Values.FunctionExternalValueInfoKnown) => (
