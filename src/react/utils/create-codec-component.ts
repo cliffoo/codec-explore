@@ -1,6 +1,6 @@
 import React from "react";
 import type {
-  CustomComponent,
+  CustomCodecComponent,
   CustomComponentsContextValue
 } from "@/react/contexts/internal/custom-components";
 import { useCustomComponents } from "@/react/contexts/internal/custom-components";
@@ -30,7 +30,7 @@ export function createCodecComponent<D>(
   }: Props<C>): JSX.Element {
     const customComponents = useCustomComponents();
     const customComponent = customComponents.codec?.[displayName] as
-      | CustomComponent<D>
+      | CustomCodecComponent<D>
       | undefined;
 
     return component

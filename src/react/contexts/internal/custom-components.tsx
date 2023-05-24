@@ -4,14 +4,18 @@ import type { AbiArgumentsProps } from "@/react/components/common/abi-arguments"
 import type { CodeProps } from "@/react/components/common/code";
 import type { ContainerProps } from "@/react/components/common/container";
 
-export type CustomComponent<D> = (props: { data: D }) => JSX.Element;
-type CustomComponents<T> = {
+export type CustomComponent<P> = (props: P) => JSX.Element;
+export type CustomCodecComponent<D> = CustomComponent<{ data: D }>;
+type CustomCodecComponents<T> = {
+  [componentName in keyof T]: CustomCodecComponent<T[componentName]>;
+};
+type CustomCommonComponents<T> = {
   [componentName in keyof T]: CustomComponent<T[componentName]>;
 };
 export interface CustomComponentsContextValue {
   // @/react/components/codec
   codec?: Partial<
-    CustomComponents<{
+    CustomCodecComponents<{
       // /Codec.Format.Errors/interfaces/container
       ArrayErrorResult: Codec.Format.Errors.ArrayErrorResult;
       MappingErrorResult: Codec.Format.Errors.MappingErrorResult;
@@ -223,7 +227,7 @@ export interface CustomComponentsContextValue {
   >;
   // @/react/components/common
   common?: Partial<
-    CustomComponents<{
+    CustomCommonComponents<{
       AbiArguments: AbiArgumentsProps;
       Code: CodeProps;
       Container: ContainerProps;
