@@ -4,7 +4,7 @@ import type { AbiArgumentsProps } from "@/react/components/common/abi-arguments"
 import type { CodeProps } from "@/react/components/common/code";
 import type { ContainerProps } from "@/react/components/common/container";
 
-type CustomComponent<D> = (props: { data: D }) => JSX.Element;
+export type CustomComponent<D> = (props: { data: D }) => JSX.Element;
 type CustomComponents<T> = {
   [componentName in keyof T]: CustomComponent<T[componentName]>;
 };

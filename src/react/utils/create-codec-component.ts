@@ -1,5 +1,9 @@
 import React from "react";
-import type { CustomComponentsContextValue } from "@/react/contexts/internal/custom-components";
+import type {
+  CustomComponent,
+  CustomComponentsContextValue
+} from "@/react/contexts/internal/custom-components";
+import { useCustomComponents } from "@/react/contexts/internal/custom-components";
 
 export function createCodecComponent<D>(
   displayName: keyof Exclude<CustomComponentsContextValue["codec"], undefined>,
@@ -24,8 +28,15 @@ export function createCodecComponent<D>(
     component,
     ...props
   }: Props<C>): JSX.Element {
+    const customComponents = useCustomComponents();
+    const customComponent = customComponents.codec?.[displayName] as
+      | CustomComponent<D>
+      | undefined;
+
     return component
       ? React.createElement(component, { ...props, data })
+      : customComponent
+      ? React.createElement(customComponent, { data })
       : createDefaultElement(data);
   }
 
