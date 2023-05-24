@@ -2,7 +2,7 @@ import { createContext, useContext } from "react";
 import type { CodeProps } from "@/react/components/common/code";
 
 export type ColorsContextValue = Record<
-  Exclude<CodeProps["type"], "bracket" | undefined>,
+  Exclude<NonNullable<CodeProps["type"]>, "bracket">,
   string
 > & {
   bracket: string[];

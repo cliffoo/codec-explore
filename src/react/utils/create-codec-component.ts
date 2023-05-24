@@ -6,7 +6,7 @@ import type {
 import { useCustomComponents } from "@/react/contexts/internal/custom-components";
 
 export function createCodecComponent<D>(
-  displayName: keyof Exclude<CustomComponentsContextValue["codec"], undefined>,
+  displayName: keyof NonNullable<CustomComponentsContextValue["codec"]>,
   createDefaultElement: (data: D) => JSX.Element
 ) {
   interface BaseProps {
