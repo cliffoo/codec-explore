@@ -1,6 +1,7 @@
 // ./Format.Values/interfaces/container
 export { default as arrayValueData } from "@/utils/codec-data/Format.Values/interfaces/container/array-value";
 export { default as mappingValueData } from "@/utils/codec-data/Format.Values/interfaces/container/mapping-value";
+export { default as structValueData } from "@/utils/codec-data/Format.Values/interfaces/container/struct-value";
 
 // ./Format.Values/interfaces/elementary
 export { default as addressValueData } from "@/utils/codec-data/Format.Values/interfaces/elementary/address-value";
