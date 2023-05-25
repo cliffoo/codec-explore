@@ -1,5 +1,5 @@
 import type { FunctionDecoding } from "@truffle/codec";
-import { toBN } from "@truffle/codec/dist/lib/conversion";
+import BN from "bn.js";
 
 export default {
   zeroParamA: {
@@ -48,7 +48,7 @@ export default {
           type: { typeClass: "uint", bits: 256, typeHint: "uint256" },
           kind: "value",
           interpretations: {},
-          value: { asBN: toBN("0dbba0") }
+          value: { asBN: new BN("0dbba0", 16) }
         }
       }
     ],
@@ -260,7 +260,7 @@ export default {
           type: { typeClass: "uint", bits: 256, typeHint: "uint256" },
           kind: "value",
           interpretations: {},
-          value: { asBN: toBN("09fbf1") }
+          value: { asBN: new BN("09fbf1", 16) }
         }
       },
       {
@@ -280,25 +280,25 @@ export default {
               type: { typeClass: "uint", bits: 256, typeHint: "uint256" },
               kind: "value",
               interpretations: {},
-              value: { asBN: toBN("6acfc0") }
+              value: { asBN: new BN("6acfc0", 16) }
             },
             {
               type: { typeClass: "uint", bits: 256, typeHint: "uint256" },
               kind: "value",
               interpretations: {},
-              value: { asBN: toBN("02faf080") }
+              value: { asBN: new BN("02faf080", 16) }
             },
             {
               type: { typeClass: "uint", bits: 256, typeHint: "uint256" },
               kind: "value",
               interpretations: {},
-              value: { asBN: toBN("11e1a300") }
+              value: { asBN: new BN("11e1a300", 16) }
             },
             {
               type: { typeClass: "uint", bits: 256, typeHint: "uint256" },
               kind: "value",
               interpretations: {},
-              value: { asBN: toBN("3b9aca00") }
+              value: { asBN: new BN("3b9aca00", 16) }
             }
           ]
         }
@@ -309,7 +309,7 @@ export default {
           type: { typeClass: "uint", bits: 8, typeHint: "uint8" },
           kind: "value",
           interpretations: {},
-          value: { asBN: toBN("08") }
+          value: { asBN: new BN(8) }
         }
       },
       {
@@ -318,7 +318,7 @@ export default {
           type: { typeClass: "int", bits: 104, typeHint: "int104" },
           kind: "value",
           interpretations: {},
-          value: { asBN: toBN("0d80") }
+          value: { asBN: new BN("0d80", 16) }
         }
       },
       {
@@ -327,7 +327,7 @@ export default {
           type: { typeClass: "int", bits: 160, typeHint: "int160" },
           kind: "value",
           interpretations: {},
-          value: { asBN: toBN("01e240") }
+          value: { asBN: new BN("01e240", 16) }
         }
       },
       {
@@ -336,7 +336,7 @@ export default {
           type: { typeClass: "int", bits: 224, typeHint: "int224" },
           kind: "value",
           interpretations: {},
-          value: { asBN: toBN("f0") }
+          value: { asBN: new BN("f0", 16) }
         }
       },
       {
@@ -345,7 +345,7 @@ export default {
           type: { typeClass: "int", bits: 256, typeHint: "int256" },
           kind: "value",
           interpretations: {},
-          value: { asBN: toBN("02540be3ff") }
+          value: { asBN: new BN("02540be3ff", 16) }
         }
       },
       {
@@ -479,7 +479,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "Done", numericAsBN: toBN("02") }
+                          value: { name: "Done", numericAsBN: new BN(2) }
                         },
                         {
                           type: {
@@ -506,7 +506,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "MightDo", numericAsBN: toBN("03") }
+                          value: { name: "MightDo", numericAsBN: new BN(3) }
                         },
                         {
                           type: {
@@ -533,7 +533,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "WontDo", numericAsBN: toBN("04") }
+                          value: { name: "WontDo", numericAsBN: new BN(4) }
                         },
                         {
                           type: {
@@ -560,7 +560,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "MightDo", numericAsBN: toBN("03") }
+                          value: { name: "MightDo", numericAsBN: new BN(3) }
                         },
                         {
                           type: {
@@ -587,7 +587,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "Done", numericAsBN: toBN("02") }
+                          value: { name: "Done", numericAsBN: new BN(2) }
                         }
                       ]
                     },
@@ -633,7 +633,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "MightDo", numericAsBN: toBN("03") }
+                          value: { name: "MightDo", numericAsBN: new BN(3) }
                         },
                         {
                           type: {
@@ -660,7 +660,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "MightDo", numericAsBN: toBN("03") }
+                          value: { name: "MightDo", numericAsBN: new BN(3) }
                         },
                         {
                           type: {
@@ -687,7 +687,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "MightDo", numericAsBN: toBN("03") }
+                          value: { name: "MightDo", numericAsBN: new BN(3) }
                         },
                         {
                           type: {
@@ -714,7 +714,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "WontDo", numericAsBN: toBN("04") }
+                          value: { name: "WontDo", numericAsBN: new BN(4) }
                         },
                         {
                           type: {
@@ -741,7 +741,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "WontDo", numericAsBN: toBN("04") }
+                          value: { name: "WontDo", numericAsBN: new BN(4) }
                         },
                         {
                           type: {
@@ -768,7 +768,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "WontDo", numericAsBN: toBN("04") }
+                          value: { name: "WontDo", numericAsBN: new BN(4) }
                         }
                       ]
                     },
@@ -816,7 +816,7 @@ export default {
                           interpretations: {},
                           value: {
                             name: "PreparingToDo",
-                            numericAsBN: toBN("00")
+                            numericAsBN: new BN(0)
                           }
                         },
                         {
@@ -844,7 +844,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "Doing", numericAsBN: toBN("01") }
+                          value: { name: "Doing", numericAsBN: new BN(1) }
                         },
                         {
                           type: {
@@ -871,7 +871,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "Done", numericAsBN: toBN("02") }
+                          value: { name: "Done", numericAsBN: new BN(2) }
                         }
                       ]
                     },
@@ -917,7 +917,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "WontDo", numericAsBN: toBN("04") }
+                          value: { name: "WontDo", numericAsBN: new BN(4) }
                         },
                         {
                           type: {
@@ -944,7 +944,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "MightDo", numericAsBN: toBN("03") }
+                          value: { name: "MightDo", numericAsBN: new BN(3) }
                         },
                         {
                           type: {
@@ -971,7 +971,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "MightDo", numericAsBN: toBN("03") }
+                          value: { name: "MightDo", numericAsBN: new BN(3) }
                         },
                         {
                           type: {
@@ -998,7 +998,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "WontDo", numericAsBN: toBN("04") }
+                          value: { name: "WontDo", numericAsBN: new BN(4) }
                         },
                         {
                           type: {
@@ -1025,7 +1025,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "Done", numericAsBN: toBN("02") }
+                          value: { name: "Done", numericAsBN: new BN(2) }
                         },
                         {
                           type: {
@@ -1052,7 +1052,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "Doing", numericAsBN: toBN("01") }
+                          value: { name: "Doing", numericAsBN: new BN(1) }
                         },
                         {
                           type: {
@@ -1079,7 +1079,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "Doing", numericAsBN: toBN("01") }
+                          value: { name: "Doing", numericAsBN: new BN(1) }
                         },
                         {
                           type: {
@@ -1106,7 +1106,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "Done", numericAsBN: toBN("02") }
+                          value: { name: "Done", numericAsBN: new BN(2) }
                         },
                         {
                           type: {
@@ -1135,7 +1135,7 @@ export default {
                           interpretations: {},
                           value: {
                             name: "PreparingToDo",
-                            numericAsBN: toBN("00")
+                            numericAsBN: new BN(0)
                           }
                         },
                         {
@@ -1165,7 +1165,7 @@ export default {
                           interpretations: {},
                           value: {
                             name: "PreparingToDo",
-                            numericAsBN: toBN("00")
+                            numericAsBN: new BN(0)
                           }
                         },
                         {
@@ -1195,7 +1195,7 @@ export default {
                           interpretations: {},
                           value: {
                             name: "PreparingToDo",
-                            numericAsBN: toBN("00")
+                            numericAsBN: new BN(0)
                           }
                         },
                         {
@@ -1223,7 +1223,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "Doing", numericAsBN: toBN("01") }
+                          value: { name: "Doing", numericAsBN: new BN(1) }
                         },
                         {
                           type: {
@@ -1250,7 +1250,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "Done", numericAsBN: toBN("02") }
+                          value: { name: "Done", numericAsBN: new BN(2) }
                         },
                         {
                           type: {
@@ -1277,7 +1277,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "MightDo", numericAsBN: toBN("03") }
+                          value: { name: "MightDo", numericAsBN: new BN(3) }
                         },
                         {
                           type: {
@@ -1304,7 +1304,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "WontDo", numericAsBN: toBN("04") }
+                          value: { name: "WontDo", numericAsBN: new BN(4) }
                         }
                       ]
                     },
@@ -1350,7 +1350,7 @@ export default {
                           },
                           kind: "value",
                           interpretations: {},
-                          value: { name: "Doing", numericAsBN: toBN("01") }
+                          value: { name: "Doing", numericAsBN: new BN(1) }
                         }
                       ]
                     }

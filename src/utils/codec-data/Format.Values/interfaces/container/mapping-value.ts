@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { toBN } from "@truffle/codec/dist/lib/conversion";
+import BN from "bn.js";
 
 export default {
   int32ToAddress: {
@@ -16,7 +16,7 @@ export default {
           kind: "value",
           type: { bits: 32, typeClass: "int" },
           interpretations: {},
-          value: { asBN: toBN("1000") }
+          value: { asBN: new BN("1000", 16) }
         },
         value: {
           kind: "value",
@@ -30,7 +30,7 @@ export default {
           kind: "value",
           type: { bits: 32, typeClass: "int" },
           interpretations: {},
-          value: { asBN: toBN("2000") }
+          value: { asBN: new BN("2000", 16) }
         },
         value: {
           kind: "value",
@@ -44,7 +44,7 @@ export default {
           kind: "value",
           type: { bits: 32, typeClass: "int" },
           interpretations: {},
-          value: { asBN: toBN("3000") }
+          value: { asBN: new BN("3000", 16) }
         },
         value: {
           kind: "value",
@@ -73,7 +73,7 @@ export default {
           kind: "value",
           type: { bits: 32, typeClass: "int" },
           interpretations: {},
-          value: { asBN: toBN("100") }
+          value: { asBN: new BN("100", 16) }
         },
         value: {
           kind: "value",
@@ -89,7 +89,7 @@ export default {
                 kind: "value",
                 type: { bits: 16, typeClass: "uint" },
                 interpretations: {},
-                value: { asBN: toBN("2000") }
+                value: { asBN: new BN("10", 16) }
               },
               value: {
                 kind: "value",
@@ -105,7 +105,7 @@ export default {
                 kind: "value",
                 type: { bits: 16, typeClass: "uint" },
                 interpretations: {},
-                value: { asBN: toBN("2000") }
+                value: { asBN: new BN("20", 16) }
               },
               value: {
                 kind: "value",
@@ -121,7 +121,7 @@ export default {
                 kind: "value",
                 type: { bits: 16, typeClass: "uint" },
                 interpretations: {},
-                value: { asBN: toBN("2000") }
+                value: { asBN: new BN("30", 16) }
               },
               value: {
                 kind: "value",
@@ -140,7 +140,7 @@ export default {
           kind: "value",
           type: { bits: 32, typeClass: "int" },
           interpretations: {},
-          value: { asBN: toBN("200") }
+          value: { asBN: new BN("200", 16) }
         },
         value: {
           kind: "value",
@@ -156,7 +156,7 @@ export default {
                 kind: "value",
                 type: { bits: 16, typeClass: "uint" },
                 interpretations: {},
-                value: { asBN: toBN("2000") }
+                value: { asBN: new BN("40", 16) }
               },
               value: {
                 kind: "value",

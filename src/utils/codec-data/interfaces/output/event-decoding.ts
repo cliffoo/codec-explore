@@ -1,5 +1,5 @@
 import type { EventDecoding } from "@truffle/codec";
-import { toBN } from "@truffle/codec/dist/lib/conversion";
+import BN from "bn.js";
 
 export default {
   noParam: {
@@ -108,7 +108,7 @@ export default {
           kind: "value",
           type: { bits: 32, typeClass: "int" },
           interpretations: {},
-          value: { asBN: toBN("a") }
+          value: { asBN: new BN("a", 16) }
         }
       }
     ],

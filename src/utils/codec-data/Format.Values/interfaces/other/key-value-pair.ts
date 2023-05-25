@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { toBN } from "@truffle/codec/dist/lib/conversion";
+import BN from "bn.js";
 
 export default {
   addressToUint: {
@@ -13,7 +13,7 @@ export default {
       kind: "value",
       type: { bits: 256, typeClass: "uint" },
       interpretations: {},
-      value: { asBN: toBN(1200) }
+      value: { asBN: new BN(1200) }
     }
   },
   addressToBoolArray: {

@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { toBN } from "@truffle/codec/dist/lib/conversion";
+import BN from "bn.js";
 
 export default {
   address: {
@@ -110,37 +110,37 @@ export default {
         type: { typeClass: "int", bits: 32 },
         kind: "value",
         interpretations: {},
-        value: { asBN: toBN(10000) }
+        value: { asBN: new BN(10000) }
       },
       {
         type: { typeClass: "int", bits: 32 },
         kind: "value",
         interpretations: {},
-        value: { asBN: toBN(2) }
+        value: { asBN: new BN(2) }
       },
       {
         type: { typeClass: "int", bits: 32 },
         kind: "value",
         interpretations: {},
-        value: { asBN: toBN(50) }
+        value: { asBN: new BN(50) }
       },
       {
         type: { typeClass: "int", bits: 32 },
         kind: "value",
         interpretations: {},
-        value: { asBN: toBN(999) }
+        value: { asBN: new BN(999) }
       },
       {
         type: { typeClass: "int", bits: 32 },
         kind: "value",
         interpretations: {},
-        value: { asBN: toBN(1234) }
+        value: { asBN: new BN(1234) }
       },
       {
         type: { typeClass: "int", bits: 32 },
         kind: "value",
         interpretations: {},
-        value: { asBN: toBN(898971) }
+        value: { asBN: new BN(898971) }
       }
     ]
   },
@@ -182,25 +182,25 @@ export default {
         type: { typeClass: "uint", bits: 128 },
         kind: "value",
         interpretations: {},
-        value: { asBN: toBN(10000) }
+        value: { asBN: new BN(10000) }
       },
       {
         type: { typeClass: "uint", bits: 128 },
         kind: "value",
         interpretations: {},
-        value: { asBN: toBN(131072) }
+        value: { asBN: new BN(131072) }
       },
       {
         type: { typeClass: "uint", bits: 128 },
         kind: "value",
         interpretations: {},
-        value: { asBN: toBN(46213) }
+        value: { asBN: new BN(46213) }
       },
       {
         type: { typeClass: "uint", bits: 128 },
         kind: "value",
         interpretations: {},
-        value: { asBN: toBN(0) }
+        value: { asBN: new BN(0) }
       }
     ]
   },

@@ -1,5 +1,5 @@
 import type { ReturnDecoding } from "@truffle/codec";
-import { toBN } from "@truffle/codec/dist/lib/conversion";
+import BN from "bn.js";
 
 export default {
   oneValue: {
@@ -25,7 +25,7 @@ export default {
           kind: "value",
           type: { bits: 64, typeClass: "uint" },
           interpretations: {},
-          value: { asBN: toBN("abcdef") }
+          value: { asBN: new BN("abcdef", 16) }
         }
       },
       {

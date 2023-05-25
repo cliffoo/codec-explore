@@ -1,5 +1,5 @@
 import type { ConstructorDecoding } from "@truffle/codec";
-import { toBN } from "@truffle/codec/dist/lib/conversion";
+import BN from "bn.js";
 
 export default {
   zeroParam: {
@@ -34,7 +34,7 @@ export default {
           kind: "value",
           type: { bits: 256, typeClass: "uint", typeHint: "uint256" },
           interpretations: {},
-          value: { asBN: toBN(100) }
+          value: { asBN: new BN(100) }
         }
       }
     ],
@@ -336,7 +336,7 @@ export default {
           type: { typeClass: "int", bits: 256, typeHint: "int256" },
           kind: "value",
           interpretations: {},
-          value: { asBN: toBN(1) }
+          value: { asBN: new BN(1) }
         }
       },
       {
@@ -345,7 +345,7 @@ export default {
           type: { typeClass: "int", bits: 8, typeHint: "int8" },
           kind: "value",
           interpretations: {},
-          value: { asBN: toBN(0) }
+          value: { asBN: new BN(0) }
         }
       },
       {
@@ -354,7 +354,7 @@ export default {
           type: { typeClass: "int", bits: 32, typeHint: "int32" },
           kind: "value",
           interpretations: {},
-          value: { asBN: toBN(64) }
+          value: { asBN: new BN(64) }
         }
       },
       {
@@ -374,49 +374,49 @@ export default {
               type: { typeClass: "int", bits: 32, typeHint: "int32" },
               kind: "value",
               interpretations: {},
-              value: { asBN: toBN(300) }
+              value: { asBN: new BN(300) }
             },
             {
               type: { typeClass: "int", bits: 32, typeHint: "int32" },
               kind: "value",
               interpretations: {},
-              value: { asBN: toBN(400) }
+              value: { asBN: new BN(400) }
             },
             {
               type: { typeClass: "int", bits: 32, typeHint: "int32" },
               kind: "value",
               interpretations: {},
-              value: { asBN: toBN(500) }
+              value: { asBN: new BN(500) }
             },
             {
               type: { typeClass: "int", bits: 32, typeHint: "int32" },
               kind: "value",
               interpretations: {},
-              value: { asBN: toBN(600) }
+              value: { asBN: new BN(600) }
             },
             {
               type: { typeClass: "int", bits: 32, typeHint: "int32" },
               kind: "value",
               interpretations: {},
-              value: { asBN: toBN(700) }
+              value: { asBN: new BN(700) }
             },
             {
               type: { typeClass: "int", bits: 32, typeHint: "int32" },
               kind: "value",
               interpretations: {},
-              value: { asBN: toBN(800) }
+              value: { asBN: new BN(800) }
             },
             {
               type: { typeClass: "int", bits: 32, typeHint: "int32" },
               kind: "value",
               interpretations: {},
-              value: { asBN: toBN(900) }
+              value: { asBN: new BN(900) }
             },
             {
               type: { typeClass: "int", bits: 32, typeHint: "int32" },
               kind: "value",
               interpretations: {},
-              value: { asBN: toBN(1500) }
+              value: { asBN: new BN(1500) }
             }
           ]
         }
@@ -427,7 +427,7 @@ export default {
           type: { typeClass: "uint", bits: 56, typeHint: "uint56" },
           kind: "value",
           interpretations: {},
-          value: { asBN: toBN(2) }
+          value: { asBN: new BN(2) }
         }
       },
       {
@@ -436,7 +436,7 @@ export default {
           type: { typeClass: "uint", bits: 128, typeHint: "uint128" },
           kind: "value",
           interpretations: {},
-          value: { asBN: toBN(12345) }
+          value: { asBN: new BN(12345) }
         }
       },
       {
@@ -445,7 +445,7 @@ export default {
           type: { typeClass: "uint", bits: 192, typeHint: "uint192" },
           kind: "value",
           interpretations: {},
-          value: { asBN: toBN("0fffff") }
+          value: { asBN: new BN("0fffff", 16) }
         }
       },
       {
@@ -454,7 +454,7 @@ export default {
           type: { typeClass: "uint", bits: 256, typeHint: "uint256" },
           kind: "value",
           interpretations: {},
-          value: { asBN: toBN("3fffffff") }
+          value: { asBN: new BN("3fffffff", 16) }
         }
       },
       {
@@ -759,7 +759,7 @@ export default {
           interpretations: {},
           value: {
             name: "Doing",
-            numericAsBN: toBN(1)
+            numericAsBN: new BN(1)
           }
         }
       }

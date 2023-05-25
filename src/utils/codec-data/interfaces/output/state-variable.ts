@@ -1,5 +1,5 @@
 import type { StateVariable } from "@truffle/codec";
-import { toBN } from "@truffle/codec/dist/lib/conversion";
+import BN from "bn.js";
 
 export default {
   string: {
@@ -33,7 +33,7 @@ export default {
       kind: "value",
       type: { bits: 8, typeClass: "uint" },
       interpretations: {},
-      value: { asBN: toBN("f2") }
+      value: { asBN: new BN("f2", 16) }
     }
   }
 } satisfies Record<string, StateVariable>;
