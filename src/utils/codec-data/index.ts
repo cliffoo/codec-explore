@@ -22,6 +22,9 @@ export { default as keyValuePairData } from "@/utils/codec-data/Format.Values/in
 export { default as nameValuePairData } from "@/utils/codec-data/Format.Values/interfaces/other/name-value-pair";
 export { default as optionallyNamedValueData } from "@/utils/codec-data/Format.Values/interfaces/other/optionally-named-value";
 
+// ./interfaces/interfaces
+export { default as optionsData } from "@/utils/codec-data/interfaces/interfaces/options";
+
 // ./interfaces/output
 export { default as abiArgumentData } from "@/utils/codec-data/interfaces/output/abi-argument";
 export { default as anonymousDecodingData } from "@/utils/codec-data/interfaces/output/anonymous-decoding";
