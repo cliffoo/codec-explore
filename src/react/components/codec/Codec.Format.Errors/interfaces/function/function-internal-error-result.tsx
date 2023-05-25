@@ -4,16 +4,12 @@ import { isFunctionInternalError } from "@/utils/type-guards/decoder-error/funct
 import { FunctionInternalError } from "@/react/components/codec/Codec.Format.Errors/types/function/function-internal-error";
 import { GenericError } from "@/react/components/codec/Codec.Format.Errors/types/generic/generic-error";
 
-const displayName = "FunctionInternalErrorResult";
-
-export const { FunctionInternalErrorResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    ({ error }: Format.Errors.FunctionInternalErrorResult) =>
-      isFunctionInternalError(error) ? (
-        <FunctionInternalError data={error} />
-      ) : (
-        <GenericError data={error} />
-      )
-  )
-};
+export const { FunctionInternalErrorResult } = createCodecComponent(
+  "FunctionInternalErrorResult",
+  ({ error }: Format.Errors.FunctionInternalErrorResult) =>
+    isFunctionInternalError(error) ? (
+      <FunctionInternalError data={error} />
+    ) : (
+      <GenericError data={error} />
+    )
+);

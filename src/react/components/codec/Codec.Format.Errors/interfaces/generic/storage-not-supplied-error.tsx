@@ -1,14 +1,10 @@
 import type { Format } from "@truffle/codec";
 import { createCodecComponent } from "@/react/utils/create-codec-component";
 
-const displayName = "StorageNotSuppliedError";
-
-export const { StorageNotSuppliedError } = {
-  [displayName]: createCodecComponent(
-    displayName,
+export const { StorageNotSuppliedError } = createCodecComponent(
+  "StorageNotSuppliedError",
+  (data: Format.Errors.StorageNotSuppliedError) => (
     // TODO
-    (data: Format.Errors.StorageNotSuppliedError) => (
-      <span>{data.slot.toString()}</span>
-    )
+    <span>{data.slot.toString()}</span>
   )
-};
+);

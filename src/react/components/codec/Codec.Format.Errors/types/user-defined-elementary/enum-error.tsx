@@ -6,18 +6,14 @@ import { isEnumPaddingError } from "@/utils/type-guards/decoder-error/enum-paddi
 import { EnumPaddingError } from "@/react/components/codec/Codec.Format.Errors/interfaces/elementary/enum-padding-error";
 import { EnumNotFoundDecodingError } from "@/react/components/codec/Codec.Format.Errors/interfaces/user-defined-elementary/enum-not-found-decoding-error";
 
-const displayName = "EnumError";
-
-export const { EnumError } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Errors.EnumError) =>
-      isEnumOutOfRangeError(data) ? (
-        <EnumOutOfRangeError data={data} />
-      ) : isEnumPaddingError(data) ? (
-        <EnumPaddingError data={data} />
-      ) : (
-        <EnumNotFoundDecodingError data={data} />
-      )
-  )
-};
+export const { EnumError } = createCodecComponent(
+  "EnumError",
+  (data: Format.Errors.EnumError) =>
+    isEnumOutOfRangeError(data) ? (
+      <EnumOutOfRangeError data={data} />
+    ) : isEnumPaddingError(data) ? (
+      <EnumPaddingError data={data} />
+    ) : (
+      <EnumNotFoundDecodingError data={data} />
+    )
+);

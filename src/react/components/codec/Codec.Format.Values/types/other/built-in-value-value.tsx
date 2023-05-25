@@ -14,26 +14,22 @@ import { isFixedValue } from "@/utils/type-guards/value-and-result/fixed";
 import { FixedValue } from "@/react/components/codec/Codec.Format.Values/interfaces/elementary/fixed-value";
 import { UfixedValue } from "@/react/components/codec/Codec.Format.Values/interfaces/elementary/ufixed-value";
 
-const displayName = "BuiltInValueValue";
-
-export const { BuiltInValueValue } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Values.BuiltInValueValue) =>
-      isUintValue(data) ? (
-        <UintValue data={data} />
-      ) : isIntValue(data) ? (
-        <IntValue data={data} />
-      ) : isBoolValue(data) ? (
-        <BoolValue data={data} />
-      ) : isBytesStaticValue(data) ? (
-        <BytesStaticValue data={data} />
-      ) : isAddressValue(data) ? (
-        <AddressValue data={data} />
-      ) : isFixedValue(data) ? (
-        <FixedValue data={data} />
-      ) : (
-        <UfixedValue data={data} />
-      )
-  )
-};
+export const { BuiltInValueValue } = createCodecComponent(
+  "BuiltInValueValue",
+  (data: Format.Values.BuiltInValueValue) =>
+    isUintValue(data) ? (
+      <UintValue data={data} />
+    ) : isIntValue(data) ? (
+      <IntValue data={data} />
+    ) : isBoolValue(data) ? (
+      <BoolValue data={data} />
+    ) : isBytesStaticValue(data) ? (
+      <BytesStaticValue data={data} />
+    ) : isAddressValue(data) ? (
+      <AddressValue data={data} />
+    ) : isFixedValue(data) ? (
+      <FixedValue data={data} />
+    ) : (
+      <UfixedValue data={data} />
+    )
+);

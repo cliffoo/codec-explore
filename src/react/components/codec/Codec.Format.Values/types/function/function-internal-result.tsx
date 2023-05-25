@@ -4,16 +4,12 @@ import { isFunctionInternalValue } from "@/utils/type-guards/value-and-result/fu
 import { FunctionInternalValue } from "@/react/components/codec/Codec.Format.Values/interfaces/function/function-internal-value";
 import { FunctionInternalErrorResult } from "@/react/components/codec/Codec.Format.Errors/interfaces/function/function-internal-error-result";
 
-const displayName = "FunctionInternalResult";
-
-export const { FunctionInternalResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Values.FunctionInternalResult) =>
-      isFunctionInternalValue(data) ? (
-        <FunctionInternalValue data={data} />
-      ) : (
-        <FunctionInternalErrorResult data={data} />
-      )
-  )
-};
+export const { FunctionInternalResult } = createCodecComponent(
+  "FunctionInternalResult",
+  (data: Format.Values.FunctionInternalResult) =>
+    isFunctionInternalValue(data) ? (
+      <FunctionInternalValue data={data} />
+    ) : (
+      <FunctionInternalErrorResult data={data} />
+    )
+);

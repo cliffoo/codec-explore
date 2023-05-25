@@ -4,16 +4,12 @@ import { isUserDefinedValueTypeValue } from "@/utils/type-guards/value-and-resul
 import { UserDefinedValueTypeValue } from "@/react/components/codec/Codec.Format.Values/interfaces/user-defined-elementary/user-defined-value-type-value";
 import { UserDefinedValueTypeErrorResult } from "@/react/components/codec/Codec.Format.Errors/interfaces/user-defined-elementary/user-defined-value-type-error-result";
 
-const displayName = "UserDefinedValueTypeResult";
-
-export const { UserDefinedValueTypeResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Values.UserDefinedValueTypeResult) =>
-      isUserDefinedValueTypeValue(data) ? (
-        <UserDefinedValueTypeValue data={data} />
-      ) : (
-        <UserDefinedValueTypeErrorResult data={data} />
-      )
-  )
-};
+export const { UserDefinedValueTypeResult } = createCodecComponent(
+  "UserDefinedValueTypeResult",
+  (data: Format.Values.UserDefinedValueTypeResult) =>
+    isUserDefinedValueTypeValue(data) ? (
+      <UserDefinedValueTypeValue data={data} />
+    ) : (
+      <UserDefinedValueTypeErrorResult data={data} />
+    )
+);

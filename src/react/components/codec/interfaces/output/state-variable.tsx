@@ -4,28 +4,24 @@ import { Result } from "@/react/components/codec/Codec.Format.Values/types/gener
 import { InjectedNodeProvider } from "@/react/contexts/internal/injected-node";
 import { Code } from "@/react/components/common/code";
 
-const displayName = "StateVariable";
-
-export const { StateVariable } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Codec.StateVariable) => (
-      <InjectedNodeProvider
-        value={{
-          prefix: {
-            prefix: (
-              <>
-                <Code type="contract">{data.class.typeName}</Code>
-                <Code type="period">.</Code>
-                <Code type="name">{data.name}</Code>
-                <Code type="colon">:&nbsp;</Code>
-              </>
-            )
-          }
-        }}
-      >
-        <Result data={data.value} />
-      </InjectedNodeProvider>
-    )
+export const { StateVariable } = createCodecComponent(
+  "StateVariable",
+  (data: Codec.StateVariable) => (
+    <InjectedNodeProvider
+      value={{
+        prefix: {
+          prefix: (
+            <>
+              <Code type="contract">{data.class.typeName}</Code>
+              <Code type="period">.</Code>
+              <Code type="name">{data.name}</Code>
+              <Code type="colon">:&nbsp;</Code>
+            </>
+          )
+        }
+      }}
+    >
+      <Result data={data.value} />
+    </InjectedNodeProvider>
   )
-};
+);

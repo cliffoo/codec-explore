@@ -5,10 +5,10 @@ import type {
 } from "@/react/contexts/internal/custom-components";
 import { useCustomComponents } from "@/react/contexts/internal/custom-components";
 
-export function createCodecComponent<D>(
-  displayName: keyof NonNullable<CustomComponentsContextValue["codec"]>,
-  createDefaultElement: (data: D) => JSX.Element
-) {
+export function createCodecComponent<
+  Name extends keyof NonNullable<CustomComponentsContextValue["codec"]>,
+  D
+>(displayName: Name, createDefaultElement: (data: D) => JSX.Element) {
   interface BaseProps {
     data: D;
   }
@@ -44,5 +44,9 @@ export function createCodecComponent<D>(
     value: `@truffle/codec-components/${displayName}`
   });
 
-  return PolymorphicComponent;
+  return {
+    [displayName]: PolymorphicComponent
+  } as {
+    [name in Name]: typeof PolymorphicComponent;
+  };
 }

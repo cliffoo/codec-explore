@@ -4,16 +4,12 @@ import { isBytesDynamicValue } from "@/utils/type-guards/value-and-result/bytes-
 import { BytesDynamicValue } from "@/react/components/codec/Codec.Format.Values/interfaces/elementary/bytes-dynamic-value";
 import { BytesDynamicErrorResult } from "@/react/components/codec/Codec.Format.Errors/interfaces/elementary/bytes-dynamic-error-result";
 
-const displayName = "BytesDynamicResult";
-
-export const { BytesDynamicResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Values.BytesDynamicResult) =>
-      isBytesDynamicValue(data) ? (
-        <BytesDynamicValue data={data} />
-      ) : (
-        <BytesDynamicErrorResult data={data} />
-      )
-  )
-};
+export const { BytesDynamicResult } = createCodecComponent(
+  "BytesDynamicResult",
+  (data: Format.Values.BytesDynamicResult) =>
+    isBytesDynamicValue(data) ? (
+      <BytesDynamicValue data={data} />
+    ) : (
+      <BytesDynamicErrorResult data={data} />
+    )
+);

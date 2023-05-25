@@ -1,14 +1,10 @@
 import type { Format } from "@truffle/codec";
 import { createCodecComponent } from "@/react/utils/create-codec-component";
 
-const displayName = "FunctionExternalValueInfoInvalid";
-
-export const { FunctionExternalValueInfoInvalid } = {
-  [displayName]: createCodecComponent(
-    displayName,
+export const { FunctionExternalValueInfoInvalid } = createCodecComponent(
+  "FunctionExternalValueInfoInvalid",
+  (data: Format.Values.FunctionExternalValueInfoInvalid) => (
     // TODO
-    (data: Format.Values.FunctionExternalValueInfoInvalid) => (
-      <span>{data.selector}</span>
-    )
+    <span>{data.selector}</span>
   )
-};
+);

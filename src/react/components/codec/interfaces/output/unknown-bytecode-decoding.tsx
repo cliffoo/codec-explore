@@ -2,15 +2,11 @@ import type * as Codec from "@truffle/codec";
 import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { Code } from "@/react/components/common/code";
 
-const displayName = "UnknownBytecodeDecoding";
-
-export const { UnknownBytecodeDecoding } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    ({ bytecode }: Codec.UnknownBytecodeDecoding) => (
-      <Code type="bytes" title="contract (unknown) bytecode">
-        {bytecode}
-      </Code>
-    )
+export const { UnknownBytecodeDecoding } = createCodecComponent(
+  "UnknownBytecodeDecoding",
+  ({ bytecode }: Codec.UnknownBytecodeDecoding) => (
+    <Code type="bytes" title="contract (unknown) bytecode">
+      {bytecode}
+    </Code>
   )
-};
+);

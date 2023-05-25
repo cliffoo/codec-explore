@@ -22,34 +22,30 @@ import { isUserDefinedValueTypeResult } from "@/utils/type-guards/value-and-resu
 import { UserDefinedValueTypeResult } from "@/react/components/codec/Codec.Format.Values/types/user-defined-elementary/user-defined-value-type-result";
 import { ContractResult } from "@/react/components/codec/Codec.Format.Values/types/user-defined-elementary/contract-result";
 
-const displayName = "ElementaryResult";
-
-export const { ElementaryResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Values.ElementaryResult) =>
-      isUintResult(data) ? (
-        <UintResult data={data} />
-      ) : isIntResult(data) ? (
-        <IntResult data={data} />
-      ) : isBoolResult(data) ? (
-        <BoolResult data={data} />
-      ) : isBytesResult(data) ? (
-        <BytesResult data={data} />
-      ) : isAddressResult(data) ? (
-        <AddressResult data={data} />
-      ) : isStringResult(data) ? (
-        <StringResult data={data} />
-      ) : isFixedResult(data) ? (
-        <FixedResult data={data} />
-      ) : isUfixedResult(data) ? (
-        <UfixedResult data={data} />
-      ) : isEnumResult(data) ? (
-        <EnumResult data={data} />
-      ) : isUserDefinedValueTypeResult(data) ? (
-        <UserDefinedValueTypeResult data={data} />
-      ) : (
-        <ContractResult data={data} />
-      )
-  )
-};
+export const { ElementaryResult } = createCodecComponent(
+  "ElementaryResult",
+  (data: Format.Values.ElementaryResult) =>
+    isUintResult(data) ? (
+      <UintResult data={data} />
+    ) : isIntResult(data) ? (
+      <IntResult data={data} />
+    ) : isBoolResult(data) ? (
+      <BoolResult data={data} />
+    ) : isBytesResult(data) ? (
+      <BytesResult data={data} />
+    ) : isAddressResult(data) ? (
+      <AddressResult data={data} />
+    ) : isStringResult(data) ? (
+      <StringResult data={data} />
+    ) : isFixedResult(data) ? (
+      <FixedResult data={data} />
+    ) : isUfixedResult(data) ? (
+      <UfixedResult data={data} />
+    ) : isEnumResult(data) ? (
+      <EnumResult data={data} />
+    ) : isUserDefinedValueTypeResult(data) ? (
+      <UserDefinedValueTypeResult data={data} />
+    ) : (
+      <ContractResult data={data} />
+    )
+);

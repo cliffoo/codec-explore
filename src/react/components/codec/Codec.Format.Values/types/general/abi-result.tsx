@@ -22,34 +22,30 @@ import { isFunctionExternalResult } from "@/utils/type-guards/value-and-result/f
 import { FunctionExternalResult } from "@/react/components/codec/Codec.Format.Values/types/function/function-external-result";
 import { TupleResult } from "@/react/components/codec/Codec.Format.Values/types/container/tuple-result";
 
-const displayName = "AbiResult";
-
-export const { AbiResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Values.AbiResult) =>
-      isUintResult(data) ? (
-        <UintResult data={data} />
-      ) : isIntResult(data) ? (
-        <IntResult data={data} />
-      ) : isBoolResult(data) ? (
-        <BoolResult data={data} />
-      ) : isBytesResult(data) ? (
-        <BytesResult data={data} />
-      ) : isAddressResult(data) ? (
-        <AddressResult data={data} />
-      ) : isFixedResult(data) ? (
-        <FixedResult data={data} />
-      ) : isUfixedResult(data) ? (
-        <UfixedResult data={data} />
-      ) : isStringResult(data) ? (
-        <StringResult data={data} />
-      ) : isArrayResult(data) ? (
-        <ArrayResult data={data} />
-      ) : isFunctionExternalResult(data) ? (
-        <FunctionExternalResult data={data} />
-      ) : (
-        <TupleResult data={data} />
-      )
-  )
-};
+export const { AbiResult } = createCodecComponent(
+  "AbiResult",
+  (data: Format.Values.AbiResult) =>
+    isUintResult(data) ? (
+      <UintResult data={data} />
+    ) : isIntResult(data) ? (
+      <IntResult data={data} />
+    ) : isBoolResult(data) ? (
+      <BoolResult data={data} />
+    ) : isBytesResult(data) ? (
+      <BytesResult data={data} />
+    ) : isAddressResult(data) ? (
+      <AddressResult data={data} />
+    ) : isFixedResult(data) ? (
+      <FixedResult data={data} />
+    ) : isUfixedResult(data) ? (
+      <UfixedResult data={data} />
+    ) : isStringResult(data) ? (
+      <StringResult data={data} />
+    ) : isArrayResult(data) ? (
+      <ArrayResult data={data} />
+    ) : isFunctionExternalResult(data) ? (
+      <FunctionExternalResult data={data} />
+    ) : (
+      <TupleResult data={data} />
+    )
+);

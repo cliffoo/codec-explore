@@ -20,32 +20,28 @@ import { isFunctionInternalResult } from "@/utils/type-guards/value-and-result/f
 import { FunctionInternalResult } from "@/react/components/codec/Codec.Format.Values/types/function/function-internal-result";
 import { OptionsResult } from "@/react/components/codec/Codec.Format.Values/types/special/options-result";
 
-const displayName = "Result";
-
-export const { Result } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Values.Result) =>
-      isElementaryResult(data) ? (
-        <ElementaryResult data={data} />
-      ) : isArrayResult(data) ? (
-        <ArrayResult data={data} />
-      ) : isMappingResult(data) ? (
-        <MappingResult data={data} />
-      ) : isStructResult(data) ? (
-        <StructResult data={data} />
-      ) : isTupleResult(data) ? (
-        <TupleResult data={data} />
-      ) : isMagicResult(data) ? (
-        <MagicResult data={data} />
-      ) : isTypeResult(data) ? (
-        <TypeResult data={data} />
-      ) : isFunctionExternalResult(data) ? (
-        <FunctionExternalResult data={data} />
-      ) : isFunctionInternalResult(data) ? (
-        <FunctionInternalResult data={data} />
-      ) : (
-        <OptionsResult data={data} />
-      )
-  )
-};
+export const { Result } = createCodecComponent(
+  "Result",
+  (data: Format.Values.Result) =>
+    isElementaryResult(data) ? (
+      <ElementaryResult data={data} />
+    ) : isArrayResult(data) ? (
+      <ArrayResult data={data} />
+    ) : isMappingResult(data) ? (
+      <MappingResult data={data} />
+    ) : isStructResult(data) ? (
+      <StructResult data={data} />
+    ) : isTupleResult(data) ? (
+      <TupleResult data={data} />
+    ) : isMagicResult(data) ? (
+      <MagicResult data={data} />
+    ) : isTypeResult(data) ? (
+      <TypeResult data={data} />
+    ) : isFunctionExternalResult(data) ? (
+      <FunctionExternalResult data={data} />
+    ) : isFunctionInternalResult(data) ? (
+      <FunctionInternalResult data={data} />
+    ) : (
+      <OptionsResult data={data} />
+    )
+);

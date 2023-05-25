@@ -4,16 +4,12 @@ import { isFunctionExternalError } from "@/utils/type-guards/decoder-error/funct
 import { FunctionExternalError } from "@/react/components/codec/Codec.Format.Errors/types/function/function-external-error";
 import { GenericError } from "@/react/components/codec/Codec.Format.Errors/types/generic/generic-error";
 
-const displayName = "FunctionExternalErrorResult";
-
-export const { FunctionExternalErrorResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    ({ error }: Format.Errors.FunctionExternalErrorResult) =>
-      isFunctionExternalError(error) ? (
-        <FunctionExternalError data={error} />
-      ) : (
-        <GenericError data={error} />
-      )
-  )
-};
+export const { FunctionExternalErrorResult } = createCodecComponent(
+  "FunctionExternalErrorResult",
+  ({ error }: Format.Errors.FunctionExternalErrorResult) =>
+    isFunctionExternalError(error) ? (
+      <FunctionExternalError data={error} />
+    ) : (
+      <GenericError data={error} />
+    )
+);

@@ -9,44 +9,40 @@ import {
 import { Container } from "@/react/components/common/container";
 import { Code } from "@/react/components/common/code";
 
-const displayName = "MappingValue";
-
-export const { MappingValue } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    ({ value }: Format.Values.MappingValue) => {
-      const { prefix, suffix } = useInjectedNode();
-      return (
-        <Container
-          prefix={
-            <>
-              {prefix?.prefix}
-              <Code type="bracket">{"{"}</Code>
-            </>
-          }
-          suffix={
-            <>
-              <Code type="bracket">{"}"}</Code>
-              {suffix?.suffix}
-            </>
-          }
-          empty={value.length === 0}
-        >
-          {value.map((keyValuePair, index) => (
-            <BracketDepthProvider key={index}>
-              <InjectedNodeProvider
-                reset={index === value.length - 1}
-                value={{
-                  content: { suffix: <Code type="comma">,&nbsp;</Code> },
-                  suffix: { suffix: <Code type="comma">,&nbsp;</Code> }
-                }}
-              >
-                <KeyValuePair data={keyValuePair} />
-              </InjectedNodeProvider>
-            </BracketDepthProvider>
-          ))}
-        </Container>
-      );
-    }
-  )
-};
+export const { MappingValue } = createCodecComponent(
+  "MappingValue",
+  ({ value }: Format.Values.MappingValue) => {
+    const { prefix, suffix } = useInjectedNode();
+    return (
+      <Container
+        prefix={
+          <>
+            {prefix?.prefix}
+            <Code type="bracket">{"{"}</Code>
+          </>
+        }
+        suffix={
+          <>
+            <Code type="bracket">{"}"}</Code>
+            {suffix?.suffix}
+          </>
+        }
+        empty={value.length === 0}
+      >
+        {value.map((keyValuePair, index) => (
+          <BracketDepthProvider key={index}>
+            <InjectedNodeProvider
+              reset={index === value.length - 1}
+              value={{
+                content: { suffix: <Code type="comma">,&nbsp;</Code> },
+                suffix: { suffix: <Code type="comma">,&nbsp;</Code> }
+              }}
+            >
+              <KeyValuePair data={keyValuePair} />
+            </InjectedNodeProvider>
+          </BracketDepthProvider>
+        ))}
+      </Container>
+    );
+  }
+);

@@ -6,18 +6,14 @@ import { isFunctionExternalValueInfoInvalid } from "@/utils/type-guards/other/fu
 import { FunctionExternalValueInfoInvalid } from "@/react/components/codec/Codec.Format.Values/interfaces/function/function-external-value-info-invalid";
 import { FunctionExternalValueInfoUnknown } from "@/react/components/codec/Codec.Format.Values/interfaces/function/function-external-value-info-unknown";
 
-const displayName = "FunctionExternalValueInfo";
-
-export const { FunctionExternalValueInfo } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Values.FunctionExternalValueInfo) =>
-      isFunctionExternalValueInfoKnown(data) ? (
-        <FunctionExternalValueInfoKnown data={data} />
-      ) : isFunctionExternalValueInfoInvalid(data) ? (
-        <FunctionExternalValueInfoInvalid data={data} />
-      ) : (
-        <FunctionExternalValueInfoUnknown data={data} />
-      )
-  )
-};
+export const { FunctionExternalValueInfo } = createCodecComponent(
+  "FunctionExternalValueInfo",
+  (data: Format.Values.FunctionExternalValueInfo) =>
+    isFunctionExternalValueInfoKnown(data) ? (
+      <FunctionExternalValueInfoKnown data={data} />
+    ) : isFunctionExternalValueInfoInvalid(data) ? (
+      <FunctionExternalValueInfoInvalid data={data} />
+    ) : (
+      <FunctionExternalValueInfoUnknown data={data} />
+    )
+);

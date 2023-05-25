@@ -4,16 +4,12 @@ import { isOverlongArraysAndStringsNotImplementedError } from "@/utils/type-guar
 import { OverlongArraysAndStringsNotImplementedError } from "@/react/components/codec/Codec.Format.Errors/interfaces/generic/overlong-arrays-and-strings-not-implemented-error";
 import { OverlargePointersNotImplementedError } from "@/react/components/codec/Codec.Format.Errors/interfaces/generic/overlarge-pointers-not-implemented-error";
 
-const displayName = "DynamicDataImplementationError";
-
-export const { DynamicDataImplementationError } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Errors.DynamicDataImplementationError) =>
-      isOverlongArraysAndStringsNotImplementedError(data) ? (
-        <OverlongArraysAndStringsNotImplementedError data={data} />
-      ) : (
-        <OverlargePointersNotImplementedError data={data} />
-      )
-  )
-};
+export const { DynamicDataImplementationError } = createCodecComponent(
+  "DynamicDataImplementationError",
+  (data: Format.Errors.DynamicDataImplementationError) =>
+    isOverlongArraysAndStringsNotImplementedError(data) ? (
+      <OverlongArraysAndStringsNotImplementedError data={data} />
+    ) : (
+      <OverlargePointersNotImplementedError data={data} />
+    )
+);

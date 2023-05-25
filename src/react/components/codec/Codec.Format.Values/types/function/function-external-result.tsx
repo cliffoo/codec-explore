@@ -4,16 +4,12 @@ import { isFunctionExternalValue } from "@/utils/type-guards/value-and-result/fu
 import { FunctionExternalValue } from "@/react/components/codec/Codec.Format.Values/interfaces/function/function-external-value";
 import { FunctionExternalErrorResult } from "@/react/components/codec/Codec.Format.Errors/interfaces/function/function-external-error-result";
 
-const displayName = "FunctionExternalResult";
-
-export const { FunctionExternalResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Values.FunctionExternalResult) =>
-      isFunctionExternalValue(data) ? (
-        <FunctionExternalValue data={data} />
-      ) : (
-        <FunctionExternalErrorResult data={data} />
-      )
-  )
-};
+export const { FunctionExternalResult } = createCodecComponent(
+  "FunctionExternalResult",
+  (data: Format.Values.FunctionExternalResult) =>
+    isFunctionExternalValue(data) ? (
+      <FunctionExternalValue data={data} />
+    ) : (
+      <FunctionExternalErrorResult data={data} />
+    )
+);

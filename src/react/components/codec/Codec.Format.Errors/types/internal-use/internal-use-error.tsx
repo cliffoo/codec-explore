@@ -4,16 +4,12 @@ import { isOverlongArrayOrStringStrictModeError } from "@/utils/type-guards/deco
 import { OverlongArrayOrStringStrictModeError } from "@/react/components/codec/Codec.Format.Errors/interfaces/internal-use/overlong-array-or-string-strict-mode-error";
 import { InternalFunctionInABIError } from "@/react/components/codec/Codec.Format.Errors/interfaces/internal-use/internal-function-in-abi-error";
 
-const displayName = "InternalUseError";
-
-export const { InternalUseError } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Errors.InternalUseError) =>
-      isOverlongArrayOrStringStrictModeError(data) ? (
-        <OverlongArrayOrStringStrictModeError data={data} />
-      ) : (
-        <InternalFunctionInABIError data={data} />
-      )
-  )
-};
+export const { InternalUseError } = createCodecComponent(
+  "InternalUseError",
+  (data: Format.Errors.InternalUseError) =>
+    isOverlongArrayOrStringStrictModeError(data) ? (
+      <OverlongArrayOrStringStrictModeError data={data} />
+    ) : (
+      <InternalFunctionInABIError data={data} />
+    )
+);

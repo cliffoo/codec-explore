@@ -4,16 +4,8 @@ import { isIntValue } from "@/utils/type-guards/value-and-result/int";
 import { IntValue } from "@/react/components/codec/Codec.Format.Values/interfaces/elementary/int-value";
 import { IntErrorResult } from "@/react/components/codec/Codec.Format.Errors/interfaces/elementary/int-error-result";
 
-const displayName = "IntResult";
-
-export const { IntResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Values.IntResult) =>
-      isIntValue(data) ? (
-        <IntValue data={data} />
-      ) : (
-        <IntErrorResult data={data} />
-      )
-  )
-};
+export const { IntResult } = createCodecComponent(
+  "IntResult",
+  (data: Format.Values.IntResult) =>
+    isIntValue(data) ? <IntValue data={data} /> : <IntErrorResult data={data} />
+);

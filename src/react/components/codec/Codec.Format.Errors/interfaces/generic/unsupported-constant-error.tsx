@@ -1,14 +1,10 @@
 import type { Format } from "@truffle/codec";
 import { createCodecComponent } from "@/react/utils/create-codec-component";
 
-const displayName = "UnsupportedConstantError";
-
-export const { UnsupportedConstantError } = {
-  [displayName]: createCodecComponent(
-    displayName,
+export const { UnsupportedConstantError } = createCodecComponent(
+  "UnsupportedConstantError",
+  (data: Format.Errors.UnsupportedConstantError) => (
     // TODO
-    (data: Format.Errors.UnsupportedConstantError) => (
-      <span>{data.definition.name}</span>
-    )
+    <span>{data.definition.name}</span>
   )
-};
+);

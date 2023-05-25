@@ -7,27 +7,23 @@ import {
 } from "@/react/contexts/internal/injected-node";
 import { Code } from "@/react/components/common/code";
 
-const displayName = "OptionallyNamedValue";
-
-export const { OptionallyNamedValue } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    ({ name, value }: Format.Values.OptionallyNamedValue) => (
-      <InjectedNodeProvider
-        value={{
-          ...useInjectedNode(),
-          prefix: {
-            prefix: name ? (
-              <>
-                <Code type="name">{name}</Code>
-                <Code type="colon">:&nbsp;</Code>
-              </>
-            ) : undefined
-          }
-        }}
-      >
-        <Result data={value} />
-      </InjectedNodeProvider>
-    )
+export const { OptionallyNamedValue } = createCodecComponent(
+  "OptionallyNamedValue",
+  ({ name, value }: Format.Values.OptionallyNamedValue) => (
+    <InjectedNodeProvider
+      value={{
+        ...useInjectedNode(),
+        prefix: {
+          prefix: name ? (
+            <>
+              <Code type="name">{name}</Code>
+              <Code type="colon">:&nbsp;</Code>
+            </>
+          ) : undefined
+        }
+      }}
+    >
+      <Result data={value} />
+    </InjectedNodeProvider>
   )
-};
+);

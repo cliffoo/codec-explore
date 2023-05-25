@@ -4,16 +4,12 @@ import { isUintError } from "@/utils/type-guards/decoder-error/uint-error";
 import { UintError } from "@/react/components/codec/Codec.Format.Errors/types/elementary/uint-error";
 import { GenericError } from "@/react/components/codec/Codec.Format.Errors/types/generic/generic-error";
 
-const displayName = "UintErrorResult";
-
-export const { UintErrorResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    ({ error }: Format.Errors.UintErrorResult) =>
-      isUintError(error) ? (
-        <UintError data={error} />
-      ) : (
-        <GenericError data={error} />
-      )
-  )
-};
+export const { UintErrorResult } = createCodecComponent(
+  "UintErrorResult",
+  ({ error }: Format.Errors.UintErrorResult) =>
+    isUintError(error) ? (
+      <UintError data={error} />
+    ) : (
+      <GenericError data={error} />
+    )
+);

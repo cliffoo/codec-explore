@@ -20,32 +20,28 @@ import { isFunctionInternalErrorResult } from "@/utils/type-guards/value-and-res
 import { FunctionInternalErrorResult } from "@/react/components/codec/Codec.Format.Errors/interfaces/function/function-internal-error-result";
 import { OptionsErrorResult } from "@/react/components/codec/Codec.Format.Errors/interfaces/other/options-error-result";
 
-const displayName = "ErrorResult";
-
-export const { ErrorResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Errors.ErrorResult) =>
-      isElementaryErrorResult(data) ? (
-        <ElementaryErrorResult data={data} />
-      ) : isArrayErrorResult(data) ? (
-        <ArrayErrorResult data={data} />
-      ) : isMappingErrorResult(data) ? (
-        <MappingErrorResult data={data} />
-      ) : isStructErrorResult(data) ? (
-        <StructErrorResult data={data} />
-      ) : isMagicErrorResult(data) ? (
-        <MagicErrorResult data={data} />
-      ) : isTypeErrorResult(data) ? (
-        <TypeErrorResult data={data} />
-      ) : isTupleErrorResult(data) ? (
-        <TupleErrorResult data={data} />
-      ) : isFunctionExternalErrorResult(data) ? (
-        <FunctionExternalErrorResult data={data} />
-      ) : isFunctionInternalErrorResult(data) ? (
-        <FunctionInternalErrorResult data={data} />
-      ) : (
-        <OptionsErrorResult data={data} />
-      )
-  )
-};
+export const { ErrorResult } = createCodecComponent(
+  "ErrorResult",
+  (data: Format.Errors.ErrorResult) =>
+    isElementaryErrorResult(data) ? (
+      <ElementaryErrorResult data={data} />
+    ) : isArrayErrorResult(data) ? (
+      <ArrayErrorResult data={data} />
+    ) : isMappingErrorResult(data) ? (
+      <MappingErrorResult data={data} />
+    ) : isStructErrorResult(data) ? (
+      <StructErrorResult data={data} />
+    ) : isMagicErrorResult(data) ? (
+      <MagicErrorResult data={data} />
+    ) : isTypeErrorResult(data) ? (
+      <TypeErrorResult data={data} />
+    ) : isTupleErrorResult(data) ? (
+      <TupleErrorResult data={data} />
+    ) : isFunctionExternalErrorResult(data) ? (
+      <FunctionExternalErrorResult data={data} />
+    ) : isFunctionInternalErrorResult(data) ? (
+      <FunctionInternalErrorResult data={data} />
+    ) : (
+      <OptionsErrorResult data={data} />
+    )
+);

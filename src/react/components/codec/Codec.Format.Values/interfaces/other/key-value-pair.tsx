@@ -8,29 +8,25 @@ import {
 } from "@/react/contexts/internal/injected-node";
 import { Code } from "@/react/components/common/code";
 
-const displayName = "KeyValuePair";
-
-export const { KeyValuePair } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    ({ key, value }: Format.Values.KeyValuePair) => (
-      <InjectedNodeProvider
-        value={{
-          ...useInjectedNode(),
-          prefix: {
-            prefix: (
-              <>
-                <InjectedNodeProvider reset>
-                  <ElementaryValue data={key} />
-                </InjectedNodeProvider>
-                <Code type="colon">:&nbsp;</Code>
-              </>
-            )
-          }
-        }}
-      >
-        <Result data={value} />
-      </InjectedNodeProvider>
-    )
+export const { KeyValuePair } = createCodecComponent(
+  "KeyValuePair",
+  ({ key, value }: Format.Values.KeyValuePair) => (
+    <InjectedNodeProvider
+      value={{
+        ...useInjectedNode(),
+        prefix: {
+          prefix: (
+            <>
+              <InjectedNodeProvider reset>
+                <ElementaryValue data={key} />
+              </InjectedNodeProvider>
+              <Code type="colon">:&nbsp;</Code>
+            </>
+          )
+        }
+      }}
+    >
+      <Result data={value} />
+    </InjectedNodeProvider>
   )
-};
+);

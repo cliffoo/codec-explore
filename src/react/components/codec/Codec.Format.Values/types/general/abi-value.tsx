@@ -22,34 +22,30 @@ import { isFunctionExternalValue } from "@/utils/type-guards/value-and-result/fu
 import { FunctionExternalValue } from "@/react/components/codec/Codec.Format.Values/interfaces/function/function-external-value";
 import { TupleValue } from "@/react/components/codec/Codec.Format.Values/interfaces/container/tuple-value";
 
-const displayName = "AbiValue";
-
-export const { AbiValue } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Values.AbiValue) =>
-      isUintValue(data) ? (
-        <UintValue data={data} />
-      ) : isIntValue(data) ? (
-        <IntValue data={data} />
-      ) : isBoolValue(data) ? (
-        <BoolValue data={data} />
-      ) : isBytesValue(data) ? (
-        <BytesValue data={data} />
-      ) : isAddressValue(data) ? (
-        <AddressValue data={data} />
-      ) : isFixedValue(data) ? (
-        <FixedValue data={data} />
-      ) : isUfixedValue(data) ? (
-        <UfixedValue data={data} />
-      ) : isStringValue(data) ? (
-        <StringValue data={data} />
-      ) : isArrayValue(data) ? (
-        <ArrayValue data={data} />
-      ) : isFunctionExternalValue(data) ? (
-        <FunctionExternalValue data={data} />
-      ) : (
-        <TupleValue data={data} />
-      )
-  )
-};
+export const { AbiValue } = createCodecComponent(
+  "AbiValue",
+  (data: Format.Values.AbiValue) =>
+    isUintValue(data) ? (
+      <UintValue data={data} />
+    ) : isIntValue(data) ? (
+      <IntValue data={data} />
+    ) : isBoolValue(data) ? (
+      <BoolValue data={data} />
+    ) : isBytesValue(data) ? (
+      <BytesValue data={data} />
+    ) : isAddressValue(data) ? (
+      <AddressValue data={data} />
+    ) : isFixedValue(data) ? (
+      <FixedValue data={data} />
+    ) : isUfixedValue(data) ? (
+      <UfixedValue data={data} />
+    ) : isStringValue(data) ? (
+      <StringValue data={data} />
+    ) : isArrayValue(data) ? (
+      <ArrayValue data={data} />
+    ) : isFunctionExternalValue(data) ? (
+      <FunctionExternalValue data={data} />
+    ) : (
+      <TupleValue data={data} />
+    )
+);

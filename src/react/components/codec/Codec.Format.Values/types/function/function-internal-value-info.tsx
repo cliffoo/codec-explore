@@ -6,18 +6,14 @@ import { isFunctionInternalValueInfoException } from "@/utils/type-guards/other/
 import { FunctionInternalValueInfoException } from "@/react/components/codec/Codec.Format.Values/interfaces/function/function-internal-value-info-exception";
 import { FunctionInternalValueInfoUnknown } from "@/react/components/codec/Codec.Format.Values/interfaces/function/function-internal-value-info-unknown";
 
-const displayName = "FunctionInternalValueInfo";
-
-export const { FunctionInternalValueInfo } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Values.FunctionInternalValueInfo) =>
-      isFunctionInternalValueInfoKnown(data) ? (
-        <FunctionInternalValueInfoKnown data={data} />
-      ) : isFunctionInternalValueInfoException(data) ? (
-        <FunctionInternalValueInfoException data={data} />
-      ) : (
-        <FunctionInternalValueInfoUnknown data={data} />
-      )
-  )
-};
+export const { FunctionInternalValueInfo } = createCodecComponent(
+  "FunctionInternalValueInfo",
+  (data: Format.Values.FunctionInternalValueInfo) =>
+    isFunctionInternalValueInfoKnown(data) ? (
+      <FunctionInternalValueInfoKnown data={data} />
+    ) : isFunctionInternalValueInfoException(data) ? (
+      <FunctionInternalValueInfoException data={data} />
+    ) : (
+      <FunctionInternalValueInfoUnknown data={data} />
+    )
+);

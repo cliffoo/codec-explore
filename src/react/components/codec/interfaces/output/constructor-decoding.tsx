@@ -5,29 +5,25 @@ import { Container } from "@/react/components/common/container";
 import { Code } from "@/react/components/common/code";
 import { AbiArguments } from "@/react/components/common/abi-arguments";
 
-const displayName = "ConstructorDecoding";
-
-export const { ConstructorDecoding } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Codec.ConstructorDecoding) => {
-      return (
-        <Container
-          prefix={
-            <>
-              <Code type="new-keyword">new&nbsp;</Code>
-              <Code type="contract">{data.class.typeName}</Code>
-              <Code type="bracket">(</Code>
-            </>
-          }
-          suffix={<Code type="bracket">)</Code>}
-          empty={data.arguments.length === 0}
-        >
-          <BracketDepthProvider>
-            <AbiArguments data={data.arguments} />
-          </BracketDepthProvider>
-        </Container>
-      );
-    }
-  )
-};
+export const { ConstructorDecoding } = createCodecComponent(
+  "ConstructorDecoding",
+  (data: Codec.ConstructorDecoding) => {
+    return (
+      <Container
+        prefix={
+          <>
+            <Code type="new-keyword">new&nbsp;</Code>
+            <Code type="contract">{data.class.typeName}</Code>
+            <Code type="bracket">(</Code>
+          </>
+        }
+        suffix={<Code type="bracket">)</Code>}
+        empty={data.arguments.length === 0}
+      >
+        <BracketDepthProvider>
+          <AbiArguments data={data.arguments} />
+        </BracketDepthProvider>
+      </Container>
+    );
+  }
+);

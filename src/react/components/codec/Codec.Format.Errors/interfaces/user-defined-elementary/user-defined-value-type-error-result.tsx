@@ -4,16 +4,12 @@ import { isUserDefinedValueTypeError } from "@/utils/type-guards/decoder-error/u
 import { UserDefinedValueTypeError } from "@/react/components/codec/Codec.Format.Errors/types/user-defined-elementary/user-defined-value-type-error";
 import { GenericError } from "@/react/components/codec/Codec.Format.Errors/types/generic/generic-error";
 
-const displayName = "UserDefinedValueTypeErrorResult";
-
-export const { UserDefinedValueTypeErrorResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    ({ error }: Format.Errors.UserDefinedValueTypeErrorResult) =>
-      isUserDefinedValueTypeError(error) ? (
-        <UserDefinedValueTypeError data={error} />
-      ) : (
-        <GenericError data={error} />
-      )
-  )
-};
+export const { UserDefinedValueTypeErrorResult } = createCodecComponent(
+  "UserDefinedValueTypeErrorResult",
+  ({ error }: Format.Errors.UserDefinedValueTypeErrorResult) =>
+    isUserDefinedValueTypeError(error) ? (
+      <UserDefinedValueTypeError data={error} />
+    ) : (
+      <GenericError data={error} />
+    )
+);

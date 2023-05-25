@@ -4,16 +4,12 @@ import { isBytesDynamicError } from "@/utils/type-guards/decoder-error/bytes-dyn
 import { BytesDynamicError } from "@/react/components/codec/Codec.Format.Errors/types/elementary/bytes-dynamic-error";
 import { GenericError } from "@/react/components/codec/Codec.Format.Errors/types/generic/generic-error";
 
-const displayName = "BytesDynamicErrorResult";
-
-export const { BytesDynamicErrorResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    ({ error }: Format.Errors.BytesDynamicErrorResult) =>
-      isBytesDynamicError(error) ? (
-        <BytesDynamicError data={error} />
-      ) : (
-        <GenericError data={error} />
-      )
-  )
-};
+export const { BytesDynamicErrorResult } = createCodecComponent(
+  "BytesDynamicErrorResult",
+  ({ error }: Format.Errors.BytesDynamicErrorResult) =>
+    isBytesDynamicError(error) ? (
+      <BytesDynamicError data={error} />
+    ) : (
+      <GenericError data={error} />
+    )
+);

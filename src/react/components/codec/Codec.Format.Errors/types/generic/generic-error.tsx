@@ -6,18 +6,14 @@ import { isIndexedReferenceTypeError } from "@/utils/type-guards/decoder-error/i
 import { IndexedReferenceTypeError } from "@/react/components/codec/Codec.Format.Errors/interfaces/generic/indexed-reference-type-error";
 import { ReadError } from "@/react/components/codec/Codec.Format.Errors/types/generic/read-error";
 
-const displayName = "GenericError";
-
-export const { GenericError } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Errors.GenericError) =>
-      isUserDefinedTypeNotFoundError(data) ? (
-        <UserDefinedTypeNotFoundError data={data} />
-      ) : isIndexedReferenceTypeError(data) ? (
-        <IndexedReferenceTypeError data={data} />
-      ) : (
-        <ReadError data={data} />
-      )
-  )
-};
+export const { GenericError } = createCodecComponent(
+  "GenericError",
+  (data: Format.Errors.GenericError) =>
+    isUserDefinedTypeNotFoundError(data) ? (
+      <UserDefinedTypeNotFoundError data={data} />
+    ) : isIndexedReferenceTypeError(data) ? (
+      <IndexedReferenceTypeError data={data} />
+    ) : (
+      <ReadError data={data} />
+    )
+);

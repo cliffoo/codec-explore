@@ -1,14 +1,10 @@
 import type { Format } from "@truffle/codec";
 import { createCodecComponent } from "@/react/utils/create-codec-component";
 
-const displayName = "BoolOutOfRangeError";
-
-export const { BoolOutOfRangeError } = {
-  [displayName]: createCodecComponent(
-    displayName,
+export const { BoolOutOfRangeError } = createCodecComponent(
+  "BoolOutOfRangeError",
+  (data: Format.Errors.BoolOutOfRangeError) => (
     // TODO
-    (data: Format.Errors.BoolOutOfRangeError) => (
-      <span>{data.rawAsBN.toString()}</span>
-    )
+    <span>{data.rawAsBN.toString()}</span>
   )
-};
+);

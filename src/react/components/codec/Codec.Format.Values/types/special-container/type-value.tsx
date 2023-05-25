@@ -4,16 +4,12 @@ import { isTypeValueContract } from "@/utils/type-guards/value-and-result/type-v
 import { TypeValueContract } from "@/react/components/codec/Codec.Format.Values/interfaces/special-container/type-value-contract";
 import { TypeValueEnum } from "@/react/components/codec/Codec.Format.Values/interfaces/special-container/type-value-enum";
 
-const displayName = "TypeValue";
-
-export const { TypeValue } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Values.TypeValue) =>
-      isTypeValueContract(data) ? (
-        <TypeValueContract data={data} />
-      ) : (
-        <TypeValueEnum data={data} />
-      )
-  )
-};
+export const { TypeValue } = createCodecComponent(
+  "TypeValue",
+  (data: Format.Values.TypeValue) =>
+    isTypeValueContract(data) ? (
+      <TypeValueContract data={data} />
+    ) : (
+      <TypeValueEnum data={data} />
+    )
+);

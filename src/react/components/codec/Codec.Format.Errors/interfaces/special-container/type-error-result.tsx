@@ -4,16 +4,12 @@ import { isTypeErrorUnion } from "@/utils/type-guards/decoder-error/type-error-u
 import { TypeErrorUnion } from "@/react/components/codec/Codec.Format.Errors/types/special-container/type-error-union";
 import { GenericError } from "@/react/components/codec/Codec.Format.Errors/types/generic/generic-error";
 
-const displayName = "TypeErrorResult";
-
-export const { TypeErrorResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    ({ error }: Format.Errors.TypeErrorResult) =>
-      isTypeErrorUnion(error) ? (
-        <TypeErrorUnion data={error} />
-      ) : (
-        <GenericError data={error} />
-      )
-  )
-};
+export const { TypeErrorResult } = createCodecComponent(
+  "TypeErrorResult",
+  ({ error }: Format.Errors.TypeErrorResult) =>
+    isTypeErrorUnion(error) ? (
+      <TypeErrorUnion data={error} />
+    ) : (
+      <GenericError data={error} />
+    )
+);

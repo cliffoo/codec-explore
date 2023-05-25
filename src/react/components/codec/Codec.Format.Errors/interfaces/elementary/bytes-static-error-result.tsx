@@ -4,16 +4,12 @@ import { isBytesStaticError } from "@/utils/type-guards/decoder-error/bytes-stat
 import { BytesStaticError } from "@/react/components/codec/Codec.Format.Errors/types/elementary/bytes-static-error";
 import { GenericError } from "@/react/components/codec/Codec.Format.Errors/types/generic/generic-error";
 
-const displayName = "BytesStaticErrorResult";
-
-export const { BytesStaticErrorResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    ({ error }: Format.Errors.BytesStaticErrorResult) =>
-      isBytesStaticError(error) ? (
-        <BytesStaticError data={error} />
-      ) : (
-        <GenericError data={error} />
-      )
-  )
-};
+export const { BytesStaticErrorResult } = createCodecComponent(
+  "BytesStaticErrorResult",
+  ({ error }: Format.Errors.BytesStaticErrorResult) =>
+    isBytesStaticError(error) ? (
+      <BytesStaticError data={error} />
+    ) : (
+      <GenericError data={error} />
+    )
+);

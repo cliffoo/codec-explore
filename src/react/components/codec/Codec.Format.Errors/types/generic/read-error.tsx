@@ -14,26 +14,22 @@ import { isUnusedImmutableError } from "@/utils/type-guards/decoder-error/unused
 import { UnusedImmutableError } from "@/react/components/codec/Codec.Format.Errors/interfaces/generic/unused-immutable-error";
 import { CodeNotSuppliedError } from "@/react/components/codec/Codec.Format.Errors/interfaces/generic/code-not-supplied-error";
 
-const displayName = "ReadError";
-
-export const { ReadError } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Errors.ReadError) =>
-      isUnsupportedConstantError(data) ? (
-        <UnsupportedConstantError data={data} />
-      ) : isReadErrorStack(data) ? (
-        <ReadErrorStack data={data} />
-      ) : isReadErrorBytes(data) ? (
-        <ReadErrorBytes data={data} />
-      ) : isReadErrorStorage(data) ? (
-        <ReadErrorStorage data={data} />
-      ) : isStorageNotSuppliedError(data) ? (
-        <StorageNotSuppliedError data={data} />
-      ) : isUnusedImmutableError(data) ? (
-        <UnusedImmutableError data={data} />
-      ) : (
-        <CodeNotSuppliedError data={data} />
-      )
-  )
-};
+export const { ReadError } = createCodecComponent(
+  "ReadError",
+  (data: Format.Errors.ReadError) =>
+    isUnsupportedConstantError(data) ? (
+      <UnsupportedConstantError data={data} />
+    ) : isReadErrorStack(data) ? (
+      <ReadErrorStack data={data} />
+    ) : isReadErrorBytes(data) ? (
+      <ReadErrorBytes data={data} />
+    ) : isReadErrorStorage(data) ? (
+      <ReadErrorStorage data={data} />
+    ) : isStorageNotSuppliedError(data) ? (
+      <StorageNotSuppliedError data={data} />
+    ) : isUnusedImmutableError(data) ? (
+      <UnusedImmutableError data={data} />
+    ) : (
+      <CodeNotSuppliedError data={data} />
+    )
+);

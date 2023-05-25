@@ -1,14 +1,10 @@
 import type { Format } from "@truffle/codec";
 import { createCodecComponent } from "@/react/utils/create-codec-component";
 
-const displayName = "FunctionExternalStackPaddingError";
-
-export const { FunctionExternalStackPaddingError } = {
-  [displayName]: createCodecComponent(
-    displayName,
+export const { FunctionExternalStackPaddingError } = createCodecComponent(
+  "FunctionExternalStackPaddingError",
+  (data: Format.Errors.FunctionExternalStackPaddingError) => (
     // TODO
-    (data: Format.Errors.FunctionExternalStackPaddingError) => (
-      <span>{data.rawAddress}</span>
-    )
+    <span>{data.rawAddress}</span>
   )
-};
+);

@@ -20,32 +20,28 @@ import { isFunctionInternalValue } from "@/utils/type-guards/value-and-result/fu
 import { FunctionInternalValue } from "@/react/components/codec/Codec.Format.Values/interfaces/function/function-internal-value";
 import { OptionsValue } from "@/react/components/codec/Codec.Format.Values/interfaces/special/options-value";
 
-const displayName = "Value";
-
-export const { Value } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Values.Value) =>
-      isElementaryValue(data) ? (
-        <ElementaryValue data={data} />
-      ) : isArrayValue(data) ? (
-        <ArrayValue data={data} />
-      ) : isMappingValue(data) ? (
-        <MappingValue data={data} />
-      ) : isStructValue(data) ? (
-        <StructValue data={data} />
-      ) : isTupleValue(data) ? (
-        <TupleValue data={data} />
-      ) : isMagicValue(data) ? (
-        <MagicValue data={data} />
-      ) : isTypeValue(data) ? (
-        <TypeValue data={data} />
-      ) : isFunctionExternalValue(data) ? (
-        <FunctionExternalValue data={data} />
-      ) : isFunctionInternalValue(data) ? (
-        <FunctionInternalValue data={data} />
-      ) : (
-        <OptionsValue data={data} />
-      )
-  )
-};
+export const { Value } = createCodecComponent(
+  "Value",
+  (data: Format.Values.Value) =>
+    isElementaryValue(data) ? (
+      <ElementaryValue data={data} />
+    ) : isArrayValue(data) ? (
+      <ArrayValue data={data} />
+    ) : isMappingValue(data) ? (
+      <MappingValue data={data} />
+    ) : isStructValue(data) ? (
+      <StructValue data={data} />
+    ) : isTupleValue(data) ? (
+      <TupleValue data={data} />
+    ) : isMagicValue(data) ? (
+      <MagicValue data={data} />
+    ) : isTypeValue(data) ? (
+      <TypeValue data={data} />
+    ) : isFunctionExternalValue(data) ? (
+      <FunctionExternalValue data={data} />
+    ) : isFunctionInternalValue(data) ? (
+      <FunctionInternalValue data={data} />
+    ) : (
+      <OptionsValue data={data} />
+    )
+);

@@ -4,16 +4,12 @@ import { isBytesStaticResult } from "@/utils/type-guards/value-and-result/bytes-
 import { BytesStaticResult } from "@/react/components/codec/Codec.Format.Values/types/elementary/bytes-static-result";
 import { BytesDynamicResult } from "@/react/components/codec/Codec.Format.Values/types/elementary/bytes-dynamic-result";
 
-const displayName = "BytesResult";
-
-export const { BytesResult } = {
-  [displayName]: createCodecComponent(
-    displayName,
-    (data: Format.Values.BytesResult) =>
-      isBytesStaticResult(data) ? (
-        <BytesStaticResult data={data} />
-      ) : (
-        <BytesDynamicResult data={data} />
-      )
-  )
-};
+export const { BytesResult } = createCodecComponent(
+  "BytesResult",
+  (data: Format.Values.BytesResult) =>
+    isBytesStaticResult(data) ? (
+      <BytesStaticResult data={data} />
+    ) : (
+      <BytesDynamicResult data={data} />
+    )
+);
