@@ -42,19 +42,20 @@ export const { StructValue } = createCodecComponent(
         }
         empty={value.length === 0}
       >
-        {value.map((nameValuePair, index) => (
-          <BracketDepthProvider key={index}>
+        <BracketDepthProvider>
+          {value.map((nameValuePair, index) => (
             <InjectedNodeProvider
               reset={index === value.length - 1}
               value={{
                 content: { suffix: <Code type="comma">,&nbsp;</Code> },
                 suffix: { suffix: <Code type="comma">,&nbsp;</Code> }
               }}
+              key={index}
             >
               <NameValuePair data={nameValuePair} />
             </InjectedNodeProvider>
-          </BracketDepthProvider>
-        ))}
+          ))}
+        </BracketDepthProvider>
       </Container>
     );
   }

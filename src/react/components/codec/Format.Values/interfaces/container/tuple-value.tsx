@@ -29,19 +29,20 @@ export const { TupleValue } = createCodecComponent(
         }
         empty={value.length === 0}
       >
-        {value.map((optionallyNamedValue, index) => (
-          <BracketDepthProvider key={index}>
+        <BracketDepthProvider>
+          {value.map((optionallyNamedValue, index) => (
             <InjectedNodeProvider
               reset={index === value.length - 1}
               value={{
                 content: { suffix: <Code type="comma">,&nbsp;</Code> },
                 suffix: { suffix: <Code type="comma">,&nbsp;</Code> }
               }}
+              key={index}
             >
               <OptionallyNamedValue data={optionallyNamedValue} />
             </InjectedNodeProvider>
-          </BracketDepthProvider>
-        ))}
+          ))}
+        </BracketDepthProvider>
       </Container>
     );
   }
