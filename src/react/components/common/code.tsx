@@ -1,7 +1,8 @@
-import styles from "./code.module.scss";
+import { createCommonComponent } from "@/react/utils/create-common-component";
 import { useBracketDepth } from "@/react/contexts/internal/bracket-depth";
 import { useClassNamePrefix } from "@/react/contexts/internal/class-name-prefix";
 import { useColors } from "@/react/contexts/internal/colors";
+import styles from "./code.module.scss";
 
 export type CodeProps = {
   children: React.ReactNode;
@@ -27,28 +28,31 @@ export type CodeProps = {
     | "default";
 } & React.HTMLAttributes<HTMLSpanElement>;
 
-export function Code({ children, type, ...props }: CodeProps): JSX.Element {
-  type ||= "default";
-  const bracketDepth = useBracketDepth();
-  const classNamePrefix = useClassNamePrefix();
-  const colors = useColors();
-  const color =
-    type === "bracket"
-      ? colors["bracket"][(bracketDepth || 0) % colors["bracket"].length] ||
-        colors["default"]
-      : colors[type];
+export const { Code } = createCommonComponent(
+  "Code",
+  ({ children, type, ...props }) => {
+    type ||= "default";
+    const bracketDepth = useBracketDepth();
+    const classNamePrefix = useClassNamePrefix();
+    const colors = useColors();
+    const color =
+      type === "bracket"
+        ? colors["bracket"][(bracketDepth || 0) % colors["bracket"].length] ||
+          colors["default"]
+        : colors[type];
 
-  return (
-    <span
-      className={
-        styles["code"] +
-        ` ${classNamePrefix}-code` +
-        ` ${classNamePrefix}-code-${type}`
-      }
-      style={{ color }}
-      {...props}
-    >
-      {children}
-    </span>
-  );
-}
+    return (
+      <span
+        className={
+          styles["code"] +
+          ` ${classNamePrefix}-code` +
+          ` ${classNamePrefix}-code-${type}`
+        }
+        style={{ color }}
+        {...props}
+      >
+        {children}
+      </span>
+    );
+  }
+);
