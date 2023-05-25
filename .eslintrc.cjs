@@ -11,7 +11,6 @@ module.exports = {
   plugins: ["react-refresh"],
   rules: {
     "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
-    "storybook/prefer-pascal-case": "off",
-    "react-refresh/only-export-components": "off"
+    "storybook/prefer-pascal-case": "off"
   }
 };
