@@ -1,5 +1,6 @@
-import type * as Codec from "@truffle/codec";
+import type { Format } from "@truffle/codec";
 import { createCodecComponent } from "@/react/utils/create-codec-component";
+import { ElementaryValue } from "@/react/components/codec/Format.Values/types/general/elementary-value";
 import { Result } from "@/react/components/codec/Format.Values/types/general/result";
 import {
   useInjectedNode,
@@ -7,19 +8,21 @@ import {
 } from "@/react/contexts/internal/injected-node";
 import { Code } from "@/react/components/common/code";
 
-export const { AbiArgument } = createCodecComponent(
-  "AbiArgument",
-  ({ value, name }: Codec.AbiArgument) => (
+export const { KeyValuePair } = createCodecComponent(
+  "KeyValuePair",
+  ({ key, value }: Format.Values.KeyValuePair) => (
     <InjectedNodeProvider
       value={{
         ...useInjectedNode(),
         prefix: {
-          prefix: name ? (
+          prefix: (
             <>
-              <Code type="name">{name}</Code>
+              <InjectedNodeProvider reset>
+                <ElementaryValue data={key} />
+              </InjectedNodeProvider>
               <Code type="colon">:&nbsp;</Code>
             </>
-          ) : undefined
+          )
         }
       }}
     >

@@ -1,24 +1,24 @@
-// ./Codec.Format.Values/interfaces/container
-export { default as arrayValueData } from "@/utils/codec-data/Codec.Format.Values/interfaces/container/array-value";
-export { default as mappingValueData } from "@/utils/codec-data/Codec.Format.Values/interfaces/container/mapping-value";
+// ./Format.Values/interfaces/container
+export { default as arrayValueData } from "@/utils/codec-data/Format.Values/interfaces/container/array-value";
+export { default as mappingValueData } from "@/utils/codec-data/Format.Values/interfaces/container/mapping-value";
 
-// ./Codec.Format.Values/interfaces/elementary
-export { default as addressValueData } from "@/utils/codec-data/Codec.Format.Values/interfaces/elementary/address-value";
-export { default as boolValueData } from "@/utils/codec-data/Codec.Format.Values/interfaces/elementary/bool-value";
-export { default as bytesDynamicValueData } from "@/utils/codec-data/Codec.Format.Values/interfaces/elementary/bytes-dynamic-value";
-export { default as bytesStaticValueData } from "@/utils/codec-data/Codec.Format.Values/interfaces/elementary/bytes-static-value";
-export { default as fixedValueData } from "@/utils/codec-data/Codec.Format.Values/interfaces/elementary/fixed-value";
-export { default as intValueData } from "@/utils/codec-data/Codec.Format.Values/interfaces/elementary/int-value";
-export { default as stringValueInfoMalformedData } from "@/utils/codec-data/Codec.Format.Values/interfaces/elementary/string-value-info-malformed";
-export { default as stringValueInfoValidData } from "@/utils/codec-data/Codec.Format.Values/interfaces/elementary/string-value-info-valid";
-export { default as stringValueData } from "@/utils/codec-data/Codec.Format.Values/interfaces/elementary/string-value";
-export { default as ufixedValueData } from "@/utils/codec-data/Codec.Format.Values/interfaces/elementary/ufixed-value";
-export { default as uintValueData } from "@/utils/codec-data/Codec.Format.Values/interfaces/elementary/uint-value";
+// ./Format.Values/interfaces/elementary
+export { default as addressValueData } from "@/utils/codec-data/Format.Values/interfaces/elementary/address-value";
+export { default as boolValueData } from "@/utils/codec-data/Format.Values/interfaces/elementary/bool-value";
+export { default as bytesDynamicValueData } from "@/utils/codec-data/Format.Values/interfaces/elementary/bytes-dynamic-value";
+export { default as bytesStaticValueData } from "@/utils/codec-data/Format.Values/interfaces/elementary/bytes-static-value";
+export { default as fixedValueData } from "@/utils/codec-data/Format.Values/interfaces/elementary/fixed-value";
+export { default as intValueData } from "@/utils/codec-data/Format.Values/interfaces/elementary/int-value";
+export { default as stringValueInfoMalformedData } from "@/utils/codec-data/Format.Values/interfaces/elementary/string-value-info-malformed";
+export { default as stringValueInfoValidData } from "@/utils/codec-data/Format.Values/interfaces/elementary/string-value-info-valid";
+export { default as stringValueData } from "@/utils/codec-data/Format.Values/interfaces/elementary/string-value";
+export { default as ufixedValueData } from "@/utils/codec-data/Format.Values/interfaces/elementary/ufixed-value";
+export { default as uintValueData } from "@/utils/codec-data/Format.Values/interfaces/elementary/uint-value";
 
-// ./Codec.Format.Values/interfaces/other
-export { default as keyValuePairData } from "@/utils/codec-data/Codec.Format.Values/interfaces/other/key-value-pair";
-export { default as nameValuePairData } from "@/utils/codec-data/Codec.Format.Values/interfaces/other/name-value-pair";
-export { default as optionallyNamedValueData } from "@/utils/codec-data/Codec.Format.Values/interfaces/other/optionally-named-value";
+// ./Format.Values/interfaces/other
+export { default as keyValuePairData } from "@/utils/codec-data/Format.Values/interfaces/other/key-value-pair";
+export { default as nameValuePairData } from "@/utils/codec-data/Format.Values/interfaces/other/name-value-pair";
+export { default as optionallyNamedValueData } from "@/utils/codec-data/Format.Values/interfaces/other/optionally-named-value";
 
 // ./interfaces/output
 export { default as abiArgumentData } from "@/utils/codec-data/interfaces/output/abi-argument";

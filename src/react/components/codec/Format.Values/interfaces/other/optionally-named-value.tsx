@@ -1,4 +1,4 @@
-import type * as Codec from "@truffle/codec";
+import type { Format } from "@truffle/codec";
 import { createCodecComponent } from "@/react/utils/create-codec-component";
 import { Result } from "@/react/components/codec/Format.Values/types/general/result";
 import {
@@ -7,9 +7,9 @@ import {
 } from "@/react/contexts/internal/injected-node";
 import { Code } from "@/react/components/common/code";
 
-export const { AbiArgument } = createCodecComponent(
-  "AbiArgument",
-  ({ value, name }: Codec.AbiArgument) => (
+export const { OptionallyNamedValue } = createCodecComponent(
+  "OptionallyNamedValue",
+  ({ name, value }: Format.Values.OptionallyNamedValue) => (
     <InjectedNodeProvider
       value={{
         ...useInjectedNode(),

@@ -16,12 +16,12 @@ export interface CustomComponentsContextValue {
   // @/react/components/codec
   codec?: Partial<
     CustomCodecComponents<{
-      // /Codec.Format.Errors/interfaces/container
+      // /Format.Errors/interfaces/container
       ArrayErrorResult: Codec.Format.Errors.ArrayErrorResult;
       MappingErrorResult: Codec.Format.Errors.MappingErrorResult;
       StructErrorResult: Codec.Format.Errors.StructErrorResult;
       TupleErrorResult: Codec.Format.Errors.TupleErrorResult;
-      // /Codec.Format.Errors/interfaces/elementary
+      // /Format.Errors/interfaces/elementary
       AddressErrorResult: Codec.Format.Errors.AddressErrorResult;
       AddressPaddingError: Codec.Format.Errors.AddressPaddingError;
       BoolErrorResult: Codec.Format.Errors.BoolErrorResult;
@@ -40,7 +40,7 @@ export interface CustomComponentsContextValue {
       UfixedPaddingError: Codec.Format.Errors.UfixedPaddingError;
       UintErrorResult: Codec.Format.Errors.UintErrorResult;
       UintPaddingError: Codec.Format.Errors.UintPaddingError;
-      // /Codec.Format.Errors/interfaces/function
+      // /Format.Errors/interfaces/function
       DeployedFunctionInConstructorError: Codec.Format.Errors.DeployedFunctionInConstructorError;
       FunctionExternalErrorResult: Codec.Format.Errors.FunctionExternalErrorResult;
       FunctionExternalNonStackPaddingError: Codec.Format.Errors.FunctionExternalNonStackPaddingError;
@@ -49,7 +49,7 @@ export interface CustomComponentsContextValue {
       FunctionInternalPaddingError: Codec.Format.Errors.FunctionInternalPaddingError;
       MalformedInternalFunctionError: Codec.Format.Errors.MalformedInternalFunctionError;
       NoSuchInternalFunctionError: Codec.Format.Errors.NoSuchInternalFunctionError;
-      // /Codec.Format.Errors/interfaces/generic
+      // /Format.Errors/interfaces/generic
       CodeNotSuppliedError: Codec.Format.Errors.CodeNotSuppliedError;
       IndexedReferenceTypeError: Codec.Format.Errors.IndexedReferenceTypeError;
       OverlargePointersNotImplementedError: Codec.Format.Errors.OverlargePointersNotImplementedError;
@@ -61,15 +61,15 @@ export interface CustomComponentsContextValue {
       UnsupportedConstantError: Codec.Format.Errors.UnsupportedConstantError;
       UnusedImmutableError: Codec.Format.Errors.UnusedImmutableError;
       UserDefinedTypeNotFoundError: Codec.Format.Errors.UserDefinedTypeNotFoundError;
-      // /Codec.Format.Errors/interfaces/internal-use
+      // /Format.Errors/interfaces/internal-use
       InternalFunctionInABIError: Codec.Format.Errors.InternalFunctionInABIError;
       OverlongArrayOrStringStrictModeError: Codec.Format.Errors.OverlongArrayOrStringStrictModeError;
-      // /Codec.Format.Errors/interfaces/other
+      // /Format.Errors/interfaces/other
       OptionsErrorResult: Codec.Format.Errors.OptionsErrorResult;
-      // /Codec.Format.Errors/interfaces/special-container
+      // /Format.Errors/interfaces/special-container
       MagicErrorResult: Codec.Format.Errors.MagicErrorResult;
       TypeErrorResult: Codec.Format.Errors.TypeErrorResult;
-      // /Codec.Format.Errors/interfaces/user-defined-elementary
+      // /Format.Errors/interfaces/user-defined-elementary
       ContractErrorResult: Codec.Format.Errors.ContractErrorResult;
       ContractPaddingError: Codec.Format.Errors.ContractPaddingError;
       EnumErrorResult: Codec.Format.Errors.EnumErrorResult;
@@ -77,12 +77,12 @@ export interface CustomComponentsContextValue {
       EnumOutOfRangeError: Codec.Format.Errors.EnumOutOfRangeError;
       UserDefinedValueTypeErrorResult: Codec.Format.Errors.UserDefinedValueTypeErrorResult;
       WrappedError: Codec.Format.Errors.WrappedError;
-      // /Codec.Format.Errors/types/container
+      // /Format.Errors/types/container
       ArrayError: Codec.Format.Errors.ArrayError;
       MappingError: Codec.Format.Errors.MappingError;
       StructError: Codec.Format.Errors.StructError;
       TupleError: Codec.Format.Errors.TupleError;
-      // /Codec.Format.Errors/types/elementary
+      // /Format.Errors/types/elementary
       AddressError: Codec.Format.Errors.AddressError;
       BoolError: Codec.Format.Errors.BoolError;
       BuiltInValueErrorResult: Codec.Format.Errors.BuiltInValueErrorResult;
@@ -95,36 +95,36 @@ export interface CustomComponentsContextValue {
       StringError: Codec.Format.Errors.StringError;
       UfixedError: Codec.Format.Errors.UfixedError;
       UintError: Codec.Format.Errors.UintError;
-      // /Codec.Format.Errors/types/function
+      // /Format.Errors/types/function
       FunctionExternalError: Codec.Format.Errors.FunctionExternalError;
       FunctionInternalError: Codec.Format.Errors.FunctionInternalError;
-      // /Codec.Format.Errors/types/general
+      // /Format.Errors/types/general
       AbiErrorResult: Codec.Format.Errors.AbiErrorResult;
       DecoderError: Codec.Format.Errors.DecoderError;
       ErrorResult: Codec.Format.Errors.ErrorResult;
-      // /Codec.Format.Errors/types/generic
+      // /Format.Errors/types/generic
       DynamicDataImplementationError: Codec.Format.Errors.DynamicDataImplementationError;
       ErrorForThrowing: Codec.Format.Errors.ErrorForThrowing;
       GenericError: Codec.Format.Errors.GenericError;
       ReadError: Codec.Format.Errors.ReadError;
-      // /Codec.Format.Errors/types/internal-use
+      // /Format.Errors/types/internal-use
       InternalUseError: Codec.Format.Errors.InternalUseError;
-      // /Codec.Format.Errors/types/other
+      // /Format.Errors/types/other
       BytesLocation: Codec.Format.Errors.BytesLocation;
       OptionsError: Codec.Format.Errors.OptionsError;
-      // /Codec.Format.Errors/types/special-container
+      // /Format.Errors/types/special-container
       MagicError: Codec.Format.Errors.MagicError;
       TypeErrorUnion: Codec.Format.Errors.TypeErrorUnion;
-      // /Codec.Format.Errors/types/user-defined-elementary
+      // /Format.Errors/types/user-defined-elementary
       ContractError: Codec.Format.Errors.ContractError;
       EnumError: Codec.Format.Errors.EnumError;
       UserDefinedValueTypeError: Codec.Format.Errors.UserDefinedValueTypeError;
-      // /Codec.Format.Values/interfaces/container
+      // /Format.Values/interfaces/container
       ArrayValue: Codec.Format.Values.ArrayValue;
       MappingValue: Codec.Format.Values.MappingValue;
       StructValue: Codec.Format.Values.StructValue;
       TupleValue: Codec.Format.Values.TupleValue;
-      // /Codec.Format.Values/interfaces/elementary
+      // /Format.Values/interfaces/elementary
       AddressValue: Codec.Format.Values.AddressValue;
       BoolValue: Codec.Format.Values.BoolValue;
       BytesDynamicValue: Codec.Format.Values.BytesDynamicValue;
@@ -136,7 +136,7 @@ export interface CustomComponentsContextValue {
       StringValue: Codec.Format.Values.StringValue;
       UfixedValue: Codec.Format.Values.UfixedValue;
       UintValue: Codec.Format.Values.UintValue;
-      // /Codec.Format.Values/interfaces/function
+      // /Format.Values/interfaces/function
       FunctionExternalValueInfoInvalid: Codec.Format.Values.FunctionExternalValueInfoInvalid;
       FunctionExternalValueInfoKnown: Codec.Format.Values.FunctionExternalValueInfoKnown;
       FunctionExternalValueInfoUnknown: Codec.Format.Values.FunctionExternalValueInfoUnknown;
@@ -145,28 +145,28 @@ export interface CustomComponentsContextValue {
       FunctionInternalValueInfoKnown: Codec.Format.Values.FunctionInternalValueInfoKnown;
       FunctionInternalValueInfoUnknown: Codec.Format.Values.FunctionInternalValueInfoUnknown;
       FunctionInternalValue: Codec.Format.Values.FunctionInternalValue;
-      // /Codec.Format.Values/interfaces/other
+      // /Format.Values/interfaces/other
       KeyValuePair: Codec.Format.Values.KeyValuePair;
       NameValuePair: Codec.Format.Values.NameValuePair;
       OptionallyNamedValue: Codec.Format.Values.OptionallyNamedValue;
-      // /Codec.Format.Values/interfaces/special
+      // /Format.Values/interfaces/special
       OptionsValue: Codec.Format.Values.OptionsValue;
-      // /Codec.Format.Values/interfaces/special-container
+      // /Format.Values/interfaces/special-container
       MagicValue: Codec.Format.Values.MagicValue;
       TypeValueContract: Codec.Format.Values.TypeValueContract;
       TypeValueEnum: Codec.Format.Values.TypeValueEnum;
-      // /Codec.Format.Values/interfaces/user-defined-elementary
+      // /Format.Values/interfaces/user-defined-elementary
       ContractValueInfoKnown: Codec.Format.Values.ContractValueInfoKnown;
       ContractValueInfoUnknown: Codec.Format.Values.ContractValueInfoUnknown;
       ContractValue: Codec.Format.Values.ContractValue;
       EnumValue: Codec.Format.Values.EnumValue;
       UserDefinedValueTypeValue: Codec.Format.Values.UserDefinedValueTypeValue;
-      // /Codec.Format.Values/types/container
+      // /Format.Values/types/container
       ArrayResult: Codec.Format.Values.ArrayResult;
       MappingResult: Codec.Format.Values.MappingResult;
       StructResult: Codec.Format.Values.StructResult;
       TupleResult: Codec.Format.Values.TupleResult;
-      // /Codec.Format.Values/types/elementary
+      // /Format.Values/types/elementary
       AddressResult: Codec.Format.Values.AddressResult;
       BoolResult: Codec.Format.Values.BoolResult;
       BytesDynamicResult: Codec.Format.Values.BytesDynamicResult;
@@ -179,27 +179,27 @@ export interface CustomComponentsContextValue {
       StringValueInfo: Codec.Format.Values.StringValueInfo;
       UfixedResult: Codec.Format.Values.UfixedResult;
       UintResult: Codec.Format.Values.UintResult;
-      // /Codec.Format.Values/types/function
+      // /Format.Values/types/function
       FunctionExternalResult: Codec.Format.Values.FunctionExternalResult;
       FunctionExternalValueInfo: Codec.Format.Values.FunctionExternalValueInfo;
       FunctionInternalResult: Codec.Format.Values.FunctionInternalResult;
       FunctionInternalValueInfo: Codec.Format.Values.FunctionInternalValueInfo;
-      // /Codec.Format.Values/types/general
+      // /Format.Values/types/general
       AbiResult: Codec.Format.Values.AbiResult;
       AbiValue: Codec.Format.Values.AbiValue;
       ElementaryResult: Codec.Format.Values.ElementaryResult;
       ElementaryValue: Codec.Format.Values.ElementaryValue;
       Result: Codec.Format.Values.Result;
       Value: Codec.Format.Values.Value;
-      // /Codec.Format.Values/types/other
+      // /Format.Values/types/other
       BuiltInValueValue: Codec.Format.Values.BuiltInValueValue;
-      // /Codec.Format.Values/types/special
+      // /Format.Values/types/special
       OptionsResult: Codec.Format.Values.OptionsResult;
-      // /Codec.Format.Values/types/special-container
+      // /Format.Values/types/special-container
       MagicResult: Codec.Format.Values.MagicResult;
       TypeResult: Codec.Format.Values.TypeResult;
       TypeValue: Codec.Format.Values.TypeValue;
-      // /Codec.Format.Values/types/user-defined-elementary
+      // /Format.Values/types/user-defined-elementary
       ContractResult: Codec.Format.Values.ContractResult;
       ContractValueInfo: Codec.Format.Values.ContractValueInfo;
       EnumResult: Codec.Format.Values.EnumResult;
