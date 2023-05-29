@@ -15,6 +15,7 @@
   }
   &-bytes {
     color: var(--blue);
+    word-break: break-all;
   }
   &-number {
     color: var(--blue);
