@@ -1,6 +1,16 @@
 import { build } from "vite";
+import { Extractor, ExtractorConfig } from "@microsoft/api-extractor";
 
 (async () => {
+  for (const subpath of ["react", "utils"]) {
+    const config = ExtractorConfig.loadFileAndPrepare(
+      `scripts/api-extractor.${subpath}.json`
+    );
+    const result = Extractor.invoke(config, { localBuild: true });
+    if (!result.succeeded)
+      throw new Error("Failed to rollup declaration files.");
+  }
+
   await build({
     build: {
       lib: {

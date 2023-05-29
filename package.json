@@ -18,6 +18,7 @@
     "@truffle/codec": "^0.15.1"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.35.1",
     "@types/bn.js": "^5.1.1",
     "@types/react": ">=16.9.0",
     "@types/react-dom": ">=16.9.0",

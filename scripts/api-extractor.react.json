@@ -1,0 +1,5 @@
+{
+  "extends": "./api-extractor.json",
+  "mainEntryPointFilePath": "../dist/react/index.d.ts",
+  "dtsRollup": { "untrimmedFilePath": "../dist/react/index.d.ts" }
+}
