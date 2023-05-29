@@ -1,33 +1,38 @@
 import React from "react";
 import type {
-  CustomCodecComponent,
-  CustomComponentsContextValue
-} from "@/react/contexts/internal/custom-components";
-import { useCustomComponents } from "@/react/contexts/internal/custom-components";
+  CustomComponentsContextValue,
+  CustomCodecComponent
+} from "../contexts/custom-components";
+import { useCustomComponents } from "../contexts/custom-components";
+
+export interface PolymorphicComponentPropsBase<D> {
+  data: D;
+}
+export interface PolymorphicComponentPropsWithComponent<D, C>
+  extends PolymorphicComponentPropsBase<D> {
+  component: C;
+}
+export interface PolymorphicComponentPropsWithoutComponent<D>
+  extends PolymorphicComponentPropsBase<D> {
+  component?: never;
+}
+export type PolymorphicComponentProps<D, C> = C extends React.ElementType
+  ? PolymorphicComponentPropsWithComponent<D, C> &
+      Omit<
+        React.ComponentProps<C>,
+        keyof PolymorphicComponentPropsWithComponent<D, C>
+      >
+  : PolymorphicComponentPropsWithoutComponent<D>;
 
 export function createCodecComponent<
   N extends keyof NonNullable<CustomComponentsContextValue["codec"]>,
   D
 >(name: N, createDefaultElement: (data: D) => JSX.Element) {
-  interface BaseProps {
-    data: D;
-  }
-  interface PropsWithComponent<C> extends BaseProps {
-    component: C;
-  }
-  interface PropsWithoutComponent extends BaseProps {
-    component?: never;
-  }
-  type Props<C> = C extends React.ElementType
-    ? PropsWithComponent<C> &
-        Omit<React.ComponentProps<C>, keyof PropsWithComponent<C>>
-    : PropsWithoutComponent;
-
   function PolymorphicComponent<C>({
     data,
     component,
     ...props
-  }: Props<C>): JSX.Element {
+  }: PolymorphicComponentProps<D, C>): JSX.Element {
     const customComponents = useCustomComponents();
     const customComponent = customComponents.codec?.[name] as
       | CustomCodecComponent<D>

@@ -1,8 +1,9 @@
+import React from "react";
 import type * as Codec from "@truffle/codec";
-import { createCommonComponent } from "@/react/utils/create-common-component";
-import { AbiArgument } from "@/react/components/codec/interfaces/output/abi-argument";
-import { InjectedNodeProvider } from "@/react/contexts/internal/injected-node";
-import { Code } from "@/react/components/common/code";
+import { createCommonComponent } from "../../utils/create-common-component";
+import { AbiArgument } from "../codec/abi-argument";
+import { InjectedNode } from "../providers/injected-node";
+import { Code } from "../common/code";
 
 export interface AbiArgumentsProps {
   data: Codec.AbiArgument[];
@@ -13,7 +14,7 @@ export const { AbiArguments } = createCommonComponent(
   ({ data }) => (
     <>
       {data.map((abiArgumentData, index) => (
-        <InjectedNodeProvider
+        <InjectedNode
           reset={index === data.length - 1}
           value={{
             content: { suffix: <Code type="comma">,&nbsp;</Code> },
@@ -22,7 +23,7 @@ export const { AbiArguments } = createCommonComponent(
           key={index}
         >
           <AbiArgument data={abiArgumentData} />
-        </InjectedNodeProvider>
+        </InjectedNode>
       ))}
     </>
   )

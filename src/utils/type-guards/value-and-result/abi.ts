@@ -1,16 +1,16 @@
 import type { Format } from "@truffle/codec";
-import { valueAndResultTypeGuardHelper } from "@/utils/type-guards/value-and-result/helper";
-import { uintGuards } from "@/utils/type-guards/value-and-result/uint";
-import { intGuards } from "@/utils/type-guards/value-and-result/int";
-import { boolGuards } from "@/utils/type-guards/value-and-result/bool";
-import { bytesGuards } from "@/utils/type-guards/value-and-result/bytes";
-import { addressGuards } from "@/utils/type-guards/value-and-result/address";
-import { fixedGuards } from "@/utils/type-guards/value-and-result/fixed";
-import { ufixedGuards } from "@/utils/type-guards/value-and-result/ufixed";
-import { stringGuards } from "@/utils/type-guards/value-and-result/string";
-import { arrayGuards } from "@/utils/type-guards/value-and-result/array";
-import { functionExternalGuards } from "@/utils/type-guards/value-and-result/function-external";
-import { tupleGuards } from "@/utils/type-guards/value-and-result/tuple";
+import { valueAndResultTypeGuardHelper } from "./helper";
+import { uintGuards } from "./uint";
+import { intGuards } from "./int";
+import { boolGuards } from "./bool";
+import { bytesGuards } from "./bytes";
+import { addressGuards } from "./address";
+import { fixedGuards } from "./fixed";
+import { ufixedGuards } from "./ufixed";
+import { stringGuards } from "./string";
+import { arrayGuards } from "./array";
+import { functionExternalGuards } from "./function-external";
+import { tupleGuards } from "./tuple";
 
 export const [isAbiValue, isAbiErrorResult, isAbiResult, abiGuards] =
   valueAndResultTypeGuardHelper<

@@ -1,7 +1,8 @@
-import { createCommonComponent } from "@/react/utils/create-common-component";
-import { useBracketDepth } from "@/react/contexts/internal/bracket-depth";
-import { useClassNamePrefix } from "@/react/contexts/internal/class-name-prefix";
-import { useColors } from "@/react/contexts/internal/colors";
+import React from "react";
+import { createCommonComponent } from "../../utils/create-common-component";
+import { useBracketDepth } from "../../contexts/bracket-depth";
+import { useClassNamePrefix } from "../../contexts/class-name-prefix";
+import { useColors } from "../../contexts/colors";
 import styles from "./code.module.scss";
 
 export type CodeProps = {

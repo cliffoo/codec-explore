@@ -1,16 +1,16 @@
 import type { Format } from "@truffle/codec";
-import { valueAndResultTypeGuardHelper } from "@/utils/type-guards/value-and-result/helper";
-import { uintGuards } from "@/utils/type-guards/value-and-result/uint";
-import { intGuards } from "@/utils/type-guards/value-and-result/int";
-import { boolGuards } from "@/utils/type-guards/value-and-result/bool";
-import { bytesGuards } from "@/utils/type-guards/value-and-result/bytes";
-import { addressGuards } from "@/utils/type-guards/value-and-result/address";
-import { stringGuards } from "@/utils/type-guards/value-and-result/string";
-import { fixedGuards } from "@/utils/type-guards/value-and-result/fixed";
-import { ufixedGuards } from "@/utils/type-guards/value-and-result/ufixed";
-import { enumGuards } from "@/utils/type-guards/value-and-result/enum";
-import { userDefinedValueTypeGuards } from "@/utils/type-guards/value-and-result/user-defined-value-type";
-import { contractGuards } from "@/utils/type-guards/value-and-result/contract";
+import { valueAndResultTypeGuardHelper } from "./helper";
+import { uintGuards } from "./uint";
+import { intGuards } from "./int";
+import { boolGuards } from "./bool";
+import { bytesGuards } from "./bytes";
+import { addressGuards } from "./address";
+import { stringGuards } from "./string";
+import { fixedGuards } from "./fixed";
+import { ufixedGuards } from "./ufixed";
+import { enumGuards } from "./enum";
+import { userDefinedValueTypeGuards } from "./user-defined-value-type";
+import { contractGuards } from "./contract";
 
 export const [
   isElementaryValue,

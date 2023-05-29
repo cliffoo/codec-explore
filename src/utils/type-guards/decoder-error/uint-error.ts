@@ -1,6 +1,6 @@
 import type { Format } from "@truffle/codec";
-import { decoderErrorTypeGuardHelper } from "@/utils/type-guards/decoder-error/helper";
-import { uintPaddingErrorKinds } from "@/utils/type-guards/decoder-error/uint-padding-error";
+import { decoderErrorTypeGuardHelper } from "./helper";
+import { uintPaddingErrorKinds } from "./uint-padding-error";
 
 export const [isUintError, uintErrorKinds] =
   decoderErrorTypeGuardHelper<Format.Errors.UintError>(

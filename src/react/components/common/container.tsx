@@ -1,9 +1,7 @@
-import { useRef, useState, useLayoutEffect } from "react";
-import { createCommonComponent } from "@/react/utils/create-common-component";
-import {
-  useContainerDepth,
-  ContainerDepthProvider
-} from "@/react/contexts/internal/container-depth";
+import React, { useRef, useState, useLayoutEffect } from "react";
+import { createCommonComponent } from "../../utils/create-common-component";
+import { useContainerDepth } from "../../contexts/container-depth";
+import { NextContainerDepth } from "../providers/next-container-depth";
 import styles from "./container.module.scss";
 
 export interface ContainerProps {
@@ -36,7 +34,7 @@ export const { Container } = createCommonComponent(
       styles["toggle"] + ` ${fold ? "" : styles["hide"]}`;
 
     return (
-      <ContainerDepthProvider>
+      <NextContainerDepth>
         <div
           className={containerClassName}
           style={{ marginLeft: root ? triangleButtonWidth : undefined }}
@@ -60,7 +58,7 @@ export const { Container } = createCommonComponent(
           </button>
           <div className={styles["suffix"]}>{suffix}</div>
         </div>
-      </ContainerDepthProvider>
+      </NextContainerDepth>
     );
   }
 );

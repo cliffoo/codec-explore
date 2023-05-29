@@ -1,5 +1,5 @@
 import type { Format } from "@truffle/codec";
-import { valueAndResultTypeGuardHelper } from "@/utils/type-guards/value-and-result/helper";
+import { valueAndResultTypeGuardHelper } from "./helper";
 
 const [isTypeValueEnum, , , typeValueEnumGuards] =
   valueAndResultTypeGuardHelper<Format.Values.TypeValueEnum, never, never>(

@@ -2,8 +2,8 @@ import React from "react";
 import type {
   CustomComponent,
   CustomComponentsContextValue
-} from "@/react/contexts/internal/custom-components";
-import { useCustomComponents } from "@/react/contexts/internal/custom-components";
+} from "../contexts/custom-components";
+import { useCustomComponents } from "../contexts/custom-components";
 
 type CustomComponentProps<C> = C extends CustomComponent<infer P> ? P : never;
 
@@ -18,7 +18,7 @@ export function createCommonComponent<
     const customComponent = customComponents.common?.[name];
 
     return customComponent
-      ? React.createElement(customComponent, props)
+      ? React.createElement(customComponent, props as NonNullable<typeof props>)
       : createDefaultElement(props);
   }
   return {

@@ -1,12 +1,12 @@
 import type { Format } from "@truffle/codec";
-import { valueAndResultTypeGuardHelper } from "@/utils/type-guards/value-and-result/helper";
-import { uintGuards } from "@/utils/type-guards/value-and-result/uint";
-import { intGuards } from "@/utils/type-guards/value-and-result/int";
-import { boolGuards } from "@/utils/type-guards/value-and-result/bool";
-import { bytesStaticGuards } from "@/utils/type-guards/value-and-result/bytes-static";
-import { addressGuards } from "@/utils/type-guards/value-and-result/address";
-import { fixedGuards } from "@/utils/type-guards/value-and-result/fixed";
-import { ufixedGuards } from "@/utils/type-guards/value-and-result/ufixed";
+import { valueAndResultTypeGuardHelper } from "./helper";
+import { uintGuards } from "./uint";
+import { intGuards } from "./int";
+import { boolGuards } from "./bool";
+import { bytesStaticGuards } from "./bytes-static";
+import { addressGuards } from "./address";
+import { fixedGuards } from "./fixed";
+import { ufixedGuards } from "./ufixed";
 
 const [isBuiltInValueValue, isBuiltInValueErrorResult, , builtInValueGuards] =
   valueAndResultTypeGuardHelper<
