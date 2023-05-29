@@ -37,22 +37,29 @@ export const { Code } = createCommonComponent(
     const bracketDepth = useBracketDepth();
     const classNamePrefix = useClassNamePrefix();
     const colors = useColors();
-    const color =
-      type === "bracket"
-        ? colors["bracket"][(bracketDepth || 0) % colors["bracket"].length] ||
-          colors["default"]
-        : colors[type];
+
+    const inlineStyle = {} as React.CSSProperties;
+    const classNames = [
+      styles["code"],
+      undefined,
+      `${classNamePrefix}-code`,
+      `${classNamePrefix}-code-${type}`
+    ];
+    if (colors[type]) {
+      inlineStyle["color"] =
+        type === "bracket"
+          ? colors["bracket"]![bracketDepth % colors[type]!.length] ||
+            colors["default"]
+          : colors[type];
+    } else {
+      classNames[1] =
+        type === "bracket"
+          ? styles[`code-bracket-${bracketDepth % 3}`]
+          : styles[`code-${type}`];
+    }
 
     return (
-      <span
-        className={
-          styles["code"] +
-          ` ${classNamePrefix}-code` +
-          ` ${classNamePrefix}-code-${type}`
-        }
-        style={{ color }}
-        {...props}
-      >
+      <span className={classNames.join(" ")} style={inlineStyle} {...props}>
         {children}
       </span>
     );
