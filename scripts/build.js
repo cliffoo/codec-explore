@@ -12,6 +12,7 @@ import { Extractor, ExtractorConfig } from "@microsoft/api-extractor";
   }
 
   await build({
+    configFile: false,
     build: {
       lib: {
         entry: "src/react/index.ts",
@@ -28,6 +29,7 @@ import { Extractor, ExtractorConfig } from "@microsoft/api-extractor";
   });
 
   await build({
+    configFile: false,
     build: {
       lib: {
         entry: "src/utils/index.ts",
