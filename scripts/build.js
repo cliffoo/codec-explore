@@ -1,32 +1,31 @@
-import { build } from "esbuild";
-import { sassPlugin, postcssModules } from "esbuild-sass-plugin";
-
-const baseOptions = {
-  bundle: true,
-  minify: true,
-  sourcemap: "linked",
-  format: "esm",
-  logLevel: "info"
-};
+import { build } from "vite";
 
 (async () => {
   await build({
-    ...baseOptions,
-    entryPoints: ["src/react/index.ts"],
-    outfile: "dist/react/index.js",
-    external: ["react"],
-    plugins: [
-      sassPlugin({
-        transform: postcssModules({
-          generateScopedName: "truffle-codec-components-[hash:base64:8]-[local]"
-        })
-      })
-    ]
+    build: {
+      lib: {
+        entry: "src/react/index.ts",
+        fileName: "react/index",
+        formats: ["es"]
+      },
+      rollupOptions: {
+        external: ["react", "react-dom"],
+        output: { assetFileNames: "react/index[extname]" }
+      },
+      sourcemap: true,
+      emptyOutDir: false
+    }
   });
 
   await build({
-    ...baseOptions,
-    entryPoints: ["src/utils/index.ts"],
-    outfile: "dist/utils/index.js"
+    build: {
+      lib: {
+        entry: "src/utils/index.ts",
+        fileName: "utils/index",
+        formats: ["es"]
+      },
+      sourcemap: true,
+      emptyOutDir: false
+    }
   });
 })();
