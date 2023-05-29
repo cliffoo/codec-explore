@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && node ./scripts/build.js",
-    "docs": "node ./scripts/docs.js",
+    "docs": "vite build",
     "preview": "vite preview",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
