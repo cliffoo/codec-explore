@@ -58,6 +58,25 @@ export * from "./type-guards/decoder-error/user-defined-type-not-found-error";
 export * from "./type-guards/decoder-error/user-defined-value-type-error";
 export * from "./type-guards/decoder-error/wrapped-error";
 
+export * from "./type-guards/decoding/helper";
+export * from "./type-guards/decoding/anonymous-decoding";
+export * from "./type-guards/decoding/bytecode-decoding";
+export * from "./type-guards/decoding/calldata-decoding";
+export * from "./type-guards/decoding/constructor-decoding";
+export * from "./type-guards/decoding/empty-failure-decoding";
+export * from "./type-guards/decoding/event-decoding";
+export * from "./type-guards/decoding/function-decoding";
+export * from "./type-guards/decoding/log-decoding";
+export * from "./type-guards/decoding/message-decoding";
+export * from "./type-guards/decoding/raw-return-decoding";
+export * from "./type-guards/decoding/returndata-decoding";
+export * from "./type-guards/decoding/return-decoding";
+export * from "./type-guards/decoding/revert-message-decoding";
+export * from "./type-guards/decoding/self-destruct-decoding";
+export * from "./type-guards/decoding/unknown-bytecode-decoding";
+export * from "./type-guards/decoding/unknown-call-decoding";
+export * from "./type-guards/decoding/unknown-creation-decoding";
+
 export * from "./type-guards/other/bytes-location";
 export * from "./type-guards/other/contract-value-info-known";
 export * from "./type-guards/other/contract-value-info-unknown";
