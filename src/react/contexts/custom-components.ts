@@ -13,208 +13,174 @@ type CustomCommonComponents<T> = {
   [componentName in keyof T]: CustomComponent<T[componentName]>;
 };
 export interface CustomComponentsContextValue {
-  // @/react/components/codec
   codec?: Partial<
     CustomCodecComponents<{
-      // /Format.Errors/interfaces/container
-      ArrayErrorResult: Codec.Format.Errors.ArrayErrorResult;
-      MappingErrorResult: Codec.Format.Errors.MappingErrorResult;
-      StructErrorResult: Codec.Format.Errors.StructErrorResult;
-      TupleErrorResult: Codec.Format.Errors.TupleErrorResult;
-      // /Format.Errors/interfaces/elementary
+      AbiArgument: Codec.AbiArgument;
+      AnonymousDecoding: Codec.AnonymousDecoding;
+      BytecodeDecoding: Codec.BytecodeDecoding;
+      CalldataDecoding: Codec.CalldataDecoding;
+      ConstructorDecoding: Codec.ConstructorDecoding;
+      EmptyFailureDecoding: Codec.EmptyFailureDecoding;
+      EventDecoding: Codec.EventDecoding;
+      AbiErrorResult: Codec.Format.Errors.AbiErrorResult;
       AddressErrorResult: Codec.Format.Errors.AddressErrorResult;
+      AddressError: Codec.Format.Errors.AddressError;
       AddressPaddingError: Codec.Format.Errors.AddressPaddingError;
+      ArrayErrorResult: Codec.Format.Errors.ArrayErrorResult;
+      ArrayError: Codec.Format.Errors.ArrayError;
       BoolErrorResult: Codec.Format.Errors.BoolErrorResult;
+      BoolError: Codec.Format.Errors.BoolError;
       BoolOutOfRangeError: Codec.Format.Errors.BoolOutOfRangeError;
       BoolPaddingError: Codec.Format.Errors.BoolPaddingError;
+      BuiltInValueErrorResult: Codec.Format.Errors.BuiltInValueErrorResult;
       BytesDynamicErrorResult: Codec.Format.Errors.BytesDynamicErrorResult;
+      BytesDynamicError: Codec.Format.Errors.BytesDynamicError;
+      BytesErrorResult: Codec.Format.Errors.BytesErrorResult;
+      BytesLocation: Codec.Format.Errors.BytesLocation;
       BytesPaddingError: Codec.Format.Errors.BytesPaddingError;
       BytesStaticErrorResult: Codec.Format.Errors.BytesStaticErrorResult;
-      EnumPaddingError: Codec.Format.Errors.EnumPaddingError;
-      FixedErrorResult: Codec.Format.Errors.FixedErrorResult;
-      FixedPaddingError: Codec.Format.Errors.FixedPaddingError;
-      IntErrorResult: Codec.Format.Errors.IntErrorResult;
-      IntPaddingError: Codec.Format.Errors.IntPaddingError;
-      StringErrorResult: Codec.Format.Errors.StringErrorResult;
-      UfixedErrorResult: Codec.Format.Errors.UfixedErrorResult;
-      UfixedPaddingError: Codec.Format.Errors.UfixedPaddingError;
-      UintErrorResult: Codec.Format.Errors.UintErrorResult;
-      UintPaddingError: Codec.Format.Errors.UintPaddingError;
-      // /Format.Errors/interfaces/function
+      BytesStaticError: Codec.Format.Errors.BytesStaticError;
+      CodeNotSuppliedError: Codec.Format.Errors.CodeNotSuppliedError;
+      ContractErrorResult: Codec.Format.Errors.ContractErrorResult;
+      ContractError: Codec.Format.Errors.ContractError;
+      ContractPaddingError: Codec.Format.Errors.ContractPaddingError;
+      DecoderError: Codec.Format.Errors.DecoderError;
       DeployedFunctionInConstructorError: Codec.Format.Errors.DeployedFunctionInConstructorError;
+      DynamicDataImplementationError: Codec.Format.Errors.DynamicDataImplementationError;
+      ElementaryErrorResult: Codec.Format.Errors.ElementaryErrorResult;
+      EnumErrorResult: Codec.Format.Errors.EnumErrorResult;
+      EnumError: Codec.Format.Errors.EnumError;
+      EnumNotFoundDecodingError: Codec.Format.Errors.EnumNotFoundDecodingError;
+      EnumOutOfRangeError: Codec.Format.Errors.EnumOutOfRangeError;
+      EnumPaddingError: Codec.Format.Errors.EnumPaddingError;
+      ErrorForThrowing: Codec.Format.Errors.ErrorForThrowing;
+      ErrorResult: Codec.Format.Errors.ErrorResult;
+      FixedErrorResult: Codec.Format.Errors.FixedErrorResult;
+      FixedError: Codec.Format.Errors.FixedError;
+      FixedPaddingError: Codec.Format.Errors.FixedPaddingError;
       FunctionExternalErrorResult: Codec.Format.Errors.FunctionExternalErrorResult;
+      FunctionExternalError: Codec.Format.Errors.FunctionExternalError;
       FunctionExternalNonStackPaddingError: Codec.Format.Errors.FunctionExternalNonStackPaddingError;
       FunctionExternalStackPaddingError: Codec.Format.Errors.FunctionExternalStackPaddingError;
       FunctionInternalErrorResult: Codec.Format.Errors.FunctionInternalErrorResult;
+      FunctionInternalError: Codec.Format.Errors.FunctionInternalError;
       FunctionInternalPaddingError: Codec.Format.Errors.FunctionInternalPaddingError;
-      MalformedInternalFunctionError: Codec.Format.Errors.MalformedInternalFunctionError;
-      NoSuchInternalFunctionError: Codec.Format.Errors.NoSuchInternalFunctionError;
-      // /Format.Errors/interfaces/generic
-      CodeNotSuppliedError: Codec.Format.Errors.CodeNotSuppliedError;
+      GenericError: Codec.Format.Errors.GenericError;
       IndexedReferenceTypeError: Codec.Format.Errors.IndexedReferenceTypeError;
+      IntErrorResult: Codec.Format.Errors.IntErrorResult;
+      IntError: Codec.Format.Errors.IntError;
+      IntPaddingError: Codec.Format.Errors.IntPaddingError;
+      InternalFunctionInABIError: Codec.Format.Errors.InternalFunctionInABIError;
+      InternalUseError: Codec.Format.Errors.InternalUseError;
+      MappingErrorResult: Codec.Format.Errors.MappingErrorResult;
+      MagicError: Codec.Format.Errors.MagicError;
+      MalformedInternalFunctionError: Codec.Format.Errors.MalformedInternalFunctionError;
+      MagicErrorResult: Codec.Format.Errors.MagicErrorResult;
+      MappingError: Codec.Format.Errors.MappingError;
+      NoSuchInternalFunctionError: Codec.Format.Errors.NoSuchInternalFunctionError;
+      OptionsErrorResult: Codec.Format.Errors.OptionsErrorResult;
+      OptionsError: Codec.Format.Errors.OptionsError;
       OverlargePointersNotImplementedError: Codec.Format.Errors.OverlargePointersNotImplementedError;
+      OverlongArrayOrStringStrictModeError: Codec.Format.Errors.OverlongArrayOrStringStrictModeError;
       OverlongArraysAndStringsNotImplementedError: Codec.Format.Errors.OverlongArraysAndStringsNotImplementedError;
       ReadErrorBytes: Codec.Format.Errors.ReadErrorBytes;
       ReadErrorStack: Codec.Format.Errors.ReadErrorStack;
       ReadErrorStorage: Codec.Format.Errors.ReadErrorStorage;
+      ReadError: Codec.Format.Errors.ReadError;
       StorageNotSuppliedError: Codec.Format.Errors.StorageNotSuppliedError;
+      StringErrorResult: Codec.Format.Errors.StringErrorResult;
+      StringError: Codec.Format.Errors.StringError;
+      StructErrorResult: Codec.Format.Errors.StructErrorResult;
+      StructError: Codec.Format.Errors.StructError;
+      TupleErrorResult: Codec.Format.Errors.TupleErrorResult;
+      TupleError: Codec.Format.Errors.TupleError;
+      TypeErrorResult: Codec.Format.Errors.TypeErrorResult;
+      TypeErrorUnion: Codec.Format.Errors.TypeErrorUnion;
+      UfixedErrorResult: Codec.Format.Errors.UfixedErrorResult;
+      UfixedError: Codec.Format.Errors.UfixedError;
+      UfixedPaddingError: Codec.Format.Errors.UfixedPaddingError;
+      UintErrorResult: Codec.Format.Errors.UintErrorResult;
+      UintError: Codec.Format.Errors.UintError;
+      UintPaddingError: Codec.Format.Errors.UintPaddingError;
       UnsupportedConstantError: Codec.Format.Errors.UnsupportedConstantError;
       UnusedImmutableError: Codec.Format.Errors.UnusedImmutableError;
       UserDefinedTypeNotFoundError: Codec.Format.Errors.UserDefinedTypeNotFoundError;
-      // /Format.Errors/interfaces/internal-use
-      InternalFunctionInABIError: Codec.Format.Errors.InternalFunctionInABIError;
-      OverlongArrayOrStringStrictModeError: Codec.Format.Errors.OverlongArrayOrStringStrictModeError;
-      // /Format.Errors/interfaces/other
-      OptionsErrorResult: Codec.Format.Errors.OptionsErrorResult;
-      // /Format.Errors/interfaces/special-container
-      MagicErrorResult: Codec.Format.Errors.MagicErrorResult;
-      TypeErrorResult: Codec.Format.Errors.TypeErrorResult;
-      // /Format.Errors/interfaces/user-defined-elementary
-      ContractErrorResult: Codec.Format.Errors.ContractErrorResult;
-      ContractPaddingError: Codec.Format.Errors.ContractPaddingError;
-      EnumErrorResult: Codec.Format.Errors.EnumErrorResult;
-      EnumNotFoundDecodingError: Codec.Format.Errors.EnumNotFoundDecodingError;
-      EnumOutOfRangeError: Codec.Format.Errors.EnumOutOfRangeError;
       UserDefinedValueTypeErrorResult: Codec.Format.Errors.UserDefinedValueTypeErrorResult;
-      WrappedError: Codec.Format.Errors.WrappedError;
-      // /Format.Errors/types/container
-      ArrayError: Codec.Format.Errors.ArrayError;
-      MappingError: Codec.Format.Errors.MappingError;
-      StructError: Codec.Format.Errors.StructError;
-      TupleError: Codec.Format.Errors.TupleError;
-      // /Format.Errors/types/elementary
-      AddressError: Codec.Format.Errors.AddressError;
-      BoolError: Codec.Format.Errors.BoolError;
-      BuiltInValueErrorResult: Codec.Format.Errors.BuiltInValueErrorResult;
-      BytesDynamicError: Codec.Format.Errors.BytesDynamicError;
-      BytesErrorResult: Codec.Format.Errors.BytesErrorResult;
-      BytesStaticError: Codec.Format.Errors.BytesStaticError;
-      ElementaryErrorResult: Codec.Format.Errors.ElementaryErrorResult;
-      FixedError: Codec.Format.Errors.FixedError;
-      IntError: Codec.Format.Errors.IntError;
-      StringError: Codec.Format.Errors.StringError;
-      UfixedError: Codec.Format.Errors.UfixedError;
-      UintError: Codec.Format.Errors.UintError;
-      // /Format.Errors/types/function
-      FunctionExternalError: Codec.Format.Errors.FunctionExternalError;
-      FunctionInternalError: Codec.Format.Errors.FunctionInternalError;
-      // /Format.Errors/types/general
-      AbiErrorResult: Codec.Format.Errors.AbiErrorResult;
-      DecoderError: Codec.Format.Errors.DecoderError;
-      ErrorResult: Codec.Format.Errors.ErrorResult;
-      // /Format.Errors/types/generic
-      DynamicDataImplementationError: Codec.Format.Errors.DynamicDataImplementationError;
-      ErrorForThrowing: Codec.Format.Errors.ErrorForThrowing;
-      GenericError: Codec.Format.Errors.GenericError;
-      ReadError: Codec.Format.Errors.ReadError;
-      // /Format.Errors/types/internal-use
-      InternalUseError: Codec.Format.Errors.InternalUseError;
-      // /Format.Errors/types/other
-      BytesLocation: Codec.Format.Errors.BytesLocation;
-      OptionsError: Codec.Format.Errors.OptionsError;
-      // /Format.Errors/types/special-container
-      MagicError: Codec.Format.Errors.MagicError;
-      TypeErrorUnion: Codec.Format.Errors.TypeErrorUnion;
-      // /Format.Errors/types/user-defined-elementary
-      ContractError: Codec.Format.Errors.ContractError;
-      EnumError: Codec.Format.Errors.EnumError;
       UserDefinedValueTypeError: Codec.Format.Errors.UserDefinedValueTypeError;
-      // /Format.Values/interfaces/container
-      ArrayValue: Codec.Format.Values.ArrayValue;
-      MappingValue: Codec.Format.Values.MappingValue;
-      StructValue: Codec.Format.Values.StructValue;
-      TupleValue: Codec.Format.Values.TupleValue;
-      // /Format.Values/interfaces/elementary
+      WrappedError: Codec.Format.Errors.WrappedError;
+      AbiResult: Codec.Format.Values.AbiResult;
+      AbiValue: Codec.Format.Values.AbiValue;
+      AddressResult: Codec.Format.Values.AddressResult;
       AddressValue: Codec.Format.Values.AddressValue;
+      ArrayResult: Codec.Format.Values.ArrayResult;
+      ArrayValue: Codec.Format.Values.ArrayValue;
+      BoolResult: Codec.Format.Values.BoolResult;
       BoolValue: Codec.Format.Values.BoolValue;
+      BuiltInValueValue: Codec.Format.Values.BuiltInValueValue;
+      BytesDynamicResult: Codec.Format.Values.BytesDynamicResult;
       BytesDynamicValue: Codec.Format.Values.BytesDynamicValue;
+      BytesResult: Codec.Format.Values.BytesResult;
+      BytesStaticResult: Codec.Format.Values.BytesStaticResult;
       BytesStaticValue: Codec.Format.Values.BytesStaticValue;
+      BytesValue: Codec.Format.Values.BytesValue;
+      ContractResult: Codec.Format.Values.ContractResult;
+      ContractValueInfoKnown: Codec.Format.Values.ContractValueInfoKnown;
+      ContractValueInfoUnknown: Codec.Format.Values.ContractValueInfoUnknown;
+      ContractValueInfo: Codec.Format.Values.ContractValueInfo;
+      ContractValue: Codec.Format.Values.ContractValue;
+      ElementaryResult: Codec.Format.Values.ElementaryResult;
+      ElementaryValue: Codec.Format.Values.ElementaryValue;
+      EnumResult: Codec.Format.Values.EnumResult;
+      EnumValue: Codec.Format.Values.EnumValue;
+      FixedResult: Codec.Format.Values.FixedResult;
       FixedValue: Codec.Format.Values.FixedValue;
-      IntValue: Codec.Format.Values.IntValue;
-      StringValueInfoMalformed: Codec.Format.Values.StringValueInfoMalformed;
-      StringValueInfoValid: Codec.Format.Values.StringValueInfoValid;
-      StringValue: Codec.Format.Values.StringValue;
-      UfixedValue: Codec.Format.Values.UfixedValue;
-      UintValue: Codec.Format.Values.UintValue;
-      // /Format.Values/interfaces/function
+      FunctionExternalResult: Codec.Format.Values.FunctionExternalResult;
       FunctionExternalValueInfoInvalid: Codec.Format.Values.FunctionExternalValueInfoInvalid;
       FunctionExternalValueInfoKnown: Codec.Format.Values.FunctionExternalValueInfoKnown;
       FunctionExternalValueInfoUnknown: Codec.Format.Values.FunctionExternalValueInfoUnknown;
+      FunctionExternalValueInfo: Codec.Format.Values.FunctionExternalValueInfo;
       FunctionExternalValue: Codec.Format.Values.FunctionExternalValue;
+      FunctionInternalResult: Codec.Format.Values.FunctionInternalResult;
       FunctionInternalValueInfoException: Codec.Format.Values.FunctionInternalValueInfoException;
       FunctionInternalValueInfoKnown: Codec.Format.Values.FunctionInternalValueInfoKnown;
       FunctionInternalValueInfoUnknown: Codec.Format.Values.FunctionInternalValueInfoUnknown;
+      FunctionInternalValueInfo: Codec.Format.Values.FunctionInternalValueInfo;
       FunctionInternalValue: Codec.Format.Values.FunctionInternalValue;
-      // /Format.Values/interfaces/other
+      IntResult: Codec.Format.Values.IntResult;
+      IntValue: Codec.Format.Values.IntValue;
       KeyValuePair: Codec.Format.Values.KeyValuePair;
+      MagicResult: Codec.Format.Values.MagicResult;
+      MagicValue: Codec.Format.Values.MagicValue;
+      MappingResult: Codec.Format.Values.MappingResult;
+      MappingValue: Codec.Format.Values.MappingValue;
       NameValuePair: Codec.Format.Values.NameValuePair;
       OptionallyNamedValue: Codec.Format.Values.OptionallyNamedValue;
-      // /Format.Values/interfaces/special
+      OptionsResult: Codec.Format.Values.OptionsResult;
       OptionsValue: Codec.Format.Values.OptionsValue;
-      // /Format.Values/interfaces/special-container
-      MagicValue: Codec.Format.Values.MagicValue;
+      Result: Codec.Format.Values.Result;
+      StringResult: Codec.Format.Values.StringResult;
+      StringValueInfoMalformed: Codec.Format.Values.StringValueInfoMalformed;
+      StringValueInfoValid: Codec.Format.Values.StringValueInfoValid;
+      StringValueInfo: Codec.Format.Values.StringValueInfo;
+      StringValue: Codec.Format.Values.StringValue;
+      StructResult: Codec.Format.Values.StructResult;
+      StructValue: Codec.Format.Values.StructValue;
+      TupleResult: Codec.Format.Values.TupleResult;
+      TupleValue: Codec.Format.Values.TupleValue;
+      TypeResult: Codec.Format.Values.TypeResult;
       TypeValueContract: Codec.Format.Values.TypeValueContract;
       TypeValueEnum: Codec.Format.Values.TypeValueEnum;
-      // /Format.Values/interfaces/user-defined-elementary
-      ContractValueInfoKnown: Codec.Format.Values.ContractValueInfoKnown;
-      ContractValueInfoUnknown: Codec.Format.Values.ContractValueInfoUnknown;
-      ContractValue: Codec.Format.Values.ContractValue;
-      EnumValue: Codec.Format.Values.EnumValue;
-      UserDefinedValueTypeValue: Codec.Format.Values.UserDefinedValueTypeValue;
-      // /Format.Values/types/container
-      ArrayResult: Codec.Format.Values.ArrayResult;
-      MappingResult: Codec.Format.Values.MappingResult;
-      StructResult: Codec.Format.Values.StructResult;
-      TupleResult: Codec.Format.Values.TupleResult;
-      // /Format.Values/types/elementary
-      AddressResult: Codec.Format.Values.AddressResult;
-      BoolResult: Codec.Format.Values.BoolResult;
-      BytesDynamicResult: Codec.Format.Values.BytesDynamicResult;
-      BytesResult: Codec.Format.Values.BytesResult;
-      BytesStaticResult: Codec.Format.Values.BytesStaticResult;
-      BytesValue: Codec.Format.Values.BytesValue;
-      FixedResult: Codec.Format.Values.FixedResult;
-      IntResult: Codec.Format.Values.IntResult;
-      StringResult: Codec.Format.Values.StringResult;
-      StringValueInfo: Codec.Format.Values.StringValueInfo;
-      UfixedResult: Codec.Format.Values.UfixedResult;
-      UintResult: Codec.Format.Values.UintResult;
-      // /Format.Values/types/function
-      FunctionExternalResult: Codec.Format.Values.FunctionExternalResult;
-      FunctionExternalValueInfo: Codec.Format.Values.FunctionExternalValueInfo;
-      FunctionInternalResult: Codec.Format.Values.FunctionInternalResult;
-      FunctionInternalValueInfo: Codec.Format.Values.FunctionInternalValueInfo;
-      // /Format.Values/types/general
-      AbiResult: Codec.Format.Values.AbiResult;
-      AbiValue: Codec.Format.Values.AbiValue;
-      ElementaryResult: Codec.Format.Values.ElementaryResult;
-      ElementaryValue: Codec.Format.Values.ElementaryValue;
-      Result: Codec.Format.Values.Result;
-      Value: Codec.Format.Values.Value;
-      // /Format.Values/types/other
-      BuiltInValueValue: Codec.Format.Values.BuiltInValueValue;
-      // /Format.Values/types/special
-      OptionsResult: Codec.Format.Values.OptionsResult;
-      // /Format.Values/types/special-container
-      MagicResult: Codec.Format.Values.MagicResult;
-      TypeResult: Codec.Format.Values.TypeResult;
       TypeValue: Codec.Format.Values.TypeValue;
-      // /Format.Values/types/user-defined-elementary
-      ContractResult: Codec.Format.Values.ContractResult;
-      ContractValueInfo: Codec.Format.Values.ContractValueInfo;
-      EnumResult: Codec.Format.Values.EnumResult;
+      UfixedResult: Codec.Format.Values.UfixedResult;
+      UfixedValue: Codec.Format.Values.UfixedValue;
+      UintResult: Codec.Format.Values.UintResult;
+      UintValue: Codec.Format.Values.UintValue;
       UserDefinedValueTypeResult: Codec.Format.Values.UserDefinedValueTypeResult;
-      // /interfaces/interfaces
-      Options: Codec.Options;
-      // /interfaces/output
-      AbiArgument: Codec.AbiArgument;
-      AnonymousDecoding: Codec.AnonymousDecoding;
-      BytecodeDecoding: Codec.BytecodeDecoding;
-      ConstructorDecoding: Codec.ConstructorDecoding;
-      EmptyFailureDecoding: Codec.EmptyFailureDecoding;
-      EventDecoding: Codec.EventDecoding;
+      UserDefinedValueTypeValue: Codec.Format.Values.UserDefinedValueTypeValue;
+      Value: Codec.Format.Values.Value;
       FunctionDecoding: Codec.FunctionDecoding;
       MessageDecoding: Codec.MessageDecoding;
+      Options: Codec.Options;
       RawReturnDecoding: Codec.RawReturnDecoding;
       ReturnDecoding: Codec.ReturnDecoding;
       RevertMessageDecoding: Codec.RevertMessageDecoding;
@@ -223,10 +189,8 @@ export interface CustomComponentsContextValue {
       UnknownBytecodeDecoding: Codec.UnknownBytecodeDecoding;
       UnknownCallDecoding: Codec.UnknownCallDecoding;
       UnknownCreationDecoding: Codec.UnknownCreationDecoding;
-      CalldataDecoding: Codec.CalldataDecoding;
     }>
   >;
-  // @/react/components/common
   common?: Partial<
     CustomCommonComponents<{
       AbiArguments: AbiArgumentsProps;
