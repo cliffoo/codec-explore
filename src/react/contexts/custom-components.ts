@@ -184,6 +184,7 @@ export interface CustomComponentsContextValue {
       Options: Codec.Options;
       RawReturnDecoding: Codec.RawReturnDecoding;
       ReturnDecoding: Codec.ReturnDecoding;
+      ReturndataDecoding: Codec.ReturndataDecoding;
       RevertMessageDecoding: Codec.RevertMessageDecoding;
       SelfDestructDecoding: Codec.SelfDestructDecoding;
       StateVariable: Codec.StateVariable;

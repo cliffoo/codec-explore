@@ -167,6 +167,7 @@ export * from "./components/codec/message-decoding";
 export * from "./components/codec/options";
 export * from "./components/codec/raw-return-decoding";
 export * from "./components/codec/return-decoding";
+export * from "./components/codec/returndata-decoding";
 export * from "./components/codec/revert-message-decoding";
 export * from "./components/codec/self-destruct-decoding";
 export * from "./components/codec/state-variable";
