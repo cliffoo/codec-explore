@@ -179,6 +179,7 @@ export interface CustomComponentsContextValue {
       UserDefinedValueTypeValue: Codec.Format.Values.UserDefinedValueTypeValue;
       Value: Codec.Format.Values.Value;
       FunctionDecoding: Codec.FunctionDecoding;
+      LogDecoding: Codec.LogDecoding;
       MessageDecoding: Codec.MessageDecoding;
       Options: Codec.Options;
       RawReturnDecoding: Codec.RawReturnDecoding;

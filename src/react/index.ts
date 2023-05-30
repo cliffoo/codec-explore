@@ -162,6 +162,7 @@ export * from "./components/codec/format.values.user-defined-value-type-result";
 export * from "./components/codec/format.values.user-defined-value-type-value";
 export * from "./components/codec/format.values.value";
 export * from "./components/codec/function-decoding";
+export * from "./components/codec/log-decoding";
 export * from "./components/codec/message-decoding";
 export * from "./components/codec/options";
 export * from "./components/codec/raw-return-decoding";
