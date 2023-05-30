@@ -1,6 +1,7 @@
 export * from "./components/codec/abi-argument";
 export * from "./components/codec/anonymous-decoding";
 export * from "./components/codec/bytecode-decoding";
+export * from "./components/codec/calldata-decoding";
 export * from "./components/codec/constructor-decoding";
 export * from "./components/codec/empty-failure-decoding";
 export * from "./components/codec/event-decoding";

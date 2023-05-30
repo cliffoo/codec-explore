@@ -223,6 +223,7 @@ export interface CustomComponentsContextValue {
       UnknownBytecodeDecoding: Codec.UnknownBytecodeDecoding;
       UnknownCallDecoding: Codec.UnknownCallDecoding;
       UnknownCreationDecoding: Codec.UnknownCreationDecoding;
+      CalldataDecoding: Codec.CalldataDecoding;
     }>
   >;
   // @/react/components/common
