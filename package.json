@@ -1,7 +1,7 @@
 {
   "name": "@truffle/codec-components",
   "description": "UI component library for @truffle/codec data",
-  "version": "0.1.0-canary-4",
+  "version": "0.1.0-canary-5",
   "keywords": [
     "solidity",
     "ethereum",
@@ -17,7 +17,8 @@
   "author": "cliffoo <41348973+cliffoo@users.noreply.github.com>",
   "type": "module",
   "files": [
-    "./dist/react/index.{js,js.map,d.ts,css}"
+    "./dist/react/index.{js,js.map,d.ts,css}",
+    "./react.d.ts"
   ],
   "exports": {
     "./react": "./dist/react/index.js",
