@@ -1,7 +1,7 @@
 {
   "name": "@truffle/codec-components",
   "description": "UI component library for @truffle/codec data",
-  "version": "0.1.0-canary-3",
+  "version": "0.1.0-canary-4",
   "keywords": [
     "solidity",
     "ethereum",
@@ -23,7 +23,6 @@
     "./react": "./dist/react/index.js",
     "./react-styles": "./dist/react/index.css"
   },
-  "main": "./dist/react/index.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && node ./scripts/build.js",
