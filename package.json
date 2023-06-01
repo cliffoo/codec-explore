@@ -1,6 +1,20 @@
 {
-  "name": "codec-components",
-  "version": "0.0.1",
+  "name": "@truffle/codec-components",
+  "description": "UI component library for @truffle/codec data",
+  "version": "0.1.0-canary-0",
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "react",
+    "ui",
+    "components",
+    "truffle"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "author": "cliffoo <41348973+cliffoo@users.noreply.github.com>",
   "type": "module",
   "files": [
     "./dist/react/index.{js,js.map,d.ts,css}"
