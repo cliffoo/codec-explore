@@ -1,7 +1,11 @@
 {
+  "mainEntryPointFilePath": "../dist/react/index.d.ts",
+  "dtsRollup": {
+    "enabled": true,
+    "untrimmedFilePath": "../dist/react/index.d.ts"
+  },
   "apiReport": { "enabled": false },
   "docModel": { "enabled": false },
-  "dtsRollup": { "enabled": true },
   "tsdocMetadata": { "enabled": false },
   "messages": {
     "extractorMessageReporting": {

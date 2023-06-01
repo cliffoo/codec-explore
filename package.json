@@ -3,12 +3,11 @@
   "version": "0.0.1",
   "type": "module",
   "files": [
-    "./dist/{react,utils}/index.{js,js.map,d.ts,css}"
+    "./dist/react/index.{js,js.map,d.ts,css}"
   ],
   "exports": {
     "./react": "./dist/react/index.js",
-    "./react-styles": "./dist/react/index.css",
-    "./utils": "./dist/utils/index.js"
+    "./react-styles": "./dist/react/index.css"
   },
   "scripts": {
     "dev": "vite",
