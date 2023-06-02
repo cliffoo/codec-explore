@@ -39,7 +39,7 @@ export function CodecComponentsProvider(
           value={{
             current: containerDepth.current,
             initialFoldDepth:
-              props.initialFoldDepth || containerDepth.initialFoldDepth
+              props.initialFoldDepth ?? containerDepth.initialFoldDepth
           }}
         >
           <CustomComponentsContext.Provider
