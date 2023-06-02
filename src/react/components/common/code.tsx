@@ -48,7 +48,8 @@ export const { Code } = createCommonComponent(
     if (colors[type]) {
       inlineStyle["color"] =
         type === "bracket"
-          ? colors["bracket"]![bracketDepth % colors[type]!.length] ||
+          ? /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
+            colors[type]![bracketDepth % colors[type]!.length] ||
             colors["default"]
           : colors[type];
     } else {
