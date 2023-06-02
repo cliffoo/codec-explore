@@ -18,7 +18,7 @@ import {
 } from "../../contexts/custom-components";
 
 export type CodecComponentsProviderProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   classNamePrefix?: ClassNamePrefixContextValue;
   colors?: ColorsContextValue;
   initialFoldDepth?: ContainerDepthContextValue["initialFoldDepth"];
